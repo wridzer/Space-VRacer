@@ -80,17 +80,17 @@ Material:
     - _TransparentDepthPrepassEnable: 0
     - _TransparentSortPriority: 14
     - _TransparentWritingMotionVec: 0
-    - _TransparentZWrite: 0
+    - _TransparentZWrite: 1
     - _UseShadowThreshold: 0
     - _ZTestDepthEqualForOpaque: 2
     - _ZTestGBuffer: 4
     - _ZTestTransparent: 2
-    - _ZWrite: 0
+    - _ZWrite: 1
     - _multiply: 12.54
     - _power_1: 0.07
     - _power_multyply: 1.07
     - _scale: 10.98
-    - _time: 0.01
+    - _time: 0.2
     - _vertexpos: -0.59
     m_Colors:
     - _Color: {r: 0.36780453, g: 0, b: 1, a: 0}
