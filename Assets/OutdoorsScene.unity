@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2161.1494, g: 2265.2793, b: 3288.4922, a: 1}
+  m_IndirectSpecularColor: {r: 2161.1494, g: 2265.2793, b: 3288.4844, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -592,9 +592,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1119727196}
-  - component: {fileID: 1119727195}
   - component: {fileID: 1119727194}
   - component: {fileID: 1119727193}
+  - component: {fileID: 1119727197}
   m_Layer: 0
   m_Name: Spaceship
   m_TagString: Untagged
@@ -649,45 +649,6 @@ MonoBehaviour:
   m_DefaultActionMap: Movement
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 1908876103}
---- !u!114 &1119727195
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1119727192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a88e7a9190298fc44980927652dda344, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maglevRotationSpeed: 10
-  maglevEngineMultiplier: 2
-  maglevDownVelocity: 5
-  maglevUpVelocityMultiplier: 10
-  currentMaglevVelocity: 0
-  maglevRange: 3
-  engineVelocity: 0
-  maxEngineVelocity: 50
-  minEngineVelocity: -40
-  maxAccelerationBase: 5
-  maxDecelerationBase: 5
-  overSpeedAcceleration: 10
-  currentForwardTopSpeed: 0
-  currentBackTopSpeed: 0
-  currentMaxAcceleration: 0
-  currentMaxDeceleration: 0
-  thrusterPower: 2
-  pitchSpeed: 0
-  yawSpeed: 90
-  rollSpeed: 0
-  pitchSpeedBase: 90
-  rollSpeedBase: 90
-  mouseSensitivity: 1
-  mouseMiddleDeadzone: 0.05
-  maglevRaycastLayer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!4 &1119727196
 Transform:
   m_ObjectHideFlags: 0
@@ -705,6 +666,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &1119727197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119727192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2323ad80d37e2ce48ae60833f468312c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  states: []
+  movementSettings: {fileID: 0}
+  maglevRaycastLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &1191216391
 GameObject:
   m_ObjectHideFlags: 0
