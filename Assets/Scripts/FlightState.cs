@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-[System.Serializable]
 public abstract class FlightState
 {
     public MovementSettingObject Settings { get; set; }
@@ -15,7 +14,7 @@ public abstract class FlightState
         LayerMask = _LayerMask;
     }
 
-    public void OnEnter()
+    public virtual void OnEnter()
     {
         Movement.movementSettings = Settings;
     }

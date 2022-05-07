@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class InputHandler
+public static class InputHandler
 {
     public static float throttleInput { get; private set; }
     public static float horThrusterInput { get; private set; }
@@ -16,7 +16,7 @@ public class InputHandler
     private static ShipControls input = new ShipControls();
 
 
-    public InputHandler()
+    public static void Subscribe()
     {
         input?.Enable();
 
