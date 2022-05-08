@@ -7,15 +7,23 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] private List<MovementSettingObject> states = new List<MovementSettingObject>();
 
-    [HideInInspector] public MovementSettingObject movementSettings;
+    [SerializeField] private LayerMask ZeroGLayer;
+    [SerializeField] private LayerMask trackMask;
 
-    [SerializeField] private LayerMask maglevRaycastLayer;
-    private Rigidbody rb;
-    private Quaternion myRotation;
+    [SerializeField] private GameObject shipInstance;
+
+    [HideInInspector] public MovementSettingObject movementSettings;
+    [HideInInspector] public Rigidbody rb;
     private StateMachine sm;
+    private bool rollMode;
+
+    // For getting track
+    private GameObject lastTrack, currentTrack;
+    private Vector3 maglevNormal;
 
     private void Start()
     {
+        rollMode = false;
         rb = GetComponent<Rigidbody>();
         sm = new StateMachine();
         InputHandler.Subscribe();
@@ -24,15 +32,27 @@ public class Movement : MonoBehaviour
             FlightState state = GetState(settings);
             sm.AddState(state);
         }
-        sm.SwitchState(maglevRaycastLayer);
+        DetectState();
     }
 
     private FlightState GetState(MovementSettingObject _settings)
     {
+        // Bitmagic I copied from internet lol
+        int layerNumber = 0;
+        int layer = _settings.layerMask.value;
+        while (layer > 0)
+        {
+            layer = layer >> 1;
+            layerNumber++;
+        }
+        layerNumber--;
+
+        Debug.Log(layerNumber);
+
         switch (_settings.flightStates)
         {
-            case FlightStates.Maglev: return new MaglevState(_settings, this, _settings.layerMask);
-                //case FlightStates.ZeroG: return new 
+            case FlightStates.Maglev: return new MaglevState(_settings, this, layerNumber);
+            case FlightStates.ZeroG: return new ZeroGState(_settings, this, layerNumber);
         }
 
         return null;
@@ -40,25 +60,67 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Move();
-
+        sm.Update();
     }
 
-    private void Move()
+    public void Decouple()
     {
-        if (rb.velocity.x < movementSettings.topSpeed)
-            rb.AddForce(rb.transform.forward * movementSettings.acceleration * InputHandler.throttleInput * Time.deltaTime, ForceMode.Force);
+        // This causes stackoverflow???
+        rb.AddForce(rb.transform.up * movementSettings.decoupleSpeed * Time.deltaTime, ForceMode.Force);
+    }
+
+    public void KeepAlligned()
+    {
+        // Maybe lerp this?
+        Vector3 allignRot = new Vector3(maglevNormal.x, rb.rotation.y, maglevNormal.z);
+        // rb.AddTorque(Vector3.RotateTowards(rb.rotation.eulerAngles, allignRot, 1, movementSettings.maglevStrength));
+    }
+
+    public void Rotate()
+    {
+        // Pitch, Yaw and Roll
         rb.AddTorque(new Vector3(0, 0, 1) * movementSettings.pitchSpeed * InputHandler.pitchInput * Time.deltaTime, ForceMode.Force);
-        rb.AddTorque(new Vector3(0, 1, 0) * movementSettings.yawSpeed * InputHandler.yawInput * Time.deltaTime, ForceMode.Force);
-        rb.AddTorque(new Vector3(1, 0, 0) * movementSettings.rollSpeed * InputHandler.rollInput * Time.deltaTime, ForceMode.Force);
+        if (!rollMode) // If we do it like this than on contlollers where you can do both we just ignore rollmode
+        {
+            rb.AddTorque(new Vector3(0, 1, 0) * movementSettings.yawSpeed * InputHandler.yawInput * Time.deltaTime, ForceMode.Force);
+            rb.AddTorque(new Vector3(1, 0, 0) * movementSettings.rollSpeed * InputHandler.rollInput * Time.deltaTime, ForceMode.Force);
+        } else
+        {
+            rb.AddTorque(new Vector3(1, 0, 0) * movementSettings.rollSpeed * InputHandler.yawInput * Time.deltaTime, ForceMode.Force);
+        }
+    }
+
+    public void Move()
+    {
+        // Throttle and Brake
+        if (rb.velocity.x < movementSettings.topSpeed || rb.velocity.x > movementSettings.reverseTopSpeed)
+            rb.AddForce(rb.transform.forward * movementSettings.acceleration * InputHandler.throttleInput * Time.deltaTime, ForceMode.Force);
+
+        // Thrusters
         rb.AddForce(rb.transform.up * movementSettings.thrusterAcceleration * InputHandler.verThrusterInput * Time.deltaTime, ForceMode.Force);
         rb.AddForce(rb.transform.right * movementSettings.thrusterAcceleration * InputHandler.horThrusterInput * Time.deltaTime, ForceMode.Force);
 
-        //in rollmode rb.freezerotation.z or something like that
+        // Release and Rollmode
+        rollMode = InputHandler.rollModeInput;
+        if (InputHandler.releaseInput)
+        {
+            sm.SwitchState(ZeroGLayer);
+        }
     }
 
-    private void DetectState()
+    public void DetectState()
     {
-        //do a raycast to get layermask, then sm.SwitchState(layermask);
+        lastTrack = currentTrack;
+        RaycastHit hit;
+        if (Physics.Raycast(shipInstance.transform.position, -rb.transform.up, out hit, Mathf.Infinity, trackMask))
+        {
+            currentTrack = hit.collider.gameObject;
+            if (!lastTrack || currentTrack.layer != lastTrack.layer)
+            {
+                Debug.Log(currentTrack.layer);
+                sm.SwitchState(currentTrack.layer);
+                maglevNormal = hit.normal;
+            }
+        }
     }
 }

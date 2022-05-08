@@ -6,7 +6,7 @@ using UnityEngine;
 public class MovementSettingObject : ScriptableObject
 {
     // Movement variables
-    public float acceleration, topSpeed, deccelaration, brakes, thrusterAcceleration, reverseTopSpeed, pitchSpeed, rollSpeed, yawSpeed;
+    public float acceleration, topSpeed, thrusterAcceleration, reverseTopSpeed, pitchSpeed, rollSpeed, yawSpeed, decoupleSpeed, maglevStrength;
     public FlightStates flightStates;
     public LayerMask layerMask;
 }

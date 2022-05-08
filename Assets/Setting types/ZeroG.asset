@@ -10,18 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 09b305e04a9465f4595843117d51c739, type: 3}
-  m_Name: Maglev
+  m_Name: ZeroG
   m_EditorClassIdentifier: 
-  acceleration: 100
-  topSpeed: 500
-  thrusterAcceleration: 50
-  reverseTopSpeed: 50
-  pitchSpeed: 20
-  rollSpeed: 20
-  yawSpeed: 20
-  decoupleSpeed: 1
-  maglevStrength: 50
-  flightStates: 0
+  acceleration: 50
+  topSpeed: 200
+  thrusterAcceleration: 10
+  reverseTopSpeed: 10
+  pitchSpeed: 0.5
+  rollSpeed: 0.5
+  yawSpeed: 0.5
+  decoupleSpeed: 0
+  flightStates: 1
   layerMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 128

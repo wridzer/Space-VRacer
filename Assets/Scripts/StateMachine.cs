@@ -5,7 +5,7 @@ using UnityEngine;
 public class StateMachine
 {
     private FlightState currentState;
-    private Dictionary<LayerMask, FlightState> allStates = new Dictionary<LayerMask, FlightState>();
+    private Dictionary<int, FlightState> allStates = new Dictionary<int, FlightState>();
 
     public void AddState(FlightState _State)
     {
@@ -15,14 +15,15 @@ public class StateMachine
     public void Update()
     {
         currentState?.OnUpdate();
+        Debug.Log(currentState?.ToString());
     }
 
-    public void SwitchState(LayerMask _LayerMask)
+    public void SwitchState(int _Layer)
     {
         currentState?.OnExit();
-        if (allStates.ContainsKey(_LayerMask))
+        if (allStates.ContainsKey(_Layer))
         {
-            currentState = allStates[_LayerMask];
+            currentState = allStates[_Layer];
         }
         currentState?.OnEnter();
     }
