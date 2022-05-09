@@ -77,6 +77,7 @@ public abstract class GameplayManager : MonoBehaviour
 
     public virtual void PassCheckpoint(Checkpoint _checkpoint)
     {
+        if (checkpoints[_checkpoint]) { return; }
         Debug.Log("Passed checkpoint " + _checkpoint);
         checkpoints[_checkpoint] = true;
         //Code here that saves current player state for respawning
@@ -94,6 +95,8 @@ public abstract class GameplayManager : MonoBehaviour
 
     protected bool CheckIfAllCheckpointsPassed()
     {
+        //Mijs: Hier kijkt de code of alle checkpoints gehaald zijn, dus hier kunnen evt. finish lampjes in
+
         bool done = true;
         foreach (bool p in checkpoints.Values)
         {

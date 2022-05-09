@@ -16,7 +16,8 @@ public class StartBlock : MonoBehaviour
 
     public void SetLight(int light, Color color)
     {
-        //set lights of start block
+        //Temporary way
+        //Mijs: hier zou iets moois kunnen met de startlampjes die van kleur veranderen oid.
         lights[light].material.color = color;
     }
 

@@ -20,7 +20,7 @@ public class ManagerLoader : MonoBehaviour
             return;
         }
 
-        switch(GameplaySettings.Instance.selectedGameMode)
+        switch(GameplaySettings.selectedGameMode)
         {
             case GameMode.Solo: break;
             case GameMode.Hotseat: break;

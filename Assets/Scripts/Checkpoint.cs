@@ -15,6 +15,7 @@ public class Checkpoint : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        //Mijs: dit word aangeroepen als de player de checkpoint doorgaat
         //Just going to assume real quick that only the player can trigger things
         GameplayManager.Instance.PassCheckpoint(this);
     }
