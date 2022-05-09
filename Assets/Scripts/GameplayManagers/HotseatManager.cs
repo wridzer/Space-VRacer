@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HotseatManager : GameplayManager
 {
-    public override void PlayerFinished()
+    protected override void PlayerFinished()
     {
         throw new System.NotImplementedException();
     }

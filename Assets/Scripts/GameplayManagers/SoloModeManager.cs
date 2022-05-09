@@ -4,9 +4,18 @@ using UnityEngine;
 
 public class SoloModeManager : GameplayManager
 {
-    public override void PlayerFinished()
+    private void Start()
+    {
+        //DEBUG
+        SpawnPlayer();
+        StartCoroutine(StartRun());
+    }
+
+    protected override void PlayerFinished()
     {
         //show finish menu
         //save time
+        timerActive = false;
+        Debug.Log(timer);
     }
 }

@@ -11,6 +11,8 @@ public abstract class GameplayManager : MonoBehaviour
     protected StartBlock startBlock;
     protected float timer;
     protected bool timerActive;
+    protected Player player;
+    [SerializeField] protected GameObject playerPrefab;
 
     protected virtual void Awake()
     {
@@ -27,11 +29,10 @@ public abstract class GameplayManager : MonoBehaviour
 
     public virtual void SpawnPlayer()
     {
-        //Code to spawn player at start block here
-
-
-        timer = 0.0f;
-        timerActive = true; //probably want this after some sort of countdown. Refactor later.
+        //PROTOTYPE ONLY. Most likely has to change to accommodate VR.
+            //Probably we can just put the main menu in the same scene, and instantiate the player immediately but disable its movement
+            //Or something idk ik ben geen dev
+        player = Instantiate(playerPrefab, startBlock.playerSpawnPoint.position, startBlock.playerSpawnPoint.rotation).GetComponent<Player>();
     }
 
     public void SetStartBlock(StartBlock _startBlock)
@@ -50,21 +51,46 @@ public abstract class GameplayManager : MonoBehaviour
         if (timerActive) { timer += Time.deltaTime; }
     }
 
+    protected virtual IEnumerator StartRun()
+    {
+        player.ResetValues();
+        player.enabled = false; //Ugly?
+        timer = 0.0f;
+        timerActive = false;
+
+        startBlock.SetLights(Color.black);
+
+        yield return new WaitForSeconds(1.0f);
+        startBlock.SetLight(0, Color.red);
+
+        yield return new WaitForSeconds(1.0f);
+        startBlock.SetLight(1, Color.red);
+
+        yield return new WaitForSeconds(1.0f);
+        startBlock.SetLight(2, Color.red);
+        
+        yield return new WaitForSeconds(1.0f);
+        startBlock.SetLights(Color.green);        
+        timerActive = true;
+        player.enabled = true;
+    }
+
     public virtual void PassCheckpoint(Checkpoint _checkpoint)
     {
+        Debug.Log("Passed checkpoint " + _checkpoint);
         checkpoints[_checkpoint] = true;
         //Code here that saves current player state for respawning
     }
 
     public virtual void PassFinish()
-    {
+    {        
         if (CheckIfAllCheckpointsPassed())
         {
             PlayerFinished();
         }
     }
 
-    public abstract void PlayerFinished();
+    protected abstract void PlayerFinished();
 
     protected bool CheckIfAllCheckpointsPassed()
     {
