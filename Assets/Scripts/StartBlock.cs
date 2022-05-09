@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class StartBlock : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    //Note: This assumes that Checkpoints are instantiated AFTER the GameplayManager has been instantiated. Using Start breaks things.
+    //Might have to be changed based on how we do things
+    private void Awake()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        GameplayManager.Instance.SetStartBlock(this);
     }
 }

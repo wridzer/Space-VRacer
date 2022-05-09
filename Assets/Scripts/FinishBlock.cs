@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class FinishBlock : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        //Just going to assume real quick that only the player can trigger things
+        GameplayManager.Instance.PassFinish();
     }
 }
