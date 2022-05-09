@@ -9,22 +9,23 @@ public class ManagerLoader : MonoBehaviour
     [SerializeField] GameplayManager debugManager;
     [SerializeField] GameObject debugLevel;
 
-    private void Start()
+    [SerializeField] GameplayManager[] managers; //soloManager, hotseatManager, hotseatAdditiveManager; //Ja maar nee
+
+    [SerializeField] Camera debugCamera; //HHAHAHAHHAHAA NEE
+
+    public void StartGame()
     {
         if(debugMode)
         {
-            GameplayManager manager = Instantiate(debugManager);
-            manager.InstantiateLevel(debugLevel);
-            
+            GameplayManager debMan = Instantiate(debugManager);
+            debMan.InstantiateLevel(debugLevel);           
             
             return;
         }
 
-        switch(GameplaySettings.selectedGameMode)
-        {
-            case GameMode.Solo: break;
-            case GameMode.Hotseat: break;
-            case GameMode.HotseatAdditive: break;
-        }
+        GameplayManager manager = Instantiate(managers[(int)GameplaySettings.selectedGameMode].gameObject).GetComponent<GameplayManager>();
+        debugCamera.enabled = false; //turn off camera that's only there for UI shit.
+
+        manager.InstantiateLevel(GameplaySettings.selectedLevel);
     }
 }

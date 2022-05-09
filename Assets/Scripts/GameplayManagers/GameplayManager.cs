@@ -14,6 +14,7 @@ public abstract class GameplayManager : MonoBehaviour
     protected Player player;
     [SerializeField] protected GameObject playerPrefab;
 
+
     protected virtual void Awake()
     {
         if(Instance != null) { Debug.LogWarning("A Gameplay Manager already existed and was destroyed."); Destroy(Instance.gameObject); }
@@ -30,8 +31,9 @@ public abstract class GameplayManager : MonoBehaviour
     public virtual void SpawnPlayer()
     {
         //PROTOTYPE ONLY. Most likely has to change to accommodate VR.
-            //Probably we can just put the main menu in the same scene, and instantiate the player immediately but disable its movement
-            //Or something idk ik ben geen dev
+        //Probably we can just put the main menu in the same scene, and instantiate the player immediately but disable its movement
+        //Or something idk ik ben geen dev
+
         player = Instantiate(playerPrefab, startBlock.playerSpawnPoint.position, startBlock.playerSpawnPoint.rotation).GetComponent<Player>();
     }
 

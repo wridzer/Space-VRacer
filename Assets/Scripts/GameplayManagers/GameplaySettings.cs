@@ -4,18 +4,27 @@ using UnityEngine;
 
 public enum GameMode { Solo, Hotseat, HotseatAdditive}
 
-//Yay statics
-public static class GameplaySettings
+
+//Ja nee dit is probably lelijk as fuck
+[CreateAssetMenu(fileName = "GameplaySettings", menuName = "ScriptableObjects/GameplaySettings")]
+public class GameplaySettings : ScriptableObject
 {
     public static GameMode selectedGameMode;
     public static GameObject selectedLevel;
 
-    public static void SetGameMode(GameMode _gameMode)
+    //Functions to set stuff via buttons.
+
+    public void SetGameMode(int _gameMode)
+    {
+        SetGameMode((GameMode)_gameMode);
+    }
+
+    public void SetGameMode(GameMode _gameMode)
     {
         selectedGameMode = _gameMode;
     }
 
-    public static void SetLevel(GameObject _level)
+    public void SetLevel(GameObject _level)
     {
         selectedLevel = _level;
     }
