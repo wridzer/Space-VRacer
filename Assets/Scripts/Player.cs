@@ -62,6 +62,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         input = new ShipControls();
+        rb = GetComponent<Rigidbody>();
     }
 
     private void OnDisable()
@@ -142,9 +143,10 @@ public class Player : MonoBehaviour
         #endregion
     }
 
+
     private void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        
         if(overSpeedAcceleration < maxAccelerationBase || overSpeedAcceleration < maxDecelerationBase) { Debug.LogWarning("Top speed settings invalid"); }
 
         myRotation = transform.rotation;
@@ -312,5 +314,12 @@ public class Player : MonoBehaviour
 
         Vector3 finalVelocity = transform.right * velX + transform.up * velY + transform.forward * velZ + maglevVelocity;
         rb.velocity = finalVelocity;
+    }
+
+    public void ResetValues()
+    {
+        rb.velocity = Vector3.zero;
+        engineVelocity = 0.0f;
+        thrusterVelocity = Vector3.zero;        
     }
 }

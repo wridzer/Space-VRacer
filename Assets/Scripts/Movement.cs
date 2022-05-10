@@ -37,17 +37,7 @@ public class Movement : MonoBehaviour
 
     private FlightState GetState(MovementSettingObject _settings)
     {
-        // Bitmagic I copied from internet lol
-        int layerNumber = 0;
-        int layer = _settings.layerMask.value;
-        while (layer > 0)
-        {
-            layer = layer >> 1;
-            layerNumber++;
-        }
-        layerNumber--;
-
-        Debug.Log(layerNumber);
+        int layerNumber = MaskToLayerConversion(_settings.layerMask);
 
         switch (_settings.flightStates)
         {
@@ -56,6 +46,20 @@ public class Movement : MonoBehaviour
         }
 
         return null;
+    }
+
+    private int MaskToLayerConversion(LayerMask _Mask)
+    {
+        // Bitmagic I copied from internet lol
+        int layerNumber = 0;
+        int layer = _Mask.value;
+        while (layer > 0)
+        {
+            layer = layer >> 1;
+            layerNumber++;
+        }
+        layerNumber--;
+        return layerNumber;
     }
 
     private void FixedUpdate()
@@ -72,8 +76,8 @@ public class Movement : MonoBehaviour
     public void KeepAlligned()
     {
         // Maybe lerp this?
-        Vector3 allignRot = new Vector3(maglevNormal.x, rb.rotation.y, maglevNormal.z);
-        // rb.AddTorque(Vector3.RotateTowards(rb.rotation.eulerAngles, allignRot, 1, movementSettings.maglevStrength));
+        Vector3 allignRot = new Vector3(maglevNormal.x, 0f, maglevNormal.z);
+        rb.AddTorque(allignRot);
     }
 
     public void Rotate()
@@ -104,7 +108,7 @@ public class Movement : MonoBehaviour
         rollMode = InputHandler.rollModeInput;
         if (InputHandler.releaseInput)
         {
-            sm.SwitchState(ZeroGLayer);
+            sm.SwitchState(MaskToLayerConversion(ZeroGLayer));
         }
     }
 
@@ -117,7 +121,6 @@ public class Movement : MonoBehaviour
             currentTrack = hit.collider.gameObject;
             if (!lastTrack || currentTrack.layer != lastTrack.layer)
             {
-                Debug.Log(currentTrack.layer);
                 sm.SwitchState(currentTrack.layer);
                 maglevNormal = hit.normal;
             }

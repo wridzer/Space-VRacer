@@ -9,23 +9,27 @@ public class StateMachine
 
     public void AddState(FlightState _State)
     {
-        allStates.Add(_State.LayerMask, _State);
+        Debug.Log(_State.Layer);
+        allStates.Add(_State.Layer, _State);
     }
 
     public void Update()
     {
         currentState?.OnUpdate();
-        Debug.Log(currentState?.ToString());
     }
 
     public void SwitchState(int _Layer)
     {
-        currentState?.OnExit();
-        if (allStates.ContainsKey(_Layer))
+        if (allStates[_Layer] != currentState)
         {
-            currentState = allStates[_Layer];
+            currentState?.OnExit();
+            if (allStates.ContainsKey(_Layer))
+            {
+                currentState = allStates[_Layer];
+            }
+            currentState?.OnEnter();
         }
-        currentState?.OnEnter();
+
     }
 
     public void ClearStates()

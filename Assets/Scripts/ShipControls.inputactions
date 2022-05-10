@@ -11,7 +11,8 @@
                     "id": "60e086ef-81b6-441c-bfd5-b514cb0c5147",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Thrusters UD",
@@ -19,7 +20,8 @@
                     "id": "59a805ea-54c6-4e0e-87f2-675de677a6cb",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Yaw",
@@ -27,7 +29,8 @@
                     "id": "034e6f33-d29f-4520-87f5-8715907ddd67",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Pitch",
@@ -35,7 +38,8 @@
                     "id": "89ccb185-7336-4c1b-a419-68d0dfc93e0a",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Roll",
@@ -43,7 +47,8 @@
                     "id": "5d83d97f-57b5-4fba-995b-cccfbe6525e6",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Release",
@@ -51,7 +56,8 @@
                     "id": "6d30370c-4dfe-41c8-8261-4096d32b1e5d",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Rollmode",
@@ -59,7 +65,8 @@
                     "id": "2fb2ce7b-0f82-44ce-b741-1155c45a44ee",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Throttle/Brake",
@@ -67,7 +74,8 @@
                     "id": "a0061e20-eb70-4cce-bc18-3c5855789227",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
