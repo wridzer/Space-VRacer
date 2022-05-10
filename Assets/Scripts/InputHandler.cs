@@ -78,7 +78,7 @@ public static class InputHandler
     }
     static void OnRelease(InputAction.CallbackContext context)
     {
-        if (context.ReadValue<float>() < 0.5f) { releaseInput = false; } else { releaseInput = true; }
+        if (context.ReadValue<float>() < 0.5f) { releaseInput = !releaseInput; }
     }
     static void OnRollmode(InputAction.CallbackContext context)
     {
