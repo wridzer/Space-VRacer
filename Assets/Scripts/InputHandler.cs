@@ -10,7 +10,7 @@ public static class InputHandler
     public static float pitchInput { get; private set; }
     public static float yawInput { get; private set; }
     public static float rollInput { get; private set; }
-    public static bool releaseInput { get; private set; }
+    public static bool releaseInput { get; set; } = false;
     public static bool rollModeInput { get; private set; }
 
     private static ShipControls input = new ShipControls();
@@ -78,7 +78,7 @@ public static class InputHandler
     }
     static void OnRelease(InputAction.CallbackContext context)
     {
-        if (context.ReadValue<float>() < 0.5f) { releaseInput = !releaseInput; }
+        if (context.ReadValue<float>() > 0.5f) { releaseInput = !releaseInput; Debug.Log("release clicked"); }
     }
     static void OnRollmode(InputAction.CallbackContext context)
     {

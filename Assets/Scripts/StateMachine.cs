@@ -9,7 +9,6 @@ public class StateMachine
 
     public void AddState(FlightState _State)
     {
-        Debug.Log(_State.Layer);
         allStates.Add(_State.Layer, _State);
     }
 
@@ -26,10 +25,10 @@ public class StateMachine
             if (allStates.ContainsKey(_Layer))
             {
                 currentState = allStates[_Layer];
+                Debug.Log(currentState.ToString());
             }
             currentState?.OnEnter();
         }
-
     }
 
     public void ClearStates()

@@ -69,28 +69,28 @@ public class Movement : MonoBehaviour
 
     public void Decouple()
     {
-        // This causes stackoverflow???
-        rb.AddForce(rb.transform.up * movementSettings.decoupleSpeed * Time.deltaTime, ForceMode.Force);
+        rb.AddForce(rb.transform.up * movementSettings.decoupleSpeed, ForceMode.Force);
     }
 
     public void KeepAlligned()
     {
         // Maybe lerp this?
-        Vector3 allignRot = new Vector3(maglevNormal.x, 0f, maglevNormal.z);
-        rb.AddTorque(allignRot);
+        Vector3 allignRot = new Vector3(maglevNormal.x, rb.rotation.y, maglevNormal.z);
+        Quaternion targetQuat = Quaternion.FromToRotation(-Vector3.up, allignRot);
+        rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetQuat, movementSettings.maglevStrength));
     }
 
     public void Rotate()
     {
         // Pitch, Yaw and Roll
-        rb.AddTorque(new Vector3(0, 0, 1) * movementSettings.pitchSpeed * InputHandler.pitchInput * Time.deltaTime, ForceMode.Force);
+        rb.AddTorque(new Vector3(0, 0, 1) * movementSettings.pitchSpeed * InputHandler.pitchInput, ForceMode.Force);
         if (!rollMode) // If we do it like this than on contlollers where you can do both we just ignore rollmode
         {
-            rb.AddTorque(new Vector3(0, 1, 0) * movementSettings.yawSpeed * InputHandler.yawInput * Time.deltaTime, ForceMode.Force);
-            rb.AddTorque(new Vector3(1, 0, 0) * movementSettings.rollSpeed * InputHandler.rollInput * Time.deltaTime, ForceMode.Force);
+            rb.AddTorque(new Vector3(0, 1, 0) * movementSettings.yawSpeed * InputHandler.yawInput, ForceMode.Force);
+            rb.AddTorque(new Vector3(1, 0, 0) * movementSettings.rollSpeed * InputHandler.rollInput, ForceMode.Force);
         } else
         {
-            rb.AddTorque(new Vector3(1, 0, 0) * movementSettings.rollSpeed * InputHandler.yawInput * Time.deltaTime, ForceMode.Force);
+            rb.AddTorque(new Vector3(1, 0, 0) * movementSettings.rollSpeed * InputHandler.yawInput, ForceMode.Force);
         }
     }
 
@@ -98,31 +98,43 @@ public class Movement : MonoBehaviour
     {
         // Throttle and Brake
         if (rb.velocity.x < movementSettings.topSpeed || rb.velocity.x > movementSettings.reverseTopSpeed)
-            rb.AddForce(rb.transform.forward * movementSettings.acceleration * InputHandler.throttleInput * Time.deltaTime, ForceMode.Force);
+            rb.AddForce(rb.transform.forward * movementSettings.acceleration * InputHandler.throttleInput, ForceMode.Force);
 
         // Thrusters
-        rb.AddForce(rb.transform.up * movementSettings.thrusterAcceleration * InputHandler.verThrusterInput * Time.deltaTime, ForceMode.Force);
-        rb.AddForce(rb.transform.right * movementSettings.thrusterAcceleration * InputHandler.horThrusterInput * Time.deltaTime, ForceMode.Force);
+        rb.AddForce(rb.transform.up * movementSettings.thrusterAcceleration * InputHandler.verThrusterInput, ForceMode.Force);
+        rb.AddForce(rb.transform.right * movementSettings.thrusterAcceleration * InputHandler.horThrusterInput, ForceMode.Force);
 
         // Release and Rollmode
         rollMode = InputHandler.rollModeInput;
-        if (InputHandler.releaseInput)
-        {
-            sm.SwitchState(MaskToLayerConversion(ZeroGLayer));
-        }
     }
 
     public void DetectState()
     {
-        lastTrack = currentTrack;
+        if (lastTrack != null)
+        {
+            lastTrack = currentTrack;
+        }
         RaycastHit hit;
         if (Physics.Raycast(shipInstance.transform.position, -rb.transform.up, out hit, Mathf.Infinity, trackMask))
         {
             currentTrack = hit.collider.gameObject;
-            if (!lastTrack || currentTrack.layer != lastTrack.layer)
+            if (InputHandler.releaseInput)
             {
-                sm.SwitchState(currentTrack.layer);
-                maglevNormal = hit.normal;
+                lastTrack = null;
+                int zeroGLayer = MaskToLayerConversion(ZeroGLayer);
+                sm.SwitchState(zeroGLayer);
+                if (currentTrack.layer == zeroGLayer)
+                {
+                    InputHandler.releaseInput = false;
+                }
+            }
+            else
+            {
+                if (!lastTrack || currentTrack.layer != lastTrack.layer)
+                {
+                    sm.SwitchState(currentTrack.layer);
+                    maglevNormal = hit.normal;
+                }
             }
         }
     }

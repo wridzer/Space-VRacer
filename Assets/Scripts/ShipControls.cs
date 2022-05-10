@@ -78,7 +78,7 @@ public partial class @ShipControls : IInputActionCollection2, IDisposable
                     ""id"": ""6d30370c-4dfe-41c8-8261-4096d32b1e5d"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press(behavior=1)"",
                     ""initialStateCheck"": false
                 },
                 {
