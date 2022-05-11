@@ -15,4 +15,4 @@ MonoBehaviour:
   m_WizardPopupAlreadyShownOnce: 0
   m_WizardActiveTab: 1
   m_WizardNeedRestartAfterChangingToDX12: 0
-  m_WizardNeedToRunFixAllAgainAfterDomainReload: 0
+  m_WizardNeedToRunFixAllAgainAfterDomainReload: 1

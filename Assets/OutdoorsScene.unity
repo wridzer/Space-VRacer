@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2161.837, g: 2265.746, b: 3288.918, a: 1}
+  m_IndirectSpecularColor: {r: 2161.3838, g: 2265.3965, b: 3288.5703, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1539,7 +1539,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 506ad31696dbe5742882714dc390a761, type: 3}
 --- !u!1 &7386448254975158617 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 7386448256833554974, guid: 506ad31696dbe5742882714dc390a761,
+  m_CorrespondingSourceObject: {fileID: 7386448256074811136, guid: 506ad31696dbe5742882714dc390a761,
     type: 3}
   m_PrefabInstance: {fileID: 7386448254975158616}
   m_PrefabAsset: {fileID: 0}
@@ -1552,8 +1552,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 7386448254975158617}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attenuationObject: {fileID: 0}
-  ListenerNumber: -1
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -897460215
+      Data2: 1167982691
+      Data3: 1515884190
+      Data4: -1540361708
+    Path: event:/Music/Musictrack01
+  Event: 
+  PlayEvent: 1
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
