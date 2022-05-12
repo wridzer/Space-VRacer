@@ -434,8 +434,13 @@ MonoBehaviour:
   MasterBanks:
   - Desktop/Master
   Banks:
+  - Desktop/Dialogue_CN
+  - Desktop/Dialogue_EN
+  - Desktop/Dialogue_JP
   - Desktop/Music
   - Desktop/SFX
+  - Desktop/Vehicles
+  - Desktop/VO
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
