@@ -20,9 +20,12 @@ public class Movement : MonoBehaviour
     // For getting track
     private GameObject lastTrack, currentTrack;
     private Vector3 maglevNormal;
+    [HideInInspector] public Quaternion myRotation;
 
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.Confined;
+
         rollMode = false;
         rb = GetComponent<Rigidbody>();
         sm = new StateMachine();
@@ -75,9 +78,9 @@ public class Movement : MonoBehaviour
     public void KeepAlligned()
     {
         // Maybe lerp this?
-        Vector3 allignRot = new Vector3(maglevNormal.x, rb.rotation.y, maglevNormal.z);
-        Quaternion targetQuat = Quaternion.FromToRotation(-Vector3.up, allignRot);
-        rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetQuat, movementSettings.maglevStrength));
+        Quaternion targetPlane = Quaternion.FromToRotation(Vector3.up, maglevNormal);
+        rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetPlane * myRotation, movementSettings.maglevStrength));
+
     }
 
     public void Rotate()

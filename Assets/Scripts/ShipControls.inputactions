@@ -388,17 +388,6 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "positive",
-                    "id": "fd747cc4-6476-481c-9854-9a636bb88282",
-                    "path": "<Mouse>/position/x",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Yaw",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "Controller",
                     "id": "c3e1ffe6-5abc-4e92-86e8-d9c2077912bf",
                     "path": "1DAxis",
