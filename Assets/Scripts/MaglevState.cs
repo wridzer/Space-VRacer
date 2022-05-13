@@ -27,6 +27,5 @@ public class MaglevState : FlightState
     public override void OnEnter()
     {
         base.OnEnter();
-        Movement.myRotation = Quaternion.Euler(0, Movement.myRotation.eulerAngles.y, 0);
     }
 }

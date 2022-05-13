@@ -20,7 +20,8 @@ MonoBehaviour:
   rollSpeed: 2
   yawSpeed: 2
   decoupleSpeed: 5
-  maglevStrength: 5
+  maglevStrength: 10
+  totalRotationSpeed: 1
   flightStates: 0
   layerMask:
     serializedVersion: 2

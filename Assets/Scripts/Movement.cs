@@ -25,7 +25,6 @@ public class Movement : MonoBehaviour
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Confined;
-
         rollMode = false;
         rb = GetComponent<Rigidbody>();
         sm = new StateMachine();
@@ -36,6 +35,7 @@ public class Movement : MonoBehaviour
             sm.AddState(state);
         }
         DetectState();
+        myRotation = rb.rotation;
     }
 
     private FlightState GetState(MovementSettingObject _settings)
@@ -78,23 +78,38 @@ public class Movement : MonoBehaviour
     public void KeepAlligned()
     {
         // Maybe lerp this?
-        Quaternion targetPlane = Quaternion.FromToRotation(Vector3.up, maglevNormal);
-        rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetPlane * myRotation, movementSettings.maglevStrength));
+        //Quaternion targetPlane = Quaternion.FromToRotation(Vector3.up, maglevNormal);
+        //rb.rotation = Quaternion.FromToRotation(Vector3.right, maglevNormal);
 
+        // targetNormal = hit.normal;
+        //var fromRotation = rb.rotation;
+        //var ajustedMaglev = maglevNormal + new Vector3(0, myRotation.eulerAngles.y, 0);
+        //var toRotation = Quaternion.Euler(ajustedMaglev);
+        //rb.MoveRotation(Quaternion.Slerp(fromRotation, toRotation, movementSettings.maglevStrength));
+
+        // rb.transform.up = new Vector3(maglevNormal.x, myRotation.eulerAngles.y, maglevNormal.z);
+
+        // de rb.Rotation moet de x en z naar de maglevnormal bewegen terwijl de y niet wordt aangetast
+
+        // rb.AddTorque(new Vector3(maglevNormal.x - rb.transform.localEulerAngles.x, 0, maglevNormal.z - rb.transform.localEulerAngles.z) * movementSettings.maglevStrength, ForceMode.Force);
+        myRotation.eulerAngles += new Vector3(maglevNormal.x - rb.rotation.x, 0, maglevNormal.z - rb.rotation.z) * movementSettings.maglevStrength;
     }
 
     public void Rotate()
     {
         // Pitch, Yaw and Roll
-        rb.AddTorque(new Vector3(0, 0, 1) * movementSettings.pitchSpeed * InputHandler.pitchInput, ForceMode.Force);
+        myRotation.eulerAngles += new Vector3(1, 0, 0) * movementSettings.pitchSpeed * InputHandler.pitchInput;
         if (!rollMode) // If we do it like this than on contlollers where you can do both we just ignore rollmode
         {
-            rb.AddTorque(new Vector3(0, 1, 0) * movementSettings.yawSpeed * InputHandler.yawInput, ForceMode.Force);
-            rb.AddTorque(new Vector3(1, 0, 0) * movementSettings.rollSpeed * InputHandler.rollInput, ForceMode.Force);
+            myRotation.eulerAngles += new Vector3(0, 1, 0) * movementSettings.yawSpeed * InputHandler.yawInput;
+            myRotation.eulerAngles += new Vector3(0, 0, 1) * movementSettings.rollSpeed * InputHandler.rollInput;
         } else
         {
-            rb.AddTorque(new Vector3(1, 0, 0) * movementSettings.rollSpeed * InputHandler.yawInput, ForceMode.Force);
+            myRotation.eulerAngles += new Vector3(0, 1, 0) * movementSettings.rollSpeed * InputHandler.yawInput;
         }
+
+        rb.MoveRotation(Quaternion.Slerp(rb.rotation, myRotation, movementSettings.totalRotationSpeed));
+
     }
 
     public void Move()
@@ -117,26 +132,28 @@ public class Movement : MonoBehaviour
         {
             lastTrack = currentTrack;
         }
+
         RaycastHit hit;
         if (Physics.Raycast(shipInstance.transform.position, -rb.transform.up, out hit, Mathf.Infinity, trackMask))
         {
             currentTrack = hit.collider.gameObject;
+            maglevNormal = hit.normal;
+
             if (InputHandler.releaseInput)
             {
                 lastTrack = null;
                 int zeroGLayer = MaskToLayerConversion(ZeroGLayer);
                 sm.SwitchState(zeroGLayer);
-                if (currentTrack.layer == zeroGLayer)
+                if (currentTrack.layer == zeroGLayer) // Set release back for jumps
                 {
                     InputHandler.releaseInput = false;
                 }
             }
             else
             {
-                if (!lastTrack || currentTrack.layer != lastTrack.layer)
+                if (!lastTrack || currentTrack.layer != lastTrack.layer) // Only switch state on new track type
                 {
                     sm.SwitchState(currentTrack.layer);
-                    maglevNormal = hit.normal;
                 }
             }
         }

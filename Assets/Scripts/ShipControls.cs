@@ -388,28 +388,6 @@ public partial class @ShipControls : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""Mouse"",
-                    ""id"": ""9377a75c-ee84-43dd-8e3b-9d3b13822442"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Yaw"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""6113f08d-2b1e-44f5-bdab-ebd3caee4ffb"",
-                    ""path"": ""<Mouse>/position/x"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Yaw"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
                     ""name"": ""Controller"",
                     ""id"": ""c3e1ffe6-5abc-4e92-86e8-d9c2077912bf"",
                     ""path"": ""1DAxis"",
