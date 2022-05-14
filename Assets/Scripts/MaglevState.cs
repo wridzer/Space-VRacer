@@ -19,9 +19,9 @@ public class MaglevState : FlightState
     public override void OnUpdate()
     {
         Movement.Move();
+        Movement.KeepAlligned();
         Movement.Rotate();
         Movement.DetectState();
-        Movement.KeepAlligned();
     }
 
     public override void OnEnter()

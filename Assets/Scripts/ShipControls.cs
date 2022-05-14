@@ -25,66 +25,66 @@ public partial class @ShipControls : IInputActionCollection2, IDisposable
     ""maps"": [
         {
             ""name"": ""Movement"",
-            ""id"": ""3ccfe4b9-8f90-42c2-8080-42854b075c1a"",
+            ""id"": ""2cf5c500-48ef-4b0d-875d-22cda96e613a"",
             ""actions"": [
                 {
                     ""name"": ""Thrusters LR"",
-                    ""type"": ""Button"",
-                    ""id"": ""60e086ef-81b6-441c-bfd5-b514cb0c5147"",
-                    ""expectedControlType"": ""Button"",
+                    ""type"": ""Value"",
+                    ""id"": ""7d351b98-21ed-4ffd-81c5-8b65580ee43a"",
+                    ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Thrusters UD"",
-                    ""type"": ""Button"",
-                    ""id"": ""59a805ea-54c6-4e0e-87f2-675de677a6cb"",
-                    ""expectedControlType"": ""Button"",
+                    ""type"": ""Value"",
+                    ""id"": ""8b099c58-4e8e-4787-858c-19084536eabe"",
+                    ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Yaw"",
-                    ""type"": ""Button"",
-                    ""id"": ""034e6f33-d29f-4520-87f5-8715907ddd67"",
-                    ""expectedControlType"": ""Button"",
+                    ""type"": ""Value"",
+                    ""id"": ""6b4cda39-1f37-4759-bd5d-81cabfac4ef1"",
+                    ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Pitch"",
-                    ""type"": ""Button"",
-                    ""id"": ""89ccb185-7336-4c1b-a419-68d0dfc93e0a"",
-                    ""expectedControlType"": ""Button"",
+                    ""type"": ""Value"",
+                    ""id"": ""1dfdd796-8ba8-497e-b3a7-4bba37ee9558"",
+                    ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Roll"",
-                    ""type"": ""Button"",
-                    ""id"": ""5d83d97f-57b5-4fba-995b-cccfbe6525e6"",
-                    ""expectedControlType"": ""Button"",
+                    ""type"": ""Value"",
+                    ""id"": ""de98e9cb-714b-4ba4-a5ff-196364bdcbb4"",
+                    ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Release"",
                     ""type"": ""Button"",
-                    ""id"": ""6d30370c-4dfe-41c8-8261-4096d32b1e5d"",
+                    ""id"": ""ff5e6748-216a-4afc-ad35-4cad2ad27e76"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Press(behavior=1)"",
+                    ""interactions"": """",
                     ""initialStateCheck"": false
                 },
                 {
                     ""name"": ""Rollmode"",
                     ""type"": ""Button"",
-                    ""id"": ""2fb2ce7b-0f82-44ce-b741-1155c45a44ee"",
+                    ""id"": ""858ce37b-865a-4eab-b710-5da02ad8f3fb"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -92,139 +92,18 @@ public partial class @ShipControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Throttle/Brake"",
-                    ""type"": ""Button"",
-                    ""id"": ""a0061e20-eb70-4cce-bc18-3c5855789227"",
-                    ""expectedControlType"": ""Button"",
+                    ""type"": ""Value"",
+                    ""id"": ""6800c59c-c13d-4933-8143-7660d9ef970b"",
+                    ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
                 {
-                    ""name"": """",
-                    ""id"": ""824ddd2e-f78d-4e11-941b-66b3c9301070"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Release"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""e377d047-1572-4c9c-ba44-cf81998b970b"",
-                    ""path"": ""<Mouse>/rightButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Release"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""521e7a1f-f23e-4d0d-874b-fe3ab048d131"",
-                    ""path"": ""<Gamepad>/rightShoulder"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Rollmode"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""37d6f723-3ba8-4ee4-9b97-763076bcab27"",
-                    ""path"": ""<Gamepad>/leftShoulder"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Rollmode"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""0f675715-46f3-4a0e-a6e9-eda2cad09b1a"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Rollmode"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""Controller"",
-                    ""id"": ""e97c3c0c-b20f-4be1-9cb4-4a16e5acc783"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Throttle/Brake"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""dfd4a073-5a68-4f9a-b305-cf4e26e6ee4e"",
-                    ""path"": ""<Gamepad>/leftTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Throttle/Brake"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""358820d8-f7c6-4e44-ab91-74a31387023e"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Throttle/Brake"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Keyboard"",
-                    ""id"": ""481d7644-6714-4ae1-9f30-7981ff345bcd"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Throttle/Brake"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""60fb1704-8c49-4a7c-aa1b-46efbb710193"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Throttle/Brake"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""6c39cfbd-47b3-4f61-b8b7-8afe9c10cb18"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Throttle/Brake"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Controller"",
-                    ""id"": ""6d2aad8a-71a9-46ab-9395-26490791a918"",
+                    ""name"": ""Gamepad"",
+                    ""id"": ""d48bd6df-389d-4e9f-8afe-5cafd20f47b8"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -235,7 +114,7 @@ public partial class @ShipControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""negative"",
-                    ""id"": ""bc5bdc8e-916d-44e0-9c00-8817b25d7bca"",
+                    ""id"": ""806039b6-00ca-4959-b49b-26816f6c840f"",
                     ""path"": ""<Gamepad>/leftStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -246,8 +125,8 @@ public partial class @ShipControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""positive"",
-                    ""id"": ""e04cba39-571c-467b-849b-ef9465654464"",
-                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""id"": ""fbc04157-c680-4fbb-993f-007b02f86c4e"",
+                    ""path"": ""<XInputController>/leftStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -257,7 +136,7 @@ public partial class @ShipControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Keyboard"",
-                    ""id"": ""c159275f-6b56-4993-8e1b-440b318a1ee4"",
+                    ""id"": ""12326c23-9bdb-4869-8a86-69642c504085"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -268,29 +147,29 @@ public partial class @ShipControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""negative"",
-                    ""id"": ""d0579eee-1086-4228-bc38-1c89e6cb7192"",
+                    ""id"": ""792cf42b-30ee-4cb6-982f-1869948d6d2a"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Main Controls"",
                     ""action"": ""Thrusters LR"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""positive"",
-                    ""id"": ""1c287e11-6da1-4e79-a1e3-309c9e977f99"",
+                    ""id"": ""84cf3cf3-5993-4258-be02-c23f7876d5d7"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Main Controls"",
                     ""action"": ""Thrusters LR"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""Controller"",
-                    ""id"": ""1582d992-ec52-4c4f-b46f-5250e446f177"",
+                    ""name"": ""Gamepad"",
+                    ""id"": ""6ff1af0b-5c7e-4dbb-9562-f941ec20ddec"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -301,18 +180,7 @@ public partial class @ShipControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""negative"",
-                    ""id"": ""857892b1-c2dc-4a98-90fc-18af09cf1d38"",
-                    ""path"": ""<Gamepad>/leftStick/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Thrusters UD"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""34846621-d321-40f5-a86a-67a6f575a967"",
+                    ""id"": ""ab685424-f08a-4205-9605-d4b7ea2ff7ea"",
                     ""path"": ""<Gamepad>/leftStick/up"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -322,8 +190,19 @@ public partial class @ShipControls : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": ""positive"",
+                    ""id"": ""95231bd0-a19b-4297-b213-72a8b9227c20"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Thrusters UD"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": ""Keyboard"",
-                    ""id"": ""ac3edb51-753c-45a2-abdd-ccdc929e54f4"",
+                    ""id"": ""6ec3f909-b346-4c43-8f1d-b2bd465922af"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -334,29 +213,40 @@ public partial class @ShipControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""negative"",
-                    ""id"": ""0a48da37-4d32-4d97-a7bc-8e6a4a234cd6"",
+                    ""id"": ""5f7662bf-8d3a-4c63-9d7b-f2a42fe01983"",
                     ""path"": ""<Keyboard>/leftShift"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Main Controls"",
                     ""action"": ""Thrusters UD"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""positive"",
-                    ""id"": ""a8d0f760-e979-4c96-86f1-89d0e102d9b0"",
+                    ""id"": ""594649f0-b8e9-47db-86da-9f2aaaf400b8"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Main Controls"",
                     ""action"": ""Thrusters UD"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""Controller"",
-                    ""id"": ""9831574a-465b-440c-8e97-64cb24f09171"",
+                    ""name"": """",
+                    ""id"": ""fb55b9a9-8f4c-49a8-8c5f-5b6936bdcde4"",
+                    ""path"": ""<Mouse>/position/x"",
+                    ""interactions"": """",
+                    ""processors"": ""Normalize(min=-1,max=1),AxisDeadzone"",
+                    ""groups"": ""Main Controls"",
+                    ""action"": ""Yaw"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Gamepad"",
+                    ""id"": ""384bcee8-bea2-4758-ac94-c00d2bc1f195"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -367,7 +257,7 @@ public partial class @ShipControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""negative"",
-                    ""id"": ""e7a505a3-2fd1-4db5-a0f7-a9a61b4da21d"",
+                    ""id"": ""51924377-0b60-45bb-93ac-c9c47aee1eaf"",
                     ""path"": ""<Gamepad>/rightStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -378,7 +268,7 @@ public partial class @ShipControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""positive"",
-                    ""id"": ""976acfc0-d8d1-42e8-bbec-54d57f07f84c"",
+                    ""id"": ""ac25c706-b249-4df9-99d7-3398d0a25d11"",
                     ""path"": ""<Gamepad>/rightStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -388,11 +278,22 @@ public partial class @ShipControls : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""Controller"",
-                    ""id"": ""c3e1ffe6-5abc-4e92-86e8-d9c2077912bf"",
+                    ""name"": """",
+                    ""id"": ""963581bb-a664-4a28-bb32-2af42126493b"",
+                    ""path"": ""<Mouse>/position/y"",
+                    ""interactions"": """",
+                    ""processors"": ""Normalize(min=-1,max=1),AxisDeadzone"",
+                    ""groups"": ""Main Controls"",
+                    ""action"": ""Pitch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Gamepad"",
+                    ""id"": ""a7100666-8a41-4aa2-8ed2-af6fb7251b70"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
-                    ""processors"": ""Invert"",
+                    ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Pitch"",
                     ""isComposite"": true,
@@ -400,7 +301,7 @@ public partial class @ShipControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""negative"",
-                    ""id"": ""ac376ef6-937f-4e92-8d7e-40d5d307c83e"",
+                    ""id"": ""4183e0a6-c5d0-4c98-b598-b42846e79f1c"",
                     ""path"": ""<Gamepad>/rightStick/up"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -411,7 +312,7 @@ public partial class @ShipControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""positive"",
-                    ""id"": ""97d54eb1-0b8a-4a05-b023-658354898250"",
+                    ""id"": ""318889c3-7b28-4e6b-bb0f-e5f427857f37"",
                     ""path"": ""<Gamepad>/rightStick/down"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -421,35 +322,123 @@ public partial class @ShipControls : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""Mouse"",
-                    ""id"": ""0b849ba8-a55a-4728-af99-4c39bffd3b6e"",
+                    ""name"": """",
+                    ""id"": ""e4bd4828-8c2a-4b6a-a1be-80c419e532f6"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Release"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f0d6b238-187a-4787-bbfb-d12e0d63ce2a"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Release"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9a0db852-374c-4537-a210-b2478b1b9a68"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rollmode"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a8b8f552-e6bf-48dc-9a62-214707d29a18"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rollmode"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f942b72f-103b-4749-8760-46ad4ebec783"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rollmode"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Keyboard"",
+                    ""id"": ""ea648e11-dd23-402e-8b91-4ab470ac2dbc"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
-                    ""processors"": ""Invert"",
+                    ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Pitch"",
+                    ""action"": ""Throttle/Brake"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": ""negative"",
-                    ""id"": ""ccbfc6d9-cf33-4d49-880b-761794d660c5"",
-                    ""path"": ""<Mouse>/position/y"",
+                    ""id"": ""7150528c-e12a-4948-b82b-4a7810beed19"",
+                    ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Pitch"",
+                    ""action"": ""Throttle/Brake"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""positive"",
-                    ""id"": ""42a49ebb-8da6-4fe5-9ffa-764fc0fd11d1"",
-                    ""path"": ""<Mouse>/position/y"",
+                    ""id"": ""37c33a52-0d10-4b9b-b75f-6c0351fbef5a"",
+                    ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Pitch"",
+                    ""action"": ""Throttle/Brake"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Gamepad"",
+                    ""id"": ""8bf95ce2-2aa3-4a28-a170-2750f4f2bb66"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Throttle/Brake"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""62248bd0-e532-4398-bbbc-529cdd32716b"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Throttle/Brake"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""9216d1bc-0ecb-44df-94d3-73cb72e9d870"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Throttle/Brake"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 }
@@ -474,6 +463,17 @@ public partial class @ShipControls : IInputActionCollection2, IDisposable
                 {
                     ""devicePath"": ""<Mouse>"",
                     ""isOptional"": true,
+                    ""isOR"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Gamepad only"",
+            ""bindingGroup"": ""Gamepad only"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Gamepad>"",
+                    ""isOptional"": false,
                     ""isOR"": false
                 }
             ]
@@ -641,6 +641,15 @@ public partial class @ShipControls : IInputActionCollection2, IDisposable
         {
             if (m_MainControlsSchemeIndex == -1) m_MainControlsSchemeIndex = asset.FindControlSchemeIndex("Main Controls");
             return asset.controlSchemes[m_MainControlsSchemeIndex];
+        }
+    }
+    private int m_GamepadonlySchemeIndex = -1;
+    public InputControlScheme GamepadonlyScheme
+    {
+        get
+        {
+            if (m_GamepadonlySchemeIndex == -1) m_GamepadonlySchemeIndex = asset.FindControlSchemeIndex("Gamepad only");
+            return asset.controlSchemes[m_GamepadonlySchemeIndex];
         }
     }
     public interface IMovementActions

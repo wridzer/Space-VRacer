@@ -20,6 +20,7 @@ public class ZeroGState : FlightState
         Movement.Move();
         Movement.Rotate();
         Movement.DetectState();
+        Movement.myRotation = Movement.rb.rotation;
     }
 
     public override void OnEnter()

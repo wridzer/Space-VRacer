@@ -10,7 +10,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private LayerMask ZeroGLayer;
     [SerializeField] private LayerMask trackMask;
 
-    [SerializeField] private GameObject shipInstance;
+    [SerializeField] private GameObject shipInstance, trackDetect;
 
     [HideInInspector] public MovementSettingObject movementSettings;
     [HideInInspector] public Rigidbody rb;
@@ -77,22 +77,8 @@ public class Movement : MonoBehaviour
 
     public void KeepAlligned()
     {
-        // Maybe lerp this?
-        //Quaternion targetPlane = Quaternion.FromToRotation(Vector3.up, maglevNormal);
-        //rb.rotation = Quaternion.FromToRotation(Vector3.right, maglevNormal);
-
-        // targetNormal = hit.normal;
-        //var fromRotation = rb.rotation;
-        //var ajustedMaglev = maglevNormal + new Vector3(0, myRotation.eulerAngles.y, 0);
-        //var toRotation = Quaternion.Euler(ajustedMaglev);
-        //rb.MoveRotation(Quaternion.Slerp(fromRotation, toRotation, movementSettings.maglevStrength));
-
-        // rb.transform.up = new Vector3(maglevNormal.x, myRotation.eulerAngles.y, maglevNormal.z);
-
-        // de rb.Rotation moet de x en z naar de maglevnormal bewegen terwijl de y niet wordt aangetast
-
-        // rb.AddTorque(new Vector3(maglevNormal.x - rb.transform.localEulerAngles.x, 0, maglevNormal.z - rb.transform.localEulerAngles.z) * movementSettings.maglevStrength, ForceMode.Force);
-        myRotation.eulerAngles += new Vector3(maglevNormal.x - rb.rotation.x, 0, maglevNormal.z - rb.rotation.z) * movementSettings.maglevStrength;
+        Vector3 crossNormal = Vector3.Cross(maglevNormal, rb.transform.up);
+        myRotation.eulerAngles += new Vector3(crossNormal.x, 0, crossNormal.z) * movementSettings.maglevStrength;
     }
 
     public void Rotate()
@@ -134,7 +120,11 @@ public class Movement : MonoBehaviour
         }
 
         RaycastHit hit;
-        if (Physics.Raycast(shipInstance.transform.position, -rb.transform.up, out hit, Mathf.Infinity, trackMask))
+
+        Vector3 shipForwardOffset = new Vector3(0, shipInstance.transform.localScale.y * 0.5f, 0); // To raycast from frontend of the ship
+        Vector3 raycastOffset = (trackDetect.transform.position - shipInstance.transform.position).normalized; // To raycast towards the trackdetector, to point forwards
+
+        if (Physics.Raycast(shipInstance.transform.position + shipForwardOffset, raycastOffset, out hit, Mathf.Infinity, trackMask))
         {
             currentTrack = hit.collider.gameObject;
             maglevNormal = hit.normal;
