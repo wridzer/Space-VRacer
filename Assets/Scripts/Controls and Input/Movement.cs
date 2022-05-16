@@ -21,6 +21,7 @@ public class Movement : MonoBehaviour
     private GameObject lastTrack, currentTrack;
     private Vector3 maglevNormal;
     [HideInInspector] public Quaternion myRotation;
+    private float distanceToTrack;
 
     private void Start()
     {
@@ -70,15 +71,27 @@ public class Movement : MonoBehaviour
         sm.Update();
     }
 
-    public void Decouple()
+    public void Decouple() // from maglev
     {
         rb.AddForce(rb.transform.up * movementSettings.decoupleSpeed, ForceMode.Force);
     }
 
-    public void KeepAlligned()
+    public void KeepAlligned() // on maglev
     {
+        // Rotation
         Vector3 crossNormal = Vector3.Cross(maglevNormal, rb.transform.up);
-        myRotation.eulerAngles += new Vector3(crossNormal.x, 0, crossNormal.z) * movementSettings.maglevStrength;
+        myRotation.eulerAngles += new Vector3(crossNormal.x, 0, crossNormal.z) * movementSettings.maglevRotStrength;
+
+        // Distance
+        float distantForce = movementSettings.maglevDistance - distanceToTrack; // this makes the force greater when closer/futher from desired distance
+        if(distantForce > 0)
+        {
+            rb.AddForce(rb.transform.up * movementSettings.maglevDisStrength * (distantForce * movementSettings.maglevDistanceMultiplier), ForceMode.Force);
+        }
+        if (distantForce < 0)
+        {
+            rb.AddForce(-rb.transform.up * movementSettings.maglevDisStrength * (-distantForce * movementSettings.maglevDistanceMultiplier), ForceMode.Force);
+        }
     }
 
     public void Rotate()
@@ -128,6 +141,7 @@ public class Movement : MonoBehaviour
         {
             currentTrack = hit.collider.gameObject;
             maglevNormal = hit.normal;
+            distanceToTrack = hit.distance;
 
             if (InputHandler.releaseInput)
             {

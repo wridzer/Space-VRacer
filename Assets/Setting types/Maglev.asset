@@ -19,9 +19,12 @@ MonoBehaviour:
   pitchSpeed: 5
   rollSpeed: 5
   yawSpeed: 5
-  decoupleSpeed: 5
-  maglevStrength: 10
   totalRotationSpeed: 10
+  decoupleSpeed: 20
+  maglevRotStrength: 1
+  maglevDisStrength: 2
+  maglevDistance: 1.5
+  maglevDistanceMultiplier: 3
   flightStates: 0
   layerMask:
     serializedVersion: 2
