@@ -148,9 +148,9 @@ Material:
     - _size3: 0
     - _smoothness: 0.88
     m_Colors:
-    - _Color_1: {r: 0.9695822, g: 1, b: 0, a: 0}
-    - _Color_ground: {r: 0.5869731, g: 0.6037736, b: 0, a: 0}
-    - _Color_moutain: {r: 0, g: 0.083200455, b: 1, a: 0}
+    - _Color_1: {r: 0.29093984, g: 0.32072577, b: 0.3301887, a: 0}
+    - _Color_ground: {r: 0, g: 0, b: 0, a: 0}
+    - _Color_moutain: {r: 0, g: 1, b: 0.84908867, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _normal_intencuty: {r: 0.2, g: 0.2, b: 1, a: 11}
