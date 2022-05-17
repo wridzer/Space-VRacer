@@ -60,9 +60,10 @@ Material:
     - _DstBlend: 10
     - _EnableBlendModePreserveSpecularLighting: 0
     - _EnableFogOnTransparent: 1
-    - _Opacity: 0.17
+    - _Opacity: 0.32
     - _OpaqueCullMode: 2
     - _RenderQueueType: 4
+    - _RingThickness: 0
     - _SrcBlend: 1
     - _StencilRef: 0
     - _StencilRefDepth: 0
@@ -88,8 +89,11 @@ Material:
     - _ZTestGBuffer: 4
     - _ZTestTransparent: 4
     - _ZWrite: 0
+    - _ringSize: 0.38
+    - _ringopacity: 0.29
     m_Colors:
     - _Color: {r: 1, g: 0, b: 0.75277615, a: 0}
+    - _Color_1: {r: 0.28679237, g: 0.35984507, b: 1, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
