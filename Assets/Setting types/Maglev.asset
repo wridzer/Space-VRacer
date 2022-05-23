@@ -16,10 +16,10 @@ MonoBehaviour:
   topSpeed: 50
   thrusterAcceleration: 5
   reverseTopSpeed: 5
-  pitchSpeed: 5
-  rollSpeed: 5
-  yawSpeed: 5
-  totalRotationSpeed: 10
+  pitchSpeed: 0
+  rollSpeed: 0
+  yawSpeed: 1
+  totalRotationSpeed: 1
   decoupleSpeed: 20
   maglevRotStrength: 1
   maglevDisStrength: 2

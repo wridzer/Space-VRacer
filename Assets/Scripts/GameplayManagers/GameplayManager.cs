@@ -11,7 +11,6 @@ public abstract class GameplayManager : MonoBehaviour
     protected StartBlock startBlock;
     protected float timer;
     protected bool timerActive;
-    protected Player player;
     [SerializeField] protected GameObject playerPrefab;
 
 
@@ -34,7 +33,7 @@ public abstract class GameplayManager : MonoBehaviour
         //Probably we can just put the main menu in the same scene, and instantiate the player immediately but disable its movement
         //Or something idk ik ben geen dev
 
-        player = Instantiate(playerPrefab, startBlock.playerSpawnPoint.position, startBlock.playerSpawnPoint.rotation).GetComponent<Player>();
+        Instantiate(playerPrefab, startBlock.playerSpawnPoint.position, startBlock.playerSpawnPoint.rotation);
     }
 
     public void SetStartBlock(StartBlock _startBlock)
@@ -55,8 +54,6 @@ public abstract class GameplayManager : MonoBehaviour
 
     protected virtual IEnumerator StartRun()
     {
-        player.ResetValues();
-        player.enabled = false; //Ugly?
         timer = 0.0f;
         timerActive = false;
 
@@ -74,7 +71,6 @@ public abstract class GameplayManager : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         startBlock.SetLights(Color.green);        
         timerActive = true;
-        player.enabled = true;
     }
 
     public virtual void PassCheckpoint(Checkpoint _checkpoint)
