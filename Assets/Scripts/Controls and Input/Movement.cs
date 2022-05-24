@@ -20,8 +20,11 @@ public class Movement : MonoBehaviour
     // For getting track
     private GameObject lastTrack, currentTrack;
     private Vector3 maglevNormal;
-    [HideInInspector] public Quaternion myRotation;
+    private Vector3 deltaRot;
     private float distanceToTrack;
+
+    [HideInInspector] public float localYRot;
+    [HideInInspector] public Vector3 deltaMagRot;
 
     private void Start()
     {
@@ -36,7 +39,7 @@ public class Movement : MonoBehaviour
             sm.AddState(state);
         }
         DetectState();
-        myRotation = rb.rotation;
+        deltaRot = Vector3.zero;
     }
 
     private FlightState GetState(MovementSettingObject _settings)
@@ -78,9 +81,10 @@ public class Movement : MonoBehaviour
 
     public void KeepAlligned() // on maglev
     {
-        // Rotation
-        Vector3 crossNormal = Vector3.Cross(maglevNormal, rb.transform.up);
-        myRotation.eulerAngles += new Vector3(crossNormal.x, 0, crossNormal.z) * movementSettings.maglevRotStrength;
+        // Rotation (thanks to Valentijn for this math <3)
+        Vector3 cross = Vector3.Cross(rb.transform.forward, maglevNormal);
+        Vector3 projectOnPlane = Vector3.Cross(maglevNormal, cross);
+        rb.rotation = Quaternion.Slerp(rb.rotation, Quaternion.LookRotation(projectOnPlane, maglevNormal), Time.fixedDeltaTime * movementSettings.maglevRotStrength);
 
         // Distance
         float distantForce = movementSettings.maglevDistance - distanceToTrack; // this makes the force greater when closer/futher from desired distance
@@ -97,17 +101,19 @@ public class Movement : MonoBehaviour
     public void Rotate()
     {
         // Pitch, Yaw and Roll
-        myRotation.eulerAngles += new Vector3(1, 0, 0) * movementSettings.pitchSpeed * InputHandler.pitchInput;
+        deltaRot += new Vector3(1, 0, 0) * movementSettings.pitchSpeed * InputHandler.pitchInput;
         if (!rollMode) // If we do it like this than on contlollers where you can do both we just ignore rollmode
         {
-            myRotation.eulerAngles += new Vector3(0, 1, 0) * movementSettings.yawSpeed * InputHandler.yawInput;
-            myRotation.eulerAngles += new Vector3(0, 0, 1) * movementSettings.rollSpeed * InputHandler.rollInput;
+            deltaRot += new Vector3(0, 1, 0) * movementSettings.yawSpeed * InputHandler.yawInput;
+            deltaRot += new Vector3(0, 0, 1) * movementSettings.rollSpeed * InputHandler.rollInput;
         } else
         {
-            myRotation.eulerAngles += new Vector3(0, 1, 0) * movementSettings.rollSpeed * InputHandler.yawInput;
+            deltaRot += new Vector3(0, 1, 0) * movementSettings.rollSpeed * InputHandler.yawInput;
         }
 
-        rb.MoveRotation(Quaternion.Slerp(rb.rotation, myRotation, movementSettings.totalRotationSpeed));
+        Quaternion deltaRotation = Quaternion.Euler(deltaRot * Time.fixedDeltaTime);
+        rb.MoveRotation(rb.rotation * deltaRotation);
+        deltaRot = Vector3.zero;
 
     }
 

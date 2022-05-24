@@ -16,12 +16,15 @@ MonoBehaviour:
   topSpeed: 200
   thrusterAcceleration: 10
   reverseTopSpeed: 10
-  pitchSpeed: 0.5
-  rollSpeed: 0.5
-  yawSpeed: 0.5
-  decoupleSpeed: 0
-  maglevStrength: 0
+  pitchSpeed: 10
+  rollSpeed: 10
+  yawSpeed: 10
   totalRotationSpeed: 1
+  decoupleSpeed: 0
+  maglevRotStrength: 0
+  maglevDisStrength: 0
+  maglevDistance: 0
+  maglevDistanceMultiplier: 0
   flightStates: 1
   layerMask:
     serializedVersion: 2

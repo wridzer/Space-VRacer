@@ -20,6 +20,8 @@ public class MaglevState : FlightState
     {
         Movement.Move();
         Movement.KeepAlligned();
+        Movement.localYRot = 0;
+        Movement.deltaMagRot.y = 0;
         Movement.Rotate();
         Movement.DetectState();
     }
@@ -27,5 +29,6 @@ public class MaglevState : FlightState
     public override void OnEnter()
     {
         base.OnEnter();
+        Movement.localYRot = Movement.rb.transform.localEulerAngles.y;
     }
 }

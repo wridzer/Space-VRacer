@@ -18,7 +18,7 @@ MonoBehaviour:
   reverseTopSpeed: 5
   pitchSpeed: 0
   rollSpeed: 0
-  yawSpeed: 1
+  yawSpeed: 10
   totalRotationSpeed: 1
   decoupleSpeed: 20
   maglevRotStrength: 1
