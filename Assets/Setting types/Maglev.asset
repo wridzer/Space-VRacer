@@ -12,19 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09b305e04a9465f4595843117d51c739, type: 3}
   m_Name: Maglev
   m_EditorClassIdentifier: 
-  acceleration: 10
-  topSpeed: 50
+  acceleration: 50
+  topSpeed: 400
   thrusterAcceleration: 5
-  reverseTopSpeed: 5
+  reverseTopSpeed: 150
   pitchSpeed: 0
   rollSpeed: 0
-  yawSpeed: 10
+  yawSpeed: 90
   totalRotationSpeed: 1
   decoupleSpeed: 20
-  maglevRotStrength: 1
+  maglevRotStrength: 5
   maglevDisStrength: 2
-  maglevDistance: 1.5
-  maglevDistanceMultiplier: 3
+  maglevDistance: 2
+  maglevDistanceMultiplier: 4
   flightStates: 0
   layerMask:
     serializedVersion: 2
