@@ -105,10 +105,10 @@ public class Movement : MonoBehaviour
         if (!rollMode) // If we do it like this than on contlollers where you can do both we just ignore rollmode
         {
             deltaRot += new Vector3(0, 1, 0) * movementSettings.yawSpeed * InputHandler.yawInput;
-            deltaRot += new Vector3(0, 0, 1) * movementSettings.rollSpeed * InputHandler.rollInput;
+            deltaRot += new Vector3(0, 0, -1) * movementSettings.rollSpeed * InputHandler.rollInput;
         } else
         {
-            deltaRot += new Vector3(0, 1, 0) * movementSettings.rollSpeed * InputHandler.yawInput;
+            deltaRot += new Vector3(0, 0, -1) * movementSettings.rollSpeed * InputHandler.yawInput;
         }
 
         Quaternion deltaRotation = Quaternion.Euler(deltaRot * Time.fixedDeltaTime);

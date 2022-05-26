@@ -78,11 +78,11 @@ public static class InputHandler
     }
     static void OnRelease(InputAction.CallbackContext context)
     {
-        if (context.ReadValue<float>() > 0.5f) { releaseInput = !releaseInput; Debug.Log("release clicked"); }
+        if (context.ReadValue<float>() > 0.5f) { releaseInput = !releaseInput;}
     }
     static void OnRollmode(InputAction.CallbackContext context)
     {
-        if (context.ReadValue<float>() > 0.5f) { rollModeInput = !rollModeInput; }
+        rollModeInput = context.ReadValue<float>() > 0.5f;
     }
     static void OnThrottleBrake(InputAction.CallbackContext context)
     {
