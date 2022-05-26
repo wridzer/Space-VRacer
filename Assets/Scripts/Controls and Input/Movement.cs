@@ -120,8 +120,10 @@ public class Movement : MonoBehaviour
     public void Move()
     {
         // Throttle and Brake
-        if (rb.velocity.x < movementSettings.topSpeed || rb.velocity.x > movementSettings.reverseTopSpeed)
+        if (rb.velocity.magnitude < movementSettings.topSpeed || rb.velocity.magnitude > movementSettings.reverseTopSpeed)
             rb.AddForce(rb.transform.forward * movementSettings.acceleration * InputHandler.throttleInput, ForceMode.Force);
+        else
+            Debug.Log("Top Speed Reached");
 
         // Thrusters
         rb.AddForce(rb.transform.up * movementSettings.thrusterAcceleration * InputHandler.verThrusterInput, ForceMode.Force);
