@@ -10,7 +10,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private LayerMask ZeroGLayer;
     [SerializeField] private LayerMask trackMask;
 
-    [SerializeField] private GameObject shipInstance, trackDetect;
+    [SerializeField] private GameObject shipInstance, trackDetect, raycastOrigin;
 
     [HideInInspector] public MovementSettingObject movementSettings;
     [HideInInspector] public Rigidbody rb;
@@ -105,10 +105,10 @@ public class Movement : MonoBehaviour
         if (!rollMode) // If we do it like this than on contlollers where you can do both we just ignore rollmode
         {
             deltaRot += new Vector3(0, 1, 0) * movementSettings.yawSpeed * InputHandler.yawInput;
-            deltaRot += new Vector3(0, 0, 1) * movementSettings.rollSpeed * InputHandler.rollInput;
+            deltaRot += new Vector3(0, 0, -1) * movementSettings.rollSpeed * InputHandler.rollInput;
         } else
         {
-            deltaRot += new Vector3(0, 1, 0) * movementSettings.rollSpeed * InputHandler.yawInput;
+            deltaRot += new Vector3(0, 0, -1) * movementSettings.rollSpeed * InputHandler.yawInput;
         }
 
         Quaternion deltaRotation = Quaternion.Euler(deltaRot * Time.fixedDeltaTime);
@@ -142,10 +142,9 @@ public class Movement : MonoBehaviour
 
         RaycastHit hit;
 
-        Vector3 shipForwardOffset = new Vector3(0, shipInstance.transform.localScale.y * 0.5f, 0); // To raycast from frontend of the ship
-        Vector3 raycastOffset = (trackDetect.transform.position - shipInstance.transform.position).normalized; // To raycast towards the trackdetector, to point forwards
+        Vector3 raycastOffset = (trackDetect.transform.position - raycastOrigin.transform.position).normalized; // To raycast towards the trackdetector, to point forwards
 
-        if (Physics.Raycast(shipInstance.transform.position + shipForwardOffset, raycastOffset, out hit, Mathf.Infinity, trackMask))
+        if (Physics.Raycast(raycastOrigin.transform.position, raycastOffset, out hit, Mathf.Infinity, trackMask))
         {
             currentTrack = hit.collider.gameObject;
             maglevNormal = hit.normal;
