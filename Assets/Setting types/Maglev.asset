@@ -20,8 +20,8 @@ MonoBehaviour:
   rollSpeed: 0
   yawSpeed: 90
   totalRotationSpeed: 1
-  frictionCoefX: 4
-  frictionCoefY: 0.6
+  frictionCoefX: 3.5
+  frictionCoefY: 3.5
   frictionCoefZ: 0.6
   decoupleSpeed: 20
   maglevRotStrength: 5
