@@ -33,6 +33,7 @@ public class PlayerInputSettings : ScriptableObject
     public void SetAudioVolume(float value)
     {
         AudioVolume = value;
+        AudioListener.volume = AudioVolume;
         if (saveSettingsOnEdit) { SaveSettings(); }
     }
 
@@ -53,9 +54,21 @@ public class PlayerInputSettings : ScriptableObject
         InvertXAxis = value;
         if (saveSettingsOnEdit) { SaveSettings(); }
     }
-#endregion
+    #endregion
 
-    public void SaveSettings()
+    #region saving/loading
+
+    public void Save()
+    {
+        SaveSettings();
+    }
+
+    public void Load()
+    {
+        LoadSettings();
+    }
+
+    public static void SaveSettings()
     {
         PlayerPrefs.SetInt("RollmodeToggle", Utility.BoolToInt(RollmodeToggle));
         PlayerPrefs.SetInt("RollmodeInverted", Utility.BoolToInt(RollmodeInverted));
@@ -66,14 +79,15 @@ public class PlayerInputSettings : ScriptableObject
         PlayerPrefs.Save();
     }
 
-    public void LoadSettings()
+    public static void LoadSettings()
     {
         RollmodeToggle = Utility.IntToBool(PlayerPrefs.GetInt("RollmodeToggle", 0));
         RollmodeInverted = Utility.IntToBool(PlayerPrefs.GetInt("RollmodeInverted", 0));
         AudioVolume = PlayerPrefs.GetFloat("AudioVolume", 0.5f);
-        ToggleReleaseOnExit = Utility.IntToBool(PlayerPrefs.GetInt("ToggleReleaseOnExit", 1));
-        InvertYAxis = Utility.IntToBool(PlayerPrefs.GetInt("InvertYAxis", 0));
-        InvertXAxis = Utility.IntToBool(PlayerPrefs.GetInt("InvertXAxis", 0));
-        InvertXAxis = Utility.IntToBool(PlayerPrefs.GetInt("InvertXAxis", 0));
+        ToggleReleaseOnExit = Utility.IntToBool(PlayerPrefs.GetInt("ToggleRelease", 1));
+        InvertYAxis = Utility.IntToBool(PlayerPrefs.GetInt("InvertY", 0));
+        InvertXAxis = Utility.IntToBool(PlayerPrefs.GetInt("InvertX", 0));
     }
+
+    #endregion
 }
