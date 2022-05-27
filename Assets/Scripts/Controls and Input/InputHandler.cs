@@ -55,6 +55,7 @@ public static class InputHandler
             input.Movement.Rollmode.started += OnRollmodeToggle;
             input.Movement.Rollmode.performed += OnRollmodeToggle;
             input.Movement.Rollmode.canceled += OnRollmodeToggle;
+            rollModeInput = rollModeInverted;
         }
         else
         {
@@ -64,7 +65,7 @@ public static class InputHandler
         }
         input.Movement.ThrottleBrake.started += OnThrottleBrake;
         input.Movement.ThrottleBrake.performed += OnThrottleBrake;
-        input.Movement.ThrottleBrake.canceled += OnThrottleBrake;
+        input.Movement.ThrottleBrake.canceled += OnThrottleBrake;        
         #endregion
     }
 
