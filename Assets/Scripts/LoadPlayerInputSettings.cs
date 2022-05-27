@@ -6,6 +6,6 @@ public class LoadPlayerInputSettings : MonoBehaviour
 {
     private void Awake()
     {
-        PlayerInputSettings.LoadSettings();
+        PlayerInputSettings.LoadSettings(); // TODO: put in UI manager script
     }
 }

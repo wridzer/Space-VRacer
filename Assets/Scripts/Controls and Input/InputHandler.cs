@@ -25,7 +25,6 @@ public static class InputHandler
     {
         input?.Enable();
 
-        #region subscribing
         input.Movement.ThrustersLR.started += OnThrustersLR;
         input.Movement.ThrustersLR.performed += OnThrustersLR;
         input.Movement.ThrustersLR.canceled += OnThrustersLR;
@@ -63,10 +62,52 @@ public static class InputHandler
             input.Movement.Rollmode.performed += OnRollmode;
             input.Movement.Rollmode.canceled += OnRollmode;
         }
+
         input.Movement.ThrottleBrake.started += OnThrottleBrake;
         input.Movement.ThrottleBrake.performed += OnThrottleBrake;
-        input.Movement.ThrottleBrake.canceled += OnThrottleBrake;        
-        #endregion
+        input.Movement.ThrottleBrake.canceled += OnThrottleBrake;
+    }
+
+    public static void Unsubscribe()
+    {
+        input?.Disable();
+
+        input.Movement.ThrustersLR.started       -= OnThrustersLR;
+        input.Movement.ThrustersLR.performed     -= OnThrustersLR;
+        input.Movement.ThrustersLR.canceled      -= OnThrustersLR;
+                                                 
+        input.Movement.ThrustersUD.started       -= OnThrustersUD;
+        input.Movement.ThrustersUD.performed     -= OnThrustersUD;
+        input.Movement.ThrustersUD.canceled      -= OnThrustersUD;
+                                                 
+        input.Movement.Yaw.started               -= OnYaw;
+        input.Movement.Yaw.performed             -= OnYaw;
+        input.Movement.Yaw.canceled              -= OnYaw;
+                                                 
+        input.Movement.Pitch.started             -= OnPitch;
+        input.Movement.Pitch.performed           -= OnPitch;
+        input.Movement.Pitch.canceled            -= OnPitch;
+                                                 
+        input.Movement.Roll.started              -= OnRoll;
+        input.Movement.Roll.performed            -= OnRoll;
+        input.Movement.Roll.canceled             -= OnRoll;
+                                                 
+        input.Movement.Release.started           -= OnRelease;
+        input.Movement.Release.performed         -= OnRelease;
+        input.Movement.Release.canceled          -= OnRelease;
+
+        input.Movement.Rollmode.started          -= OnRollmodeToggle;
+        input.Movement.Rollmode.performed        -= OnRollmodeToggle;
+        input.Movement.Rollmode.canceled         -= OnRollmodeToggle;
+        rollModeInput = rollModeInverted;        
+                                                 
+        input.Movement.Rollmode.started          -= OnRollmode;
+        input.Movement.Rollmode.performed        -= OnRollmode;
+        input.Movement.Rollmode.canceled         -= OnRollmode;
+
+        input.Movement.ThrottleBrake.started     -= OnThrottleBrake;
+        input.Movement.ThrottleBrake.performed   -= OnThrottleBrake;
+        input.Movement.ThrottleBrake.canceled    -= OnThrottleBrake;
     }
 
     public static void LoadSettings()
@@ -76,30 +117,8 @@ public static class InputHandler
         if (PlayerInputSettings.QuadraticRollInput) { rollQuadraticFactor = 1.5f; } else { rollQuadraticFactor = 1.0f; }
         rollModeInverted = PlayerInputSettings.RollmodeInverted;
 
-        //This is possibly quite likely ugly.
-        //WRIDZER: Maybe refactor
-        if (PlayerInputSettings.RollmodeToggle)
-        {
-            input.Movement.Rollmode.started -= OnRollmode;
-            input.Movement.Rollmode.performed -= OnRollmode;
-            input.Movement.Rollmode.canceled -= OnRollmode;
-
-            input.Movement.Rollmode.started += OnRollmodeToggle;
-            input.Movement.Rollmode.performed += OnRollmodeToggle;
-            input.Movement.Rollmode.canceled += OnRollmodeToggle;
-        }
-        else
-        {
-            input.Movement.Rollmode.started -= OnRollmodeToggle;
-            input.Movement.Rollmode.performed -= OnRollmodeToggle;
-            input.Movement.Rollmode.canceled -= OnRollmodeToggle;
-
-            input.Movement.Rollmode.started += OnRollmode;
-            input.Movement.Rollmode.performed += OnRollmode;
-            input.Movement.Rollmode.canceled += OnRollmode;
-        }
-
-
+        Unsubscribe();
+        Subscribe();
     }
 
     #region input
