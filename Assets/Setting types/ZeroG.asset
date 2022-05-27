@@ -17,7 +17,7 @@ MonoBehaviour:
   thrusterAcceleration: 5
   reverseTopSpeed: 75
   pitchSpeed: 90
-  rollSpeed: 90
+  rollSpeed: 270
   yawSpeed: 90
   totalRotationSpeed: 1
   decoupleSpeed: 0

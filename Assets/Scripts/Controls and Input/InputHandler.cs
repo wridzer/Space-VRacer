@@ -74,7 +74,9 @@ public static class InputHandler
     }
     static void OnRoll(InputAction.CallbackContext context)
     {
-        rollInput = context.ReadValue<float>();
+        //Added a quadratic component to make precision rolling at low input values more viable while also allowing fast snap rolling
+
+        rollInput = Mathf.Pow(context.ReadValue<float>(), 1.5f);
     }
     static void OnRelease(InputAction.CallbackContext context)
     {
