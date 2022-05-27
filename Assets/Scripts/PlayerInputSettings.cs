@@ -16,6 +16,7 @@ public class PlayerInputSettings : ScriptableObject
     public static float AudioVolume;
     public static bool ToggleReleaseOnExit;
     public static bool InvertYAxis, InvertXAxis; //Option for inverting the x-axis in case people want to get freaky with it
+    public static bool QuadraticRollInput;
 
     #region set functions for UI events
     public void SetRollmodeToggle(bool value)
@@ -54,6 +55,12 @@ public class PlayerInputSettings : ScriptableObject
         InvertXAxis = value;
         if (saveSettingsOnEdit) { SaveSettings(); }
     }
+
+    public void SetQuadraticRollInput(bool value)
+    {
+        QuadraticRollInput = value;
+        if (saveSettingsOnEdit) { SaveSettings(); }
+    }
     #endregion
 
     #region saving/loading
@@ -76,6 +83,7 @@ public class PlayerInputSettings : ScriptableObject
         PlayerPrefs.SetInt("ToggleRelease", Utility.BoolToInt(ToggleReleaseOnExit));
         PlayerPrefs.SetInt("InvertY", Utility.BoolToInt(InvertYAxis));
         PlayerPrefs.SetInt("InvertX", Utility.BoolToInt(InvertXAxis));
+        PlayerPrefs.SetInt("QuadraticRoll", Utility.BoolToInt(QuadraticRollInput));
         PlayerPrefs.Save();
     }
 
@@ -87,6 +95,7 @@ public class PlayerInputSettings : ScriptableObject
         ToggleReleaseOnExit = Utility.IntToBool(PlayerPrefs.GetInt("ToggleRelease", 1));
         InvertYAxis = Utility.IntToBool(PlayerPrefs.GetInt("InvertY", 0));
         InvertXAxis = Utility.IntToBool(PlayerPrefs.GetInt("InvertX", 0));
+        QuadraticRollInput = Utility.IntToBool(PlayerPrefs.GetInt("QuadraticRoll", 1));
     }
 
     #endregion
