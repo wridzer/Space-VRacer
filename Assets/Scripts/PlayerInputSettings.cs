@@ -85,6 +85,7 @@ public class PlayerInputSettings : ScriptableObject
         PlayerPrefs.SetInt("InvertX", Utility.BoolToInt(InvertXAxis));
         PlayerPrefs.SetInt("QuadraticRoll", Utility.BoolToInt(QuadraticRollInput));
         PlayerPrefs.Save();
+        InputHandler.LoadSettings();
     }
 
     public static void LoadSettings()
@@ -96,6 +97,7 @@ public class PlayerInputSettings : ScriptableObject
         InvertYAxis = Utility.IntToBool(PlayerPrefs.GetInt("InvertY", 0));
         InvertXAxis = Utility.IntToBool(PlayerPrefs.GetInt("InvertX", 0));
         QuadraticRollInput = Utility.IntToBool(PlayerPrefs.GetInt("QuadraticRoll", 1));
+        InputHandler.LoadSettings();
     }
 
     #endregion
