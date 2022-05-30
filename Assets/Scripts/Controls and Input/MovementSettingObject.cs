@@ -7,7 +7,7 @@ public class MovementSettingObject : ScriptableObject
 {
     [Header("Ship Settings")]
     public float acceleration;
-    public float topSpeed, thrusterAcceleration, reverseTopSpeed, pitchSpeed, rollSpeed, yawSpeed, totalRotationSpeed;
+    public float topSpeed, thrusterAcceleration, reverseTopSpeed, pitchSpeed, rollSpeed, yawSpeed, totalRotationSpeed, frictionCoefX, frictionCoefY, frictionCoefZ;
 
     [Header("Maglev Settings")]
     public float decoupleSpeed;
