@@ -12,16 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09b305e04a9465f4595843117d51c739, type: 3}
   m_Name: ZeroG
   m_EditorClassIdentifier: 
-  acceleration: 50
-  topSpeed: 200
+  acceleration: 15
+  topSpeed: 150
   thrusterAcceleration: 10
-  reverseTopSpeed: 10
-  pitchSpeed: 0.5
-  rollSpeed: 0.5
-  yawSpeed: 0.5
-  decoupleSpeed: 0
-  maglevStrength: 0
+  reverseTopSpeed: 75
+  pitchSpeed: 90
+  rollSpeed: 270
+  yawSpeed: 90
   totalRotationSpeed: 1
+  frictionCoefX: 0.9
+  frictionCoefY: 0.9
+  frictionCoefZ: 0.45
+  decoupleSpeed: 0
+  maglevRotStrength: 0
+  maglevDisStrength: 0
+  maglevDistance: 0
+  maglevDistanceMultiplier: 0
   flightStates: 1
   layerMask:
     serializedVersion: 2
