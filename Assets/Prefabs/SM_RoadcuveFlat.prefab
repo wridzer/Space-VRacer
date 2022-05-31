@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1222831465224758225}
   - component: {fileID: 2834880899024907380}
   - component: {fileID: 50509784133900478}
+  - component: {fileID: 3110671086653311250}
   m_Layer: 0
   m_Name: SM_RoadcuveFlat
   m_TagString: Untagged
@@ -84,3 +85,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3110671086653311250
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1996095266646931819}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8555920357310343166, guid: 57b611f33dada79489ca2ed060b17f3f, type: 3}
