@@ -137,22 +137,6 @@ public class Movement : MonoBehaviour
 
         rb.velocity = transform.TransformDirection(new Vector3(velocityX, velocityY, velocityZ));
 
-
-
-
-
-
-
-
-
-        //// Throttle and Brake
-        //if (rb.velocity.magnitude < movementSettings.topSpeed || rb.velocity.magnitude > movementSettings.reverseTopSpeed)
-        //    rb.AddForce(rb.transform.forward * movementSettings.acceleration * InputHandler.throttleInput, ForceMode.Force); // Z
-
-        //// Thrusters
-        //rb.AddForce(rb.transform.up * movementSettings.thrusterAcceleration * InputHandler.verThrusterInput, ForceMode.Force); // Y
-        //rb.AddForce(rb.transform.right * movementSettings.thrusterAcceleration * InputHandler.horThrusterInput, ForceMode.Force); // X
-
         // Release and Rollmode
         rollMode = InputHandler.rollModeInput;
     }
