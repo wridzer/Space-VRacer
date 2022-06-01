@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 
     private Stopwatch timer;
     private List<System.TimeSpan> times = new List<System.TimeSpan>();
-    private List<Checkpoint> checkpoints = new List<Checkpoint>();
+    private Dictionary<int, Checkpoint> checkpoints = new Dictionary<int, Checkpoint>();
     private int currentCheckpoint = 0;
 
     private GameObject playerInstance;
@@ -49,6 +49,8 @@ public class GameManager : MonoBehaviour
         playerInstance = startObject?.SpawnPlayer();
 
         // show countdown
+
+        StartRace();
     }
 
     private void StartRace()
@@ -60,24 +62,27 @@ public class GameManager : MonoBehaviour
     // but when the builder is implemented it will have that because this will be constructing the track
     public void RegisterCheckpoint(Checkpoint _checkpoint)
     {
-        checkpoints.Add(_checkpoint);
+        // checkpoints.Add(_checkpoint); 
     }
 
     //Created this because there is no trackbuilder yet and otherwise the get registered in the wrong order
     public void RegisterCheckpoint(Checkpoint _checkpoint, int _checkpointNumber)
     {
-        checkpoints[_checkpointNumber] = _checkpoint;
+        checkpoints.Add(_checkpointNumber, _checkpoint);
     }
 
     public void OnCheckpoint(Checkpoint _checkpoint)
     {
+        timer.Stop();
         System.TimeSpan currentTime = timer.Elapsed;
+        timer.Start();
         if(checkpoints[currentCheckpoint] == _checkpoint)
         {
             currentCheckpoint++;
             times.Add(currentTime);
             // Network currenttime
             // Display currenttime
+            UnityEngine.Debug.Log(currentTime);
         } else
         {
             // Wrong checkpoint
@@ -91,5 +96,6 @@ public class GameManager : MonoBehaviour
     private void Finish(System.TimeSpan _endTime)
     {
         // Do finish stuff
+        UnityEngine.Debug.Log("Finished");
     }
 }
