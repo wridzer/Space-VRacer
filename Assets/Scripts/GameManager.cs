@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     private void Respawn()
     {
         playerInstance.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        playerInstance.transform.position = checkpoints[currentCheckpoint].playerSpawn;
+        playerInstance.transform.position = checkpoints[currentCheckpoint].playerSpawn.transform.position;
     }
 
     private void StartOver()

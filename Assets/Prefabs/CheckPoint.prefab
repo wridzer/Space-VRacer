@@ -70,18 +70,37 @@ PrefabInstance:
     - target: {fileID: 9145354780599567322, guid: caa27f5c19bbed540a8fd131f24a784d,
         type: 3}
       propertyPath: m_Name
-      value: SM_RoadChekpoint
+      value: CheckPoint
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9026833382336128766, guid: caa27f5c19bbed540a8fd131f24a784d, type: 3}
     - {fileID: 7619794309006243103, guid: caa27f5c19bbed540a8fd131f24a784d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: caa27f5c19bbed540a8fd131f24a784d, type: 3}
+--- !u!1 &2175454674518595056 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 992939521, guid: caa27f5c19bbed540a8fd131f24a784d,
+    type: 3}
+  m_PrefabInstance: {fileID: 2175454674600844273}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6978916102420371499 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9145354780599567322, guid: caa27f5c19bbed540a8fd131f24a784d,
     type: 3}
   m_PrefabInstance: {fileID: 2175454674600844273}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1961333429859480831
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6978916102420371499}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 13.51, y: 13.02, z: 1}
+  m_Center: {x: 0, y: -1.5, z: 0}
 --- !u!114 &2891466427988062415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,17 +115,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkpointNumber: 0
   gameManager: {fileID: 0}
-  playerSpawn: {x: 0, y: 0, z: 0}
---- !u!65 &1961333429859480831
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6978916102420371499}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 13.51, y: 13.02, z: 1}
-  m_Center: {x: 0, y: -1.5, z: 0}
+  playerSpawn: {fileID: 2175454674518595056}

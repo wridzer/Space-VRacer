@@ -6,7 +6,7 @@ public class Checkpoint : MonoBehaviour
     [SerializeField] private int checkpointNumber;
     [SerializeField] private GameManager gameManager;
 
-    public Vector3 playerSpawn;
+    public GameObject playerSpawn;
 
     private void Awake()
     {
