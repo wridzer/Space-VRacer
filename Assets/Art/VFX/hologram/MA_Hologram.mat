@@ -29,10 +29,6 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _SampleTexture2D_4b576a8defb543d78dc56a88db3b522a_Texture_1:
-        m_Texture: {fileID: 10309, guid: 0000000000000000f000000000000000, type: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _Texture2D:
         m_Texture: {fileID: 2800000, guid: 2a158f50191c9a145aabf91f7a75ecaf, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -53,11 +49,11 @@ Material:
     m_Floats:
     - _AddPrecomputedVelocity: 0
     - _AlphaCutoffEnable: 0
-    - _AlphaDstBlend: 10
+    - _AlphaDstBlend: 1
     - _AlphaSrcBlend: 1
     - _AlphaToMask: 0
     - _AlphaToMaskInspectorValue: 0
-    - _BlendMode: 0
+    - _BlendMode: 1
     - _ConservativeDepthOffsetEnable: 0
     - _CullMode: 2
     - _CullModeForward: 2
@@ -65,7 +61,7 @@ Material:
     - _DoubleSidedEnable: 0
     - _DoubleSidedGIMode: 0
     - _DoubleSidedNormalMode: 2
-    - _DstBlend: 10
+    - _DstBlend: 1
     - _EnableBlendModePreserveSpecularLighting: 0
     - _EnableFogOnTransparent: 1
     - _OpaqueCullMode: 2
@@ -94,16 +90,16 @@ Material:
     - _ZTestGBuffer: 4
     - _ZTestTransparent: 4
     - _ZWrite: 0
-    - _fresnel_power: 1.5
-    - _stripedencity: 5
-    - _stripedencity_1: 5
+    - _fresnel_power: 3.01
+    - _stripedencity: -0.12
+    - _stripedencity_1: 0.01
     - _timespeed: 0.2
     m_Colors:
-    - _Color: {r: 0, g: 0.4145412, b: 2, a: 0}
+    - _Color: {r: 0.069643065, g: 0, b: 0.101960786, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _tiling: {r: 2, g: 12, b: 0, a: 0}
-    - _tiling2: {r: 2, g: 2, b: 0, a: 0}
+    - _tiling: {r: 1, g: 1, b: 0, a: 0}
+    - _tiling2: {r: 1, g: 2, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &7882622431000387070
 MonoBehaviour:
