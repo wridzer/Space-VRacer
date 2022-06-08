@@ -65,7 +65,7 @@ namespace ChatClientExample
             m_Driver.ScheduleUpdate().Complete();
 
             if (!connected && Time.time - startTime > 5f) {
-                SceneManager.LoadScene(0);
+                //SceneManager.LoadScene(0);
             }
 
             if (!m_Connection.IsCreated) {

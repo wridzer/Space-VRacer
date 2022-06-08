@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class NetworkManager : MonoBehaviour
 {
@@ -19,16 +22,6 @@ public class NetworkManager : MonoBehaviour
 		}
         return false;
 	}
-
-    public bool UploadScore(int _playerId, int _trackId, System.TimeSpan _time)
-    {
-        uint timeAsInt = (uint)_time.Milliseconds;
-        string scoreURL = $"https://studenthome.hku.nl/~wridzer.kamphuis/kernmodule_networking/insert_time.php?time={timeAsInt}&user_id={_playerId}&track_id={_trackId}";
-
-        Application.OpenURL(scoreURL);
-
-        return true;
-    }
 
     public bool SpawnWithId( NetworkSpawnObject type, uint id, out GameObject obj ) {
         obj = null;
