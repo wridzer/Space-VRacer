@@ -98,6 +98,24 @@ public partial class @ShipControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Restart"",
+                    ""type"": ""Button"",
+                    ""id"": ""8a7641ca-906d-463d-a562-b5441594cc06"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Tap"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Reset"",
+                    ""type"": ""Button"",
+                    ""id"": ""45f50e53-b101-4d5a-b4b1-17147e3f32be"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Tap"",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -419,6 +437,28 @@ public partial class @ShipControls : IInputActionCollection2, IDisposable
                     ""action"": ""Throttle/Brake"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0376ecb9-6c61-480b-8007-fc185fbaf216"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Restart"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""21021d10-2092-48fd-9610-fd10f0d480bc"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reset"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -468,6 +508,8 @@ public partial class @ShipControls : IInputActionCollection2, IDisposable
         m_Movement_Release = m_Movement.FindAction("Release", throwIfNotFound: true);
         m_Movement_Rollmode = m_Movement.FindAction("Rollmode", throwIfNotFound: true);
         m_Movement_ThrottleBrake = m_Movement.FindAction("Throttle/Brake", throwIfNotFound: true);
+        m_Movement_Restart = m_Movement.FindAction("Restart", throwIfNotFound: true);
+        m_Movement_Reset = m_Movement.FindAction("Reset", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -535,6 +577,8 @@ public partial class @ShipControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Movement_Release;
     private readonly InputAction m_Movement_Rollmode;
     private readonly InputAction m_Movement_ThrottleBrake;
+    private readonly InputAction m_Movement_Restart;
+    private readonly InputAction m_Movement_Reset;
     public struct MovementActions
     {
         private @ShipControls m_Wrapper;
@@ -547,6 +591,8 @@ public partial class @ShipControls : IInputActionCollection2, IDisposable
         public InputAction @Release => m_Wrapper.m_Movement_Release;
         public InputAction @Rollmode => m_Wrapper.m_Movement_Rollmode;
         public InputAction @ThrottleBrake => m_Wrapper.m_Movement_ThrottleBrake;
+        public InputAction @Restart => m_Wrapper.m_Movement_Restart;
+        public InputAction @Reset => m_Wrapper.m_Movement_Reset;
         public InputActionMap Get() { return m_Wrapper.m_Movement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -580,6 +626,12 @@ public partial class @ShipControls : IInputActionCollection2, IDisposable
                 @ThrottleBrake.started -= m_Wrapper.m_MovementActionsCallbackInterface.OnThrottleBrake;
                 @ThrottleBrake.performed -= m_Wrapper.m_MovementActionsCallbackInterface.OnThrottleBrake;
                 @ThrottleBrake.canceled -= m_Wrapper.m_MovementActionsCallbackInterface.OnThrottleBrake;
+                @Restart.started -= m_Wrapper.m_MovementActionsCallbackInterface.OnRestart;
+                @Restart.performed -= m_Wrapper.m_MovementActionsCallbackInterface.OnRestart;
+                @Restart.canceled -= m_Wrapper.m_MovementActionsCallbackInterface.OnRestart;
+                @Reset.started -= m_Wrapper.m_MovementActionsCallbackInterface.OnReset;
+                @Reset.performed -= m_Wrapper.m_MovementActionsCallbackInterface.OnReset;
+                @Reset.canceled -= m_Wrapper.m_MovementActionsCallbackInterface.OnReset;
             }
             m_Wrapper.m_MovementActionsCallbackInterface = instance;
             if (instance != null)
@@ -608,6 +660,12 @@ public partial class @ShipControls : IInputActionCollection2, IDisposable
                 @ThrottleBrake.started += instance.OnThrottleBrake;
                 @ThrottleBrake.performed += instance.OnThrottleBrake;
                 @ThrottleBrake.canceled += instance.OnThrottleBrake;
+                @Restart.started += instance.OnRestart;
+                @Restart.performed += instance.OnRestart;
+                @Restart.canceled += instance.OnRestart;
+                @Reset.started += instance.OnReset;
+                @Reset.performed += instance.OnReset;
+                @Reset.canceled += instance.OnReset;
             }
         }
     }
@@ -640,5 +698,7 @@ public partial class @ShipControls : IInputActionCollection2, IDisposable
         void OnRelease(InputAction.CallbackContext context);
         void OnRollmode(InputAction.CallbackContext context);
         void OnThrottleBrake(InputAction.CallbackContext context);
+        void OnRestart(InputAction.CallbackContext context);
+        void OnReset(InputAction.CallbackContext context);
     }
 }

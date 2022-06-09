@@ -6,8 +6,8 @@ public abstract class GameplayManager : MonoBehaviour
 {
     public static GameplayManager Instance { get; private set; } //Sorry Wridzer
 
-    protected Dictionary<Checkpoint, bool> checkpoints;
-    protected Checkpoint lastCheckpoing; //For respawns
+    protected Dictionary<CheckpointMana, bool> checkpoints;
+    protected CheckpointMana lastCheckpoing; //For respawns
     protected StartBlock startBlock;
     protected float timer;
     protected bool timerActive;
@@ -19,7 +19,7 @@ public abstract class GameplayManager : MonoBehaviour
         if(Instance != null) { Debug.LogWarning("A Gameplay Manager already existed and was destroyed."); Destroy(Instance.gameObject); }
         Instance = this;
 
-        checkpoints = new Dictionary<Checkpoint, bool>();
+        checkpoints = new Dictionary<CheckpointMana, bool>();
     }
 
     public void InstantiateLevel(GameObject level)
@@ -42,7 +42,7 @@ public abstract class GameplayManager : MonoBehaviour
         startBlock = _startBlock;
     }
 
-    public void AddCheckpoint(Checkpoint _checkpoint)
+    public void AddCheckpoint(CheckpointMana _checkpoint)
     {
         checkpoints.Add(_checkpoint, false);
     }
@@ -73,7 +73,7 @@ public abstract class GameplayManager : MonoBehaviour
         timerActive = true;
     }
 
-    public virtual void PassCheckpoint(Checkpoint _checkpoint)
+    public virtual void PassCheckpoint(CheckpointMana _checkpoint)
     {
         if (checkpoints[_checkpoint]) { return; }
         Debug.Log("Passed checkpoint " + _checkpoint);
