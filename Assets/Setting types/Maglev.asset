@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09b305e04a9465f4595843117d51c739, type: 3}
   m_Name: Maglev
   m_EditorClassIdentifier: 
-  acceleration: 50
+  acceleration: 65
   topSpeed: 400
   verticalThrusterAcceleration: 6
   horizontalThrusterAcceleration: 15
