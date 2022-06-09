@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Threading.Tasks;
 using UnityEngine;
-
+using UnityEngine.Networking;
 
 public class LeaderboardTest : MonoBehaviour
 {
@@ -19,9 +20,9 @@ public class LeaderboardTest : MonoBehaviour
         insertTime = System.TimeSpan.FromMilliseconds(insertTimeInMillis);
     }
 
-    private Task ServerLogIn()
+    private async Task ServerLogIn()
     {
-        sessId = DatabaseManager.ServerLogin(serverId, serverPass).Result;
+        sessId = await DatabaseManager.ServerLogin(serverId, serverPass);
         if (sessId == null)
         {
             Debug.Log("Server login failed: session ID=" + sessId);
@@ -30,7 +31,6 @@ public class LeaderboardTest : MonoBehaviour
         {
             Debug.Log("Server login succes: session ID=" + sessId);
         }
-        return Task.CompletedTask;
     }
 
 
@@ -42,10 +42,9 @@ public class LeaderboardTest : MonoBehaviour
         Debug.Log("Logged in");
     }
 
-    public async void Login()
+    public void Login()
     {
-        Debug.Log("Trying to login");
-        await PlayerLogIn();
+        PlayerLogIn();
     }
 
     public async void AddTime()
@@ -54,24 +53,25 @@ public class LeaderboardTest : MonoBehaviour
         await DatabaseManager.UploadScore(sessId, trackId, insertTime);
     }
 
-    public void FetchLeaderboards()
+    public async void FetchLeaderboards()
     {
         Debug.Log("Trying to fetch leaderboards");
 
-        List<System.TimeSpan> leaderboard = new List<System.TimeSpan>();
+        Leaderboard leaderboard;
 
-        leaderboard= DatabaseManager.GetGlobalLeaderboard(sessId, trackId);
+        leaderboard = await DatabaseManager.GetGlobalLeaderboard(sessId, trackId);
 
-        foreach(var time in leaderboard)
+        foreach (LeaderboardObject time in leaderboard.times)
         {
-            Debug.Log(time);
+            System.TimeSpan displayTime = System.TimeSpan.FromMilliseconds(time.time);
+            Debug.Log(displayTime + " " + time.name);
         }
 
-        leaderboard= DatabaseManager.GetPlayerLeaderboard(sessId, trackId);
+        leaderboard = await DatabaseManager.GetPlayerLeaderboard(sessId, trackId);
 
-        foreach(var time in leaderboard)
+        foreach (LeaderboardObject time in leaderboard.times)
         {
-            Debug.Log(time);
+            Debug.Log(time.time);
         }
 
     }
