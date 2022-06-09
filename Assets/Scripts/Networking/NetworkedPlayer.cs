@@ -22,6 +22,7 @@ namespace ChatClientExample
 		public bool isLocal = false;
 		public bool isServer = false;
 		public Camera localCamera;
+		public string nickname;
 
 		float refireTimer = 0;
 		bool canJump = true;
@@ -39,6 +40,7 @@ namespace ChatClientExample
 				}
 
 				client = FindObjectOfType<Client>();
+				nickname = client.GetNickname();
 			}
 			if ( isServer ) {
 				server = FindObjectOfType<Server>();

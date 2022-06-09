@@ -91,6 +91,18 @@ namespace ChatClientExample {
             m_Connections = new NativeList<NetworkConnection>(64, Allocator.Persistent);
         }
 
+        public List<string> GetPlayerlist()
+        {
+            List<string> playerList = new List<string>();
+
+            foreach(var player in playerInstances)
+            {
+                playerList.Add(player.Value.nickname);
+            }
+
+            return playerList;
+        }
+
         // Write this immediately after creating the above Start calls, so you don't forget
         //  Or else you well get lingering thread sockets, and will have trouble starting new ones!
         void OnDestroy() {

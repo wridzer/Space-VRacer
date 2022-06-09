@@ -37,7 +37,7 @@ public class LeaderboardTest : MonoBehaviour
     private async Task PlayerLogIn()
     {
         await ServerLogIn();
-        await DatabaseManager.PlayerLogin(sessId, playerEmail, playerPass);
+        await DatabaseManager.PlayerLogin(playerEmail, playerPass);
 
         Debug.Log("Logged in");
     }
@@ -50,7 +50,7 @@ public class LeaderboardTest : MonoBehaviour
     public async void AddTime()
     {
         Debug.Log("Trying to upload time");
-        await DatabaseManager.UploadScore(sessId, trackId, insertTime);
+        await DatabaseManager.UploadScore(trackId, insertTime);
     }
 
     public async void FetchLeaderboards()
@@ -59,7 +59,7 @@ public class LeaderboardTest : MonoBehaviour
 
         Leaderboard leaderboard;
 
-        leaderboard = await DatabaseManager.GetGlobalLeaderboard(sessId, trackId);
+        leaderboard = await DatabaseManager.GetGlobalLeaderboard(trackId);
 
         foreach (LeaderboardObject time in leaderboard.times)
         {
@@ -67,7 +67,7 @@ public class LeaderboardTest : MonoBehaviour
             Debug.Log(displayTime + " " + time.name);
         }
 
-        leaderboard = await DatabaseManager.GetPlayerLeaderboard(sessId, trackId);
+        leaderboard = await DatabaseManager.GetPlayerLeaderboard(trackId);
 
         foreach (LeaderboardObject time in leaderboard.times)
         {

@@ -46,6 +46,18 @@ namespace ChatClientExample
             var endpoint = NetworkEndPoint.Parse(serverIP, 9000, NetworkFamily.Ipv4);
             endpoint.Port = 1511;
             m_Connection = m_Driver.Connect(endpoint);
+
+            FetchNickname();
+        }
+
+        public string GetNickname()
+        {
+            return clientName;
+        }
+
+        private async void FetchNickname()
+        {
+            clientName = await DatabaseManager.GetPlayerName();
         }
 
         // No collections list this time...
@@ -65,7 +77,7 @@ namespace ChatClientExample
             m_Driver.ScheduleUpdate().Complete();
 
             if (!connected && Time.time - startTime > 5f) {
-                //SceneManager.LoadScene(0);
+                //SceneManager.LoadScene(0); // Needs to go in function to call from server
             }
 
             if (!m_Connection.IsCreated) {
@@ -93,7 +105,7 @@ namespace ChatClientExample
                     // First UInt is always message type (this is our own first design choice)
                     NetworkMessageType msgType = (NetworkMessageType)stream.ReadUShort();
 
-                    // TODO: Create message instance, and parse data...
+                    // TODO: Create message instance, and parse data... <- wait but this is done now right?
                     MessageHeader header = (MessageHeader)System.Activator.CreateInstance(NetworkMessageInfo.TypeMap[msgType]);
                     header.DeserializeObject(ref stream);
 
