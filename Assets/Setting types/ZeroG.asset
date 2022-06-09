@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   acceleration: 15
   topSpeed: 150
-  thrusterAcceleration: 10
+  verticalThrusterAcceleration: 12.5
+  horizontalThrusterAcceleration: 12.5
   reverseTopSpeed: 75
   pitchSpeed: 90
   rollSpeed: 270

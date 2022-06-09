@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   acceleration: 50
   topSpeed: 400
-  thrusterAcceleration: 6.5
+  verticalThrusterAcceleration: 6
+  horizontalThrusterAcceleration: 15
   reverseTopSpeed: 150
   pitchSpeed: 0
   rollSpeed: 0
@@ -26,7 +27,7 @@ MonoBehaviour:
   decoupleSpeed: 20
   maglevRotStrength: 5
   maglevDisStrength: 8
-  maglevDistance: 7
+  maglevDistance: 6
   maglevDistanceMultiplier: 1
   flightStates: 0
   layerMask:
