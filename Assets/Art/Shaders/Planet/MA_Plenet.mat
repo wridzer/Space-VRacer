@@ -117,9 +117,9 @@ Material:
     - _Color: {r: 0.5795677, g: 1, b: 0, a: 0}
     - _Color_1: {r: 0, g: 0.68141603, b: 1, a: 0}
     - _Color_2: {r: 1, g: 0.9916909, b: 0, a: 0}
-    - _Color_ground: {r: 0.89686775, g: 1, b: 0, a: 0}
+    - _Color_ground: {r: 0, g: 0.7835386, b: 1, a: 0}
     - _Color_mountain2: {r: 0.78295946, g: 1, b: 0.032075405, a: 0}
-    - _Color_moutain: {r: 0.029585784, g: 0.6037736, b: 0, a: 0}
+    - _Color_moutain: {r: 0.6039216, g: 0.12758507, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _atmosphere_color: {r: 0, g: 0.6576443, b: 1, a: 0}

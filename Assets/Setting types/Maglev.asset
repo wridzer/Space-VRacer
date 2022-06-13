@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09b305e04a9465f4595843117d51c739, type: 3}
+  m_Name: Maglev
+  m_EditorClassIdentifier: 
+  acceleration: 65
+  topSpeed: 400
+  verticalThrusterAcceleration: 6
+  horizontalThrusterAcceleration: 15
+  reverseTopSpeed: 150
+  pitchSpeed: 0
+  rollSpeed: 0
+  yawSpeed: 90
+  totalRotationSpeed: 1
+  frictionCoefX: 4
+  frictionCoefY: 4
+  frictionCoefZ: 0.6
+  decoupleSpeed: 20
+  maglevRotStrength: 5
+  maglevDisStrength: 8
+  maglevDistance: 4.5
+  maglevDistanceMultiplier: 1
+  flightStates: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 64

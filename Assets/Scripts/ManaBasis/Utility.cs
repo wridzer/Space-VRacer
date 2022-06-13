@@ -165,9 +165,35 @@ public class Utility : ScriptableObject
         arr[right] = temp;
     }
     #endregion
+    
+    #region Because who would ever want to save booleans in the player prefs, right Unity?
 
+    /// <summary>
+    /// Takes a boolean and returns 1 if it's true, or 0 if it's false.
+    /// </summary>
+    /// <param name="value"></param>
+    /// <returns></returns>
+    public static int BoolToInt(bool value)
+    {
+        if (value) { return 1; }
+        return 0;
+    }
+
+    /// <summary>
+    /// Takes an integer and returns false if it is 0, or true if it is any other value
+    /// </summary>
+    /// <param name="value"></param>
+    /// <returns></returns>
+    public static bool IntToBool(int value)
+    {
+        return value != 0;
+    }
+    #endregion
+ 
     public void QuitGame()
     {
         Application.Quit();
     }
+
+
 }
