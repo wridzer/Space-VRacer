@@ -9,7 +9,7 @@ using System.Net.Http;
 
 public static class DatabaseManager
 {
-    private static string sessId = "", serverPass = "admin", playerEmail = "", playerPass = "";
+    private static string sessId = "", serverPass = "admin", playerEmail = "wridzer12@gmail.com", playerPass = "Wachtwoord123";
     private static int serverId = 1;
 
     private static async Task<string> WebRequest(string _url)
@@ -71,6 +71,8 @@ public static class DatabaseManager
 
     public static async Task UploadScore(int _trackId, System.TimeSpan _time)
     {
+        if(sessId == "") { await ServerLogin(serverId, "admin"); await PlayerLogin(playerEmail, playerPass); } //This is unsafe but easy for debugging
+
         int timeAsInt = (int)_time.TotalMilliseconds;
         string URL = $"https://studenthome.hku.nl/~wridzer.kamphuis/kernmodule_networking/insert_time.php?PHPSESSID={sessId}&time={timeAsInt}&track_id={_trackId}";
 
@@ -81,6 +83,8 @@ public static class DatabaseManager
 
     public static async Task<Leaderboard> GetPlayerLeaderboard(int _trackId)
     {
+        if (sessId == "") { await ServerLogin(serverId, "admin"); await PlayerLogin(playerEmail, playerPass); } //This is unsafe but easy for debugging
+
         string URL = $"https://studenthome.hku.nl/~wridzer.kamphuis/kernmodule_networking/get_player_leaderboard.php?PHPSESSID={sessId}&track_id={_trackId}";
 
         string response = await WebRequest(URL);
@@ -92,6 +96,8 @@ public static class DatabaseManager
     }
     public static async Task<Leaderboard> GetGlobalLeaderboard(int _trackId)
     {
+        if (sessId == "") { await ServerLogin(serverId, "admin"); await PlayerLogin(playerEmail, playerPass); } //This is unsafe but easy for debugging
+
         string URL = $"https://studenthome.hku.nl/~wridzer.kamphuis/kernmodule_networking/get_global_leaderboard.php?PHPSESSID={sessId}&track_id={_trackId}";
 
         string response = await WebRequest(URL);

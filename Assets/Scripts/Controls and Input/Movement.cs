@@ -106,7 +106,7 @@ public class Movement : MonoBehaviour
     public void Rotate()
     {
         // Pitch, Yaw and Roll
-        deltaRot += new Vector3(1, 0, 0) * movementSettings.pitchSpeed * InputHandler.pitchInput;
+        deltaRot += new Vector3(1, 0, 0) * movementSettings.pitchSpeed * -InputHandler.pitchInput;
         if (!rollMode) // If we do it like this than on controllers where you can do both we just ignore rollmode
         {
             deltaRot += new Vector3(0, 1, 0) * movementSettings.yawSpeed * InputHandler.yawInput;

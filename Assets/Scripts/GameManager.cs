@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using FMOD.Studio;
 using FMODUnity;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private int trackId;
-    [SerializeField] private GameObject leaderboard;
+    [SerializeField] private int trackId, leaderboardSize = 4;
+    [SerializeField] private GameObject leaderboard, nameSection, timeSection;
     [SerializeField] private float countdownTime = 3; // This is probaly just going to be 3 but didn't want to hardcode it
     // Probably a reference to the leaderboard
 
@@ -26,13 +27,6 @@ public class GameManager : MonoBehaviour
     {
         // This is for when trackbuilder gets implemented
     }
-
-    private void Awake()
-    {
-        instance = GetComponent<StudioEventEmitter>().EventInstance;
-        timer = new Stopwatch();
-    }
-
     private void Respawn()
     {
         playerInstance.GetComponent<Rigidbody>().velocity = Vector3.zero;
@@ -54,6 +48,8 @@ public class GameManager : MonoBehaviour
 
     public void StartCountdown()
     {
+        instance = GetComponent<StudioEventEmitter>().EventInstance;
+        timer = new Stopwatch();
         playerInstance = startObject?.SpawnPlayer();
 
         StartRace();
@@ -100,14 +96,31 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Finish(System.TimeSpan _endTime)
+    private async void Finish(System.TimeSpan _endTime)
     {
-        // Do finish stuff
-        // add score with db manager
-        // fetch leaderboards with db manager
-        DatabaseManager.UploadScore(trackId, _endTime);
+        await DatabaseManager.UploadScore(trackId, _endTime);
+        GetLeaderboard();
         leaderboard.SetActive(true);
         UnityEngine.Debug.Log("Finished");
         instance.start();
+    }
+
+    private async void GetLeaderboard()
+    {
+        string nameString = "", timeString = "";
+        int timesToShow = leaderboardSize;
+
+        var leaderboardTimes = await DatabaseManager.GetGlobalLeaderboard(trackId);
+        if (leaderboardTimes.times.Length < leaderboardSize) 
+            timesToShow = leaderboardTimes.times.Length;
+
+        for (int i = 0; i < timesToShow; i++)
+        {
+            nameString += leaderboardTimes.times[i].name + System.Environment.NewLine;
+            timeString += System.TimeSpan.FromMilliseconds(leaderboardTimes.times[i].time) + System.Environment.NewLine;
+        }
+
+        nameSection.GetComponent<TMP_Text>().text = nameString;
+        timeSection.GetComponent<TMP_Text>().text = timeString;
     }
 }
