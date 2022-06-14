@@ -10,12 +10,16 @@ public class Movement : MonoBehaviour
     [SerializeField] private LayerMask ZeroGLayer;
     [SerializeField] private LayerMask trackMask;
 
-    [SerializeField] private GameObject shipInstance, trackDetect, raycastOrigin;
+    [SerializeField] private GameObject shipInstance, trackDetect, raycastOrigin; 
+    [SerializeField] private pitchRollSliders chair;
 
     [HideInInspector] public MovementSettingObject movementSettings;
     [HideInInspector] public Rigidbody rb;
     private StateMachine sm;
     private bool rollMode;
+
+    private AudioHandler audioH;
+
 
     // For getting track
     private GameObject lastTrack, currentTrack;
@@ -28,6 +32,7 @@ public class Movement : MonoBehaviour
 
     private void Start()
     {
+        audioH = GetComponent<AudioHandler>();
         Cursor.lockState = CursorLockMode.Confined;
         rollMode = false;
         rb = GetComponent<Rigidbody>();
@@ -111,6 +116,11 @@ public class Movement : MonoBehaviour
             deltaRot += new Vector3(0, 0, -1) * movementSettings.rollSpeed * InputHandler.yawInput;
         }
 
+        if (chair != null)
+        {
+            chair.localAngularVelocity = deltaRot;
+        }
+
         Quaternion deltaRotation = Quaternion.Euler(deltaRot * Time.fixedDeltaTime);
         rb.MoveRotation(rb.rotation * deltaRotation);
         deltaRot = Vector3.zero;
@@ -123,8 +133,8 @@ public class Movement : MonoBehaviour
 
         float accelerationX = 0, accelerationY = 0, accelerationZ = 0;
 
-        accelerationX = movementSettings.thrusterAcceleration * -InputHandler.horThrusterInput;
-        accelerationY = movementSettings.thrusterAcceleration * -InputHandler.verThrusterInput;
+        accelerationX = movementSettings.horizontalThrusterAcceleration * -InputHandler.horThrusterInput;
+        accelerationY = movementSettings.verticalThrusterAcceleration * -InputHandler.verThrusterInput;
         accelerationZ = movementSettings.acceleration * -InputHandler.throttleInput;
 
         // velocity = (1/drag coefficient) * (e^-dragC/m*ΔT)*(dragC*velocity+mass*a)-(mass*a/dragC)
@@ -137,8 +147,34 @@ public class Movement : MonoBehaviour
 
         rb.velocity = transform.TransformDirection(new Vector3(velocityX, velocityY, velocityZ));
 
+        ThusterAudio();
+        if(accelerationZ < 0f)
+        {
+            audioH.TriggerBrake();
+        }
+
         // Release and Rollmode
         rollMode = InputHandler.rollModeInput;
+    }
+
+    private void ThusterAudio()
+    {
+        if(InputHandler.horThrusterInput < 0)
+        {
+            audioH.TriggerThruster(THRUSTERS.LEFT);
+        }
+        if(InputHandler.horThrusterInput > 0)
+        {
+            audioH.TriggerThruster(THRUSTERS.RIGHT);
+        }
+        if(InputHandler.verThrusterInput < 0)
+        {
+            audioH.TriggerThruster(THRUSTERS.DOWN);
+        }
+        if(InputHandler.verThrusterInput > 0)
+        {
+            audioH.TriggerThruster(THRUSTERS.UP);
+        }
     }
 
     public void DetectState()
