@@ -7,6 +7,8 @@ using FMODUnity;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private int trackId;
+    [SerializeField] private GameObject leaderboard;
     [SerializeField] private float countdownTime = 3; // This is probaly just going to be 3 but didn't want to hardcode it
     // Probably a reference to the leaderboard
 
@@ -104,6 +106,8 @@ public class GameManager : MonoBehaviour
         // Do finish stuff
         // add score with db manager
         // fetch leaderboards with db manager
+        DatabaseManager.UploadScore(trackId, _endTime);
+        leaderboard.SetActive(true);
         UnityEngine.Debug.Log("Finished");
         instance.start();
     }
