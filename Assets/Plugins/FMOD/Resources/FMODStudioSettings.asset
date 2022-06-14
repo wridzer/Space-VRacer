@@ -513,6 +513,7 @@ MonoBehaviour:
   Banks:
   - Music
   - SFX
+  - SFX (No VR)
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
