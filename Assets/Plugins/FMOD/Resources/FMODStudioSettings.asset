@@ -268,6 +268,7 @@ MonoBehaviour:
   - c88d16e5272a4e241b0ef0ac2e53b73d
   - fd7c55dab0fce234b8c25f6ffca523c1
   - b7716510a1f36934c87976f3a81dbf3d
+  - e7a046c753c3c3d4aacc91f6597f310d
   codecChannels:
     Value: []
     HasValue: 0
@@ -309,8 +310,12 @@ MonoBehaviour:
   VirtualChannelSettings: []
   RealChannelSettings: []
   Plugins: []
-  MasterBanks: []
-  Banks: []
+  MasterBanks:
+  - Master
+  Banks:
+  - Music
+  - SFX
+  - SFX (No VR)
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
@@ -325,17 +330,17 @@ MonoBehaviour:
   HideSetupWizard: 0
   LastEventReferenceScanVersion: 131591
   Platforms:
-  - {fileID: 3300280734969289558}
-  - {fileID: 470184580768029169}
-  - {fileID: 3171658753168273625}
   - {fileID: -8725021154291997412}
+  - {fileID: -5652534928094370512}
+  - {fileID: -3037769236177765100}
+  - {fileID: -74187657337932701}
+  - {fileID: 470184580768029169}
+  - {fileID: 2177911686198769630}
+  - {fileID: 3171658753168273625}
+  - {fileID: 3300280734969289558}
+  - {fileID: 4043103599634150912}
   - {fileID: 6156585975341662299}
   - {fileID: 9090358717847596528}
-  - {fileID: -5652534928094370512}
-  - {fileID: 2177911686198769630}
-  - {fileID: 4043103599634150912}
-  - {fileID: -74187657337932701}
-  - {fileID: -3037769236177765100}
   MigratedPlatforms: 06000000050000000a000000120000000c00000015000000090000000b000000080000000200000001000000
 --- !u!114 &470184580768029169
 MonoBehaviour:
