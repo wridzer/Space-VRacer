@@ -153,7 +153,7 @@ MonoBehaviour:
   PlayEvent: 0
   StopEvent: 0
   AllowFadeout: 1
-  TriggerOnce: 1
+  TriggerOnce: 0
   Preload: 0
   Params: []
   OverrideAttenuation: 0
@@ -409,7 +409,7 @@ Transform:
   m_GameObject: {fileID: 4420708301983366736}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4420708302198682434}
@@ -489,9 +489,10 @@ MonoBehaviour:
   trackMask:
     serializedVersion: 2
     m_Bits: 192
-  shipInstance: {fileID: 0}
+  shipInstance: {fileID: 7438879009307705374}
   trackDetect: {fileID: 4420708301409547327}
   raycastOrigin: {fileID: 8387096050994405420}
+  chair: {fileID: 0}
   movementSettings: {fileID: 0}
   rb: {fileID: 0}
   localYRot: 0
@@ -787,7 +788,7 @@ MonoBehaviour:
   PlayEvent: 0
   StopEvent: 0
   AllowFadeout: 1
-  TriggerOnce: 1
+  TriggerOnce: 0
   Preload: 0
   Params: []
   OverrideAttenuation: 0
@@ -911,7 +912,7 @@ MonoBehaviour:
   PlayEvent: 0
   StopEvent: 0
   AllowFadeout: 1
-  TriggerOnce: 1
+  TriggerOnce: 0
   Preload: 0
   Params: []
   OverrideAttenuation: 0
@@ -1010,7 +1011,7 @@ MonoBehaviour:
   PlayEvent: 0
   StopEvent: 0
   AllowFadeout: 1
-  TriggerOnce: 1
+  TriggerOnce: 0
   Preload: 0
   Params: []
   OverrideAttenuation: 0
@@ -1307,6 +1308,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82350d20bbc8da84490f8af482a2121a, type: 3}
+--- !u!1 &7438879009307705374 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9131393595346718139, guid: 82350d20bbc8da84490f8af482a2121a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1838892599512812965}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7815968185195502244 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8499113509246424833, guid: 82350d20bbc8da84490f8af482a2121a,

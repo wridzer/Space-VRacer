@@ -56,13 +56,12 @@ public class GameManager : MonoBehaviour
     {
         playerInstance = startObject?.SpawnPlayer();
 
-        // show countdown
-
         StartRace();
     }
 
     private void StartRace()
     {
+        playerInstance.GetComponent<Movement>().enabled = true;
         timer.Start();
     }
 

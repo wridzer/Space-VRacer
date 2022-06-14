@@ -6,30 +6,28 @@ using UnityEngine;
 
 public class AudioHandler : MonoBehaviour
 {
-    // , UI, music, start
-    // DONE: Throttle, thruster, brake, maglev enter, collission, checkpoint, finish
     [SerializeField] private GameObject thrusterL, thrusterR, thrusterU, thrusterD;
-    private EventInstance thrusterLInstance, thrusterRInstance, thrusterUInstance, thrusterDInstance;
+    private StudioEventEmitter thrusterLEmitter, thrusterREmitter, thrusterUEmitter, thrusterDEmitter;
 
     [SerializeField] private GameObject engine, brake, maglevEnter, maglevExit, collission;
-    private EventInstance engineInstance, brakeInstance, maglevEnterInstance, maglevExitInstance, collissionInstance;
+    private StudioEventEmitter engineEmitter, brakeEmitter, maglevEnterEmitter, maglevExitEmitter, collissionEmitter;
     private Rigidbody rb;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        engineInstance      = GetComponent<StudioEventEmitter>().EventInstance;
-        brakeInstance       = GetComponent<StudioEventEmitter>().EventInstance;
-        maglevEnterInstance = GetComponent<StudioEventEmitter>().EventInstance;
-        maglevExitInstance  = GetComponent<StudioEventEmitter>().EventInstance;
-        collissionInstance  = GetComponent<StudioEventEmitter>().EventInstance;
+        engineEmitter      = engine.GetComponent<StudioEventEmitter>();
+        brakeEmitter       = brake.GetComponent<StudioEventEmitter>();
+        maglevEnterEmitter = maglevEnter.GetComponent<StudioEventEmitter>();
+        maglevExitEmitter  = maglevExit.GetComponent<StudioEventEmitter>();
+        collissionEmitter  = collission.GetComponent<StudioEventEmitter>();
 
         rb = GetComponent<Rigidbody>();
 
-        thrusterLInstance = thrusterL.GetComponent<StudioEventEmitter>().EventInstance;
-        thrusterRInstance = thrusterR.GetComponent<StudioEventEmitter>().EventInstance;
-        thrusterUInstance = thrusterU.GetComponent<StudioEventEmitter>().EventInstance;
-        thrusterDInstance = thrusterD.GetComponent<StudioEventEmitter>().EventInstance;
+        thrusterLEmitter = thrusterL.GetComponent<StudioEventEmitter>();
+        thrusterREmitter = thrusterR.GetComponent<StudioEventEmitter>();
+        thrusterUEmitter = thrusterU.GetComponent<StudioEventEmitter>();
+        thrusterDEmitter = thrusterD.GetComponent<StudioEventEmitter>();
     }
 
     // Update is called once per frame
@@ -41,25 +39,26 @@ public class AudioHandler : MonoBehaviour
     private void EngineSound()
     {
         float engineValue = (rb.velocity.sqrMagnitude * 0.05f) * InputHandler.throttleInput;
-        engineInstance.setParameterByName("Speed", engineValue);
+        engineEmitter.EventInstance.setParameterByName("Speed", engineValue);
+        engineEmitter.Play();
     }
 
     public void TriggerBrake()
     {
-        brakeInstance.start();
+        brakeEmitter.Play();
     }
     public void TriggerMaglevEnter()
     {
-        maglevEnterInstance.start();
+        maglevEnterEmitter.Play();
     }
     public void TriggerMaglevExit()
     {
-        maglevExitInstance.start();
+        maglevExitEmitter.Play();
     }
     public void TriggerCollission(Vector3 _pos)
     {
         collission.transform.position = _pos;
-        collissionInstance.start();
+        collissionEmitter.Play();
     }
 
     public void TriggerThruster(THRUSTERS _thuster)
@@ -67,16 +66,16 @@ public class AudioHandler : MonoBehaviour
         switch (_thuster)
         {
             case THRUSTERS.LEFT:
-                thrusterLInstance.start();
+                thrusterLEmitter.Play();
                 break;
             case THRUSTERS.RIGHT:
-                thrusterRInstance.start();
+                thrusterREmitter.Play();
                 break;
             case THRUSTERS.UP:
-                thrusterUInstance.start();
+                thrusterUEmitter.Play();
                 break;
             case THRUSTERS.DOWN:
-                thrusterDInstance.start();
+                thrusterDEmitter.Play();
                 break;
         }
     }

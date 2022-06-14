@@ -33,7 +33,7 @@ public class Movement : MonoBehaviour
     private void Start()
     {
         audioH = GetComponent<AudioHandler>();
-        Cursor.lockState = CursorLockMode.Confined;
+        // Cursor.lockState = CursorLockMode.Confined;
         rollMode = false;
         rb = GetComponent<Rigidbody>();
         sm = new StateMachine();

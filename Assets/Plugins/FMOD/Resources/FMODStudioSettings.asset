@@ -629,7 +629,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   identifier: 2c5177b11d81d824dbb064f9ac8527da
   parentIdentifier: default
-  active: 0
+  active: 1
   Properties:
     LiveUpdate:
       Value: 0
@@ -665,15 +665,16 @@ MonoBehaviour:
       Value: 0
       HasValue: 0
     Plugins:
-      Value: []
-      HasValue: 0
+      Value:
+      - resonanceaudio
+      HasValue: 1
     StaticPlugins:
       Value: []
       HasValue: 0
     CallbackHandler:
       Value: {fileID: 0}
       HasValue: 0
-  OutputTypeName: 
+  OutputTypeName: AUTODETECT
   threadAffinities:
     Value: []
     HasValue: 0

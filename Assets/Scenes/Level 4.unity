@@ -813,6 +813,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f57720f9949ee0b48bda08e898132f09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trackId: 0
+  leaderboard: {fileID: 0}
   countdownTime: 3
   startObject: {fileID: 2134015548}
 --- !u!4 &318135750
@@ -4621,3 +4623,72 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a60287e1178d8954bae3dc84ee6a2836, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &3135203560462414704
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4796301553778147064, guid: 1fb57ff8c64f5264892a619a1bbb39f3,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796301553778147064, guid: 1fb57ff8c64f5264892a619a1bbb39f3,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 537.2198
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796301553778147064, guid: 1fb57ff8c64f5264892a619a1bbb39f3,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 90.79743
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796301553778147064, guid: 1fb57ff8c64f5264892a619a1bbb39f3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 8.868821
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796301553778147064, guid: 1fb57ff8c64f5264892a619a1bbb39f3,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796301553778147064, guid: 1fb57ff8c64f5264892a619a1bbb39f3,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796301553778147064, guid: 1fb57ff8c64f5264892a619a1bbb39f3,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796301553778147064, guid: 1fb57ff8c64f5264892a619a1bbb39f3,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796301553778147064, guid: 1fb57ff8c64f5264892a619a1bbb39f3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796301553778147064, guid: 1fb57ff8c64f5264892a619a1bbb39f3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796301553778147064, guid: 1fb57ff8c64f5264892a619a1bbb39f3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6408228362621142320, guid: 1fb57ff8c64f5264892a619a1bbb39f3,
+        type: 3}
+      propertyPath: m_Name
+      value: MANASFUCKINGINPUTSETTINGS
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1fb57ff8c64f5264892a619a1bbb39f3, type: 3}
