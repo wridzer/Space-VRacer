@@ -18,6 +18,9 @@ public class Movement : MonoBehaviour
     private StateMachine sm;
     private bool rollMode;
 
+    private AudioHandler audioH;
+
+
     // For getting track
     private GameObject lastTrack, currentTrack;
     private Vector3 maglevNormal;
@@ -29,6 +32,7 @@ public class Movement : MonoBehaviour
 
     private void Start()
     {
+        audioH = GetComponent<AudioHandler>();
         Cursor.lockState = CursorLockMode.Confined;
         rollMode = false;
         rb = GetComponent<Rigidbody>();
@@ -143,8 +147,34 @@ public class Movement : MonoBehaviour
 
         rb.velocity = transform.TransformDirection(new Vector3(velocityX, velocityY, velocityZ));
 
+        ThusterAudio();
+        if(accelerationZ < 0f)
+        {
+            audioH.TriggerBrake();
+        }
+
         // Release and Rollmode
         rollMode = InputHandler.rollModeInput;
+    }
+
+    private void ThusterAudio()
+    {
+        if(InputHandler.horThrusterInput < 0)
+        {
+            audioH.TriggerThruster(THRUSTERS.LEFT);
+        }
+        if(InputHandler.horThrusterInput > 0)
+        {
+            audioH.TriggerThruster(THRUSTERS.RIGHT);
+        }
+        if(InputHandler.verThrusterInput < 0)
+        {
+            audioH.TriggerThruster(THRUSTERS.DOWN);
+        }
+        if(InputHandler.verThrusterInput > 0)
+        {
+            audioH.TriggerThruster(THRUSTERS.UP);
+        }
     }
 
     public void DetectState()
