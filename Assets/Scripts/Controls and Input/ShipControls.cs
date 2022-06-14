@@ -116,6 +116,15 @@ public partial class @ShipControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Tap"",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SongSelect"",
+                    ""type"": ""Button"",
+                    ""id"": ""75ca737c-6ea0-45e3-8c2c-96e680d43da4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Tap"",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -459,6 +468,17 @@ public partial class @ShipControls : IInputActionCollection2, IDisposable
                     ""action"": ""Reset"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5faba6c2-7892-46a6-b73e-3f95764547c7"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Main Controls;Gamepad only"",
+                    ""action"": ""SongSelect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -510,6 +530,7 @@ public partial class @ShipControls : IInputActionCollection2, IDisposable
         m_Movement_ThrottleBrake = m_Movement.FindAction("Throttle/Brake", throwIfNotFound: true);
         m_Movement_Restart = m_Movement.FindAction("Restart", throwIfNotFound: true);
         m_Movement_Reset = m_Movement.FindAction("Reset", throwIfNotFound: true);
+        m_Movement_SongSelect = m_Movement.FindAction("SongSelect", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -579,6 +600,7 @@ public partial class @ShipControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Movement_ThrottleBrake;
     private readonly InputAction m_Movement_Restart;
     private readonly InputAction m_Movement_Reset;
+    private readonly InputAction m_Movement_SongSelect;
     public struct MovementActions
     {
         private @ShipControls m_Wrapper;
@@ -593,6 +615,7 @@ public partial class @ShipControls : IInputActionCollection2, IDisposable
         public InputAction @ThrottleBrake => m_Wrapper.m_Movement_ThrottleBrake;
         public InputAction @Restart => m_Wrapper.m_Movement_Restart;
         public InputAction @Reset => m_Wrapper.m_Movement_Reset;
+        public InputAction @SongSelect => m_Wrapper.m_Movement_SongSelect;
         public InputActionMap Get() { return m_Wrapper.m_Movement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -632,6 +655,9 @@ public partial class @ShipControls : IInputActionCollection2, IDisposable
                 @Reset.started -= m_Wrapper.m_MovementActionsCallbackInterface.OnReset;
                 @Reset.performed -= m_Wrapper.m_MovementActionsCallbackInterface.OnReset;
                 @Reset.canceled -= m_Wrapper.m_MovementActionsCallbackInterface.OnReset;
+                @SongSelect.started -= m_Wrapper.m_MovementActionsCallbackInterface.OnSongSelect;
+                @SongSelect.performed -= m_Wrapper.m_MovementActionsCallbackInterface.OnSongSelect;
+                @SongSelect.canceled -= m_Wrapper.m_MovementActionsCallbackInterface.OnSongSelect;
             }
             m_Wrapper.m_MovementActionsCallbackInterface = instance;
             if (instance != null)
@@ -666,6 +692,9 @@ public partial class @ShipControls : IInputActionCollection2, IDisposable
                 @Reset.started += instance.OnReset;
                 @Reset.performed += instance.OnReset;
                 @Reset.canceled += instance.OnReset;
+                @SongSelect.started += instance.OnSongSelect;
+                @SongSelect.performed += instance.OnSongSelect;
+                @SongSelect.canceled += instance.OnSongSelect;
             }
         }
     }
@@ -700,5 +729,6 @@ public partial class @ShipControls : IInputActionCollection2, IDisposable
         void OnThrottleBrake(InputAction.CallbackContext context);
         void OnRestart(InputAction.CallbackContext context);
         void OnReset(InputAction.CallbackContext context);
+        void OnSongSelect(InputAction.CallbackContext context);
     }
 }
