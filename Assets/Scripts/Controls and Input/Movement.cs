@@ -10,7 +10,8 @@ public class Movement : MonoBehaviour
     [SerializeField] private LayerMask ZeroGLayer;
     [SerializeField] private LayerMask trackMask;
 
-    [SerializeField] private GameObject shipInstance, trackDetect, raycastOrigin;
+    [SerializeField] private GameObject shipInstance, trackDetect, raycastOrigin; 
+    [SerializeField] private pitchRollSliders chair;
 
     [HideInInspector] public MovementSettingObject movementSettings;
     [HideInInspector] public Rigidbody rb;
@@ -113,6 +114,11 @@ public class Movement : MonoBehaviour
         } else
         {
             deltaRot += new Vector3(0, 0, -1) * movementSettings.rollSpeed * InputHandler.yawInput;
+        }
+
+        if (chair != null)
+        {
+            chair.localAngularVelocity = deltaRot;
         }
 
         Quaternion deltaRotation = Quaternion.Euler(deltaRot * Time.fixedDeltaTime);

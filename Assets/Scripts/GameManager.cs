@@ -8,6 +8,7 @@ using FMODUnity;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private float countdownTime = 3; // This is probaly just going to be 3 but didn't want to hardcode it
+    // Probably a reference to the leaderboard
 
     private Stopwatch timer;
     private List<System.TimeSpan> times = new List<System.TimeSpan>();
@@ -101,6 +102,8 @@ public class GameManager : MonoBehaviour
     private void Finish(System.TimeSpan _endTime)
     {
         // Do finish stuff
+        // add score with db manager
+        // fetch leaderboards with db manager
         UnityEngine.Debug.Log("Finished");
         instance.start();
     }
