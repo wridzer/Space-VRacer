@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09b305e04a9465f4595843117d51c739, type: 3}
   m_Name: ZeroG
   m_EditorClassIdentifier: 
-  acceleration: 25
+  acceleration: 15
   topSpeed: 150
-  verticalThrusterAcceleration: 12.5
-  horizontalThrusterAcceleration: 12.5
+  thrusterAcceleration: 10
   reverseTopSpeed: 75
   pitchSpeed: 90
   rollSpeed: 270

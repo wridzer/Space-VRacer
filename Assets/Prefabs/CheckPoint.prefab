@@ -101,36 +101,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 13.51, y: 13.02, z: 1}
   m_Center: {x: 0, y: -1.5, z: 0}
---- !u!114 &2395104099491271334
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6978916102420371499}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 292098062
-      Data2: 1292456138
-      Data3: -2050728831
-      Data4: 1492653816
-    Path: event:/SFX/Checkpoint
-  Event: 
-  PlayEvent: 0
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 1
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!114 &2891466427988062415
 MonoBehaviour:
   m_ObjectHideFlags: 0
