@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 5f5453c2ca44acb4b8d9c9e487e387ad
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Vanadine
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 11cc71f2c24997c42912a9dfb06ebe47, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

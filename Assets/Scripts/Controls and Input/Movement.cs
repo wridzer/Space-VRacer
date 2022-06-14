@@ -129,8 +129,8 @@ public class Movement : MonoBehaviour
 
         float accelerationX = 0, accelerationY = 0, accelerationZ = 0;
 
-        accelerationX = movementSettings.thrusterAcceleration * -InputHandler.horThrusterInput;
-        accelerationY = movementSettings.thrusterAcceleration * -InputHandler.verThrusterInput;
+        accelerationX = movementSettings.horizontalThrusterAcceleration * -InputHandler.horThrusterInput;
+        accelerationY = movementSettings.verticalThrusterAcceleration * -InputHandler.verThrusterInput;
         accelerationZ = movementSettings.acceleration * -InputHandler.throttleInput;
 
         // velocity = (1/drag coefficient) * (e^-dragC/m*ΔT)*(dragC*velocity+mass*a)-(mass*a/dragC)
