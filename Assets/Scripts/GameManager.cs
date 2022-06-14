@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     private GameObject playerInstance;
     public Start startObject;
 
-    private EventInstance instance;
+    private FMOD.Studio.EventInstance instance;
 
     private void SpawnTrack()
     {
