@@ -11,7 +11,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private int trackId, leaderboardSize = 4, secToLoadMenu = 5;
-    [SerializeField] private GameObject leaderboard, nameSection, timeSection;
+    private GameObject leaderboard, nameSection, timeSection;
     [SerializeField] private float countdownTime = 3; // This is probaly just going to be 3 but didn't want to hardcode it
 
     private Stopwatch timer;
@@ -108,6 +108,11 @@ public class GameManager : MonoBehaviour
 
     private async void GetLeaderboard()
     {
+
+        leaderboard = playerInstance.GetComponent<leaderboardregelaardingesidkanymore>().leaderboard;
+        nameSection = playerInstance.GetComponent<leaderboardregelaardingesidkanymore>().nameField;
+        timeSection = playerInstance.GetComponent<leaderboardregelaardingesidkanymore>().timeField;
+
         string nameString = "", timeString = "";
         int timesToShow = leaderboardSize;
 

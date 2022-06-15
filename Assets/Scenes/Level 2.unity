@@ -1300,7 +1300,7 @@ PrefabInstance:
     - target: {fileID: 1695709284680843271, guid: ce6069da760b38d418148a23b3b77b85,
         type: 3}
       propertyPath: m_RenderMode
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1695709284680843271, guid: ce6069da760b38d418148a23b3b77b85,
         type: 3}
@@ -1310,7 +1310,7 @@ PrefabInstance:
     - target: {fileID: 1695709284680843288, guid: ce6069da760b38d418148a23b3b77b85,
         type: 3}
       propertyPath: m_PresetInfoIsWorld
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1695709284680843290, guid: ce6069da760b38d418148a23b3b77b85,
         type: 3}
@@ -1319,24 +1319,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce6069da760b38d418148a23b3b77b85, type: 3}
---- !u!1 &587296357 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1695709284680843290, guid: ce6069da760b38d418148a23b3b77b85,
-    type: 3}
-  m_PrefabInstance: {fileID: 587296356}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &587296358 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4631294827641663703, guid: ce6069da760b38d418148a23b3b77b85,
-    type: 3}
-  m_PrefabInstance: {fileID: 587296356}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &587296359 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4631294828434182610, guid: ce6069da760b38d418148a23b3b77b85,
-    type: 3}
-  m_PrefabInstance: {fileID: 587296356}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &592997962
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4472,9 +4454,6 @@ MonoBehaviour:
   trackId: 2
   leaderboardSize: 4
   secToLoadMenu: 5
-  leaderboard: {fileID: 587296357}
-  nameSection: {fileID: 587296359}
-  timeSection: {fileID: 587296358}
   countdownTime: 3
   startObject: {fileID: 1689323232}
 --- !u!114 &2044184104
