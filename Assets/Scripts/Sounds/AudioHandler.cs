@@ -39,8 +39,22 @@ public class AudioHandler : MonoBehaviour
 
     private void EngineSound()
     {
+        //Zero-G max Velocity: 50ish
+        //Maglev max velocity: 110ish?
+        //Haha hardcoding goes brr
+        float engineValue;
 
-        float engineValue = (rb.velocity.sqrMagnitude * 0.05f) * InputHandler.throttleInput;
+        if(!InMaglev)
+        {
+            engineValue = Mathf.Clamp(rb.velocity.magnitude * 0.01f * Mathf.Abs(InputHandler.throttleInput), 0, 0.49999f); //0.01 becomes .5 when multiplied with 50
+        }
+        else
+        {
+            engineValue = Mathf.Clamp((rb.velocity.magnitude * 0.005f * Mathf.Abs(InputHandler.throttleInput)) + 0.5f, 0.5f, 1.5f); //0.005 becomes .5 when multiplied with 100
+
+        }
+
+
         engineEmitter.EventInstance.setParameterByName("Speed", engineValue);
         if (!engineEmitter.IsPlaying()) { engineEmitter.Play(); }
     }
@@ -80,6 +94,11 @@ public class AudioHandler : MonoBehaviour
                 if (!thrusterDEmitter.IsPlaying()) { thrusterDEmitter.Play(); }
                 break;
         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        TriggerCollission(collision.contacts[0].point);
     }
 
 }

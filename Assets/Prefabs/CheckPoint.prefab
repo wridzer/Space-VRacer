@@ -11,6 +11,18 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 992939522, guid: caa27f5c19bbed540a8fd131f24a784d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 992939522, guid: caa27f5c19bbed540a8fd131f24a784d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 992939522, guid: caa27f5c19bbed540a8fd131f24a784d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1426967472690737900, guid: caa27f5c19bbed540a8fd131f24a784d,
         type: 3}
       propertyPath: m_Layer
@@ -51,6 +63,21 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4993870066684703463, guid: caa27f5c19bbed540a8fd131f24a784d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4993870066684703463, guid: caa27f5c19bbed540a8fd131f24a784d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4993870066684703463, guid: caa27f5c19bbed540a8fd131f24a784d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6336357843237990875, guid: caa27f5c19bbed540a8fd131f24a784d,
         type: 3}
       propertyPath: m_Layer
@@ -74,52 +101,52 @@ PrefabInstance:
     - target: {fileID: 8476059360676452704, guid: caa27f5c19bbed540a8fd131f24a784d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -969.72437
+      value: -555.25
       objectReference: {fileID: 0}
     - target: {fileID: 8476059360676452704, guid: caa27f5c19bbed540a8fd131f24a784d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.1024765
+      value: -8.94
       objectReference: {fileID: 0}
     - target: {fileID: 8476059360676452704, guid: caa27f5c19bbed540a8fd131f24a784d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 463.51678
+      value: -296.35
       objectReference: {fileID: 0}
     - target: {fileID: 8476059360676452704, guid: caa27f5c19bbed540a8fd131f24a784d,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.51351804
+      value: 0.30314824
       objectReference: {fileID: 0}
     - target: {fileID: 8476059360676452704, guid: caa27f5c19bbed540a8fd131f24a784d,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.18156381
+      value: 0.0023100225
       objectReference: {fileID: 0}
     - target: {fileID: 8476059360676452704, guid: caa27f5c19bbed540a8fd131f24a784d,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.8290994
+      value: 0.6919289
       objectReference: {fileID: 0}
     - target: {fileID: 8476059360676452704, guid: caa27f5c19bbed540a8fd131f24a784d,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.12620561
+      value: 0.65523297
       objectReference: {fileID: 0}
     - target: {fileID: 8476059360676452704, guid: caa27f5c19bbed540a8fd131f24a784d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -23.313
+      value: -64.87
       objectReference: {fileID: 0}
     - target: {fileID: 8476059360676452704, guid: caa27f5c19bbed540a8fd131f24a784d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -100.515
+      value: 84.262
       objectReference: {fileID: 0}
     - target: {fileID: 8476059360676452704, guid: caa27f5c19bbed540a8fd131f24a784d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 10.76
+      value: 70.561
       objectReference: {fileID: 0}
     - target: {fileID: 9026833382336128766, guid: caa27f5c19bbed540a8fd131f24a784d,
         type: 3}
@@ -208,6 +235,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d32c1185bef3853489b695a88d6c8009, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checkpointNumber: 1
+  checkpointNumber: 0
   gameManager: {fileID: 0}
   playerSpawn: {fileID: 2175454674518595056}
