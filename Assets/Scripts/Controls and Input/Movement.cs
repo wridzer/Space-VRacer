@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class Movement : MonoBehaviour
@@ -12,13 +13,14 @@ public class Movement : MonoBehaviour
 
     [SerializeField] private GameObject shipInstance, trackDetect, raycastOrigin; 
     [SerializeField] private pitchRollSliders chair;
+    [SerializeField] private Slider speedOMeter;
 
     [HideInInspector] public MovementSettingObject movementSettings;
     [HideInInspector] public Rigidbody rb;
     private StateMachine sm;
     private bool rollMode;
 
-    private AudioHandler audioH;
+    [HideInInspector] public AudioHandler audioH;
 
 
     // For getting track
@@ -77,6 +79,7 @@ public class Movement : MonoBehaviour
     private void FixedUpdate()
     {
         sm.Update();
+        speedOMeter.value = rb.velocity.magnitude * 0.01f;
     }
 
     public void Decouple() // from maglev
@@ -148,7 +151,7 @@ public class Movement : MonoBehaviour
         rb.velocity = transform.TransformDirection(new Vector3(velocityX, velocityY, velocityZ));
 
         ThusterAudio();
-        if(accelerationZ < 0f)
+        if(accelerationZ > 0f && Vector3.Project(rb.velocity, transform.forward).z < 0f)
         {
             audioH.TriggerBrake();
         }
