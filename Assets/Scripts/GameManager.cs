@@ -6,10 +6,11 @@ using FMOD.Studio;
 using FMODUnity;
 using TMPro;
 using System;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private int trackId, leaderboardSize = 4;
+    [SerializeField] private int trackId, leaderboardSize = 4, secToLoadMenu = 5;
     [SerializeField] private GameObject leaderboard, nameSection, timeSection;
     [SerializeField] private float countdownTime = 3; // This is probaly just going to be 3 but didn't want to hardcode it
 
@@ -122,5 +123,13 @@ public class GameManager : MonoBehaviour
 
         nameSection.GetComponent<TMP_Text>().text = nameString;
         timeSection.GetComponent<TMP_Text>().text = timeString;
+
+        StartCoroutine(LoadMainMenu());
+    }
+
+    private IEnumerator LoadMainMenu()
+    {
+        yield return new WaitForSeconds(secToLoadMenu);
+        SceneManager.LoadScene(0);
     }
 }

@@ -1446,6 +1446,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trackId: 3
+  leaderboardSize: 4
+  secToLoadMenu: 5
   leaderboard: {fileID: 1656443946}
   nameSection: {fileID: 1656443948}
   timeSection: {fileID: 1656443947}
@@ -2867,6 +2869,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1498535565}
     m_Modifications:
+    - target: {fileID: 334894362364477824, guid: caa27f5c19bbed540a8fd131f24a784d,
+        type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 779342591}
     - target: {fileID: 8476059360676452704, guid: caa27f5c19bbed540a8fd131f24a784d,
         type: 3}
       propertyPath: m_RootOrder
@@ -2942,14 +2949,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1401388480 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9026833382336128766, guid: caa27f5c19bbed540a8fd131f24a784d,
+  m_CorrespondingSourceObject: {fileID: 334894362364477824, guid: caa27f5c19bbed540a8fd131f24a784d,
     type: 3}
   m_PrefabInstance: {fileID: 1401388478}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a60287e1178d8954bae3dc84ee6a2836, type: 3}
+  m_Script: {fileID: 11500000, guid: bd47a8f9ae54d484daad26c6e27dc457, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1416988307

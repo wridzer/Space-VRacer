@@ -3065,8 +3065,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6881190318506214778, guid: caa27f5c19bbed540a8fd131f24a784d,
         type: 3}
-      propertyPath: AllowFadeout
+      propertyPath: TriggerOnce
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6881190318506214778, guid: caa27f5c19bbed540a8fd131f24a784d,
+        type: 3}
+      propertyPath: AllowFadeout
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6881190318506214778, guid: caa27f5c19bbed540a8fd131f24a784d,
         type: 3}
@@ -3177,6 +3182,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1689323228}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1689323232 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 334894362364477824, guid: caa27f5c19bbed540a8fd131f24a784d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1689323228}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd47a8f9ae54d484daad26c6e27dc457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1746437863
 GameObject:
   m_ObjectHideFlags: 0
@@ -3651,11 +3668,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trackId: 2
   leaderboardSize: 4
+  secToLoadMenu: 5
   leaderboard: {fileID: 587296357}
   nameSection: {fileID: 587296359}
   timeSection: {fileID: 587296358}
   countdownTime: 3
-  startObject: {fileID: 0}
+  startObject: {fileID: 1689323232}
 --- !u!114 &2044184104
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,11 +11,11 @@ public class StartLine : MonoBehaviour
 
     [SerializeField] private StudioEventEmitter redEmitter, greenEmitter;
 
-    public GameObject playerInstance;
+    [HideInInspector] public GameObject playerInstance;
 
     private void Start()
     {
-        gameManager.startObject = this;
+        gameManager.startObject = this; // idk why but removing this breaks things
         playerInstance = SpawnPlayer();
         StartCoroutine(StartCountdown(3));
     }
