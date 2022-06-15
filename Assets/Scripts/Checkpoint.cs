@@ -21,6 +21,6 @@ public class Checkpoint : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         instance.start();
-        gameManager.OnCheckpoint(this);
+        gameManager.OnCheckpoint(this, checkpointNumber);
     }
 }

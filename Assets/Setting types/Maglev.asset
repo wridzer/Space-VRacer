@@ -27,8 +27,8 @@ MonoBehaviour:
   decoupleSpeed: 20
   maglevRotStrength: 5
   maglevDisStrength: 8
-  maglevDistance: 1.5
-  maglevDistanceMultiplier: 1
+  maglevDistance: 4
+  maglevDistanceMultiplier: 1.2
   flightStates: 0
   layerMask:
     serializedVersion: 2

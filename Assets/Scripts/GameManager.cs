@@ -75,12 +75,12 @@ public class GameManager : MonoBehaviour
         checkpoints.Add(_checkpointNumber, _checkpoint);
     }
 
-    public void OnCheckpoint(Checkpoint _checkpoint)
+    public void OnCheckpoint(Checkpoint _checkpoint, int _checkpointIndex)
     {
         timer.Stop();
         System.TimeSpan currentTime = timer.Elapsed;
         timer.Start();
-        if(checkpoints[currentCheckpoint] == _checkpoint)
+        if(currentCheckpoint == _checkpointIndex)
         {
             currentCheckpoint++;
             times.Add(currentTime);

@@ -11,7 +11,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private LayerMask ZeroGLayer;
     [SerializeField] private LayerMask trackMask;
 
-    [SerializeField] private GameObject shipInstance, trackDetect, raycastOrigin; 
+    [SerializeField] private GameObject shipInstance, trackDetectState, raycastOrigin, trackDetectAllign; 
     [SerializeField] private pitchRollSliders chair;
     [SerializeField] private Slider speedOMeter;
 
@@ -89,10 +89,24 @@ public class Movement : MonoBehaviour
 
     public void KeepAlligned() // on maglev
     {
-        // Rotation (thanks to Valentijn for this math <3)
-        Vector3 cross = Vector3.Cross(rb.transform.forward, maglevNormal);
-        Vector3 projectOnPlane = Vector3.Cross(maglevNormal, cross);
-        rb.rotation = Quaternion.Slerp(rb.rotation, Quaternion.LookRotation(projectOnPlane, maglevNormal), Time.fixedDeltaTime * movementSettings.maglevRotStrength);
+        RaycastHit hit;
+        Vector3 raycastOffset = (trackDetectAllign.transform.position - raycastOrigin.transform.position).normalized; // To raycast towards the trackdetector, to point forwards
+
+        if (Physics.Raycast(raycastOrigin.transform.position, raycastOffset, out hit, Mathf.Infinity, trackMask))
+        {
+            var AllignNormal = hit.normal;
+
+            // Rotation (thanks to Valentijn for this math <3)
+            Vector3 cross = Vector3.Cross(rb.transform.forward, AllignNormal);
+            Vector3 projectOnPlane = Vector3.Cross(AllignNormal, cross);
+            rb.rotation = Quaternion.Slerp(rb.rotation, Quaternion.LookRotation(projectOnPlane, AllignNormal), Time.fixedDeltaTime * movementSettings.maglevRotStrength);// Rotation (thanks to Valentijn for this math <3)
+        } else
+        {
+            Vector3 cross = Vector3.Cross(rb.transform.forward, maglevNormal);
+            Vector3 projectOnPlane = Vector3.Cross(maglevNormal, cross);
+            rb.rotation = Quaternion.Slerp(rb.rotation, Quaternion.LookRotation(projectOnPlane, maglevNormal), Time.fixedDeltaTime * movementSettings.maglevRotStrength);
+        }
+
 
         // Distance
         float distantForce = movementSettings.maglevDistance - distanceToTrack; // This makes the force greater when closer/futher from desired distance
@@ -189,7 +203,7 @@ public class Movement : MonoBehaviour
 
         RaycastHit hit;
 
-        Vector3 raycastOffset = (trackDetect.transform.position - raycastOrigin.transform.position).normalized; // To raycast towards the trackdetector, to point forwards
+        Vector3 raycastOffset = (trackDetectState.transform.position - raycastOrigin.transform.position).normalized; // To raycast towards the trackdetector, to point forwards
 
         if (Physics.Raycast(raycastOrigin.transform.position, raycastOffset, out hit, Mathf.Infinity, trackMask))
         {
