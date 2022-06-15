@@ -5,13 +5,13 @@ using UnityEngine;
 using FMOD.Studio;
 using FMODUnity;
 using TMPro;
+using System;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private int trackId, leaderboardSize = 4;
     [SerializeField] private GameObject leaderboard, nameSection, timeSection;
     [SerializeField] private float countdownTime = 3; // This is probaly just going to be 3 but didn't want to hardcode it
-    // Probably a reference to the leaderboard
 
     private Stopwatch timer;
     private List<System.TimeSpan> times = new List<System.TimeSpan>();
@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     private int currentCheckpoint = 0;
 
     private GameObject playerInstance;
-    public Start startObject;
+    public StartLine startObject;
 
     private FMOD.Studio.EventInstance instance;
 
@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
     {
         instance = GetComponent<StudioEventEmitter>().EventInstance;
         timer = new Stopwatch();
-        playerInstance = startObject?.SpawnPlayer();
+        playerInstance = startObject?.playerInstance;
 
         StartRace();
     }
@@ -117,7 +117,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < timesToShow; i++)
         {
             nameString += leaderboardTimes.times[i].name + System.Environment.NewLine;
-            timeString += System.TimeSpan.FromMilliseconds(leaderboardTimes.times[i].time) + System.Environment.NewLine;
+            timeString += TimeSpan.FromMilliseconds(leaderboardTimes.times[i].time).ToString(@"hh\:mm\:ss\.fff") + Environment.NewLine;
         }
 
         nameSection.GetComponent<TMP_Text>().text = nameString;

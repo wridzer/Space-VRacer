@@ -4,29 +4,34 @@ using System.Collections;
 using UnityEngine;
 
 
-public class Start : MonoBehaviour
+public class StartLine : MonoBehaviour
 {
     [SerializeField] private GameManager gameManager;
     [SerializeField] private GameObject playerPrefab, SpawnPoint;
 
     [SerializeField] private StudioEventEmitter redEmitter, greenEmitter;
 
-    private void Awake()
+    public GameObject playerInstance;
+
+    private void Start()
     {
         gameManager.startObject = this;
-        StartCountdown();
-        greenEmitter.Play();
-        gameManager.StartCountdown();
+        playerInstance = SpawnPlayer();
+        StartCoroutine(StartCountdown(3));
     }
 
-    private IEnumerator StartCountdown()
+    private IEnumerator StartCountdown(int seconds)
     {
-        redEmitter.Play();
-        yield return new WaitForSeconds(1f);
-        redEmitter.Play();
-        yield return new WaitForSeconds(1f);
-        redEmitter.Play();
-        yield return new WaitForSeconds(1f);
+        int count = seconds;
+
+        while (count > 0)
+        {
+            yield return new WaitForSeconds(1f);
+            count--;
+            redEmitter.Play();
+        }
+        greenEmitter.Play();
+        gameManager.StartCountdown();
     }
 
     public GameObject SpawnPlayer()

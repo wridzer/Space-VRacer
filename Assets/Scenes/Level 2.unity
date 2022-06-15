@@ -3018,6 +3018,91 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1498535565}
     m_Modifications:
+    - target: {fileID: 334894362364477824, guid: caa27f5c19bbed540a8fd131f24a784d,
+        type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 2044184103}
+    - target: {fileID: 6281634726055261570, guid: caa27f5c19bbed540a8fd131f24a784d,
+        type: 3}
+      propertyPath: TriggerOnce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6281634726055261570, guid: caa27f5c19bbed540a8fd131f24a784d,
+        type: 3}
+      propertyPath: EventReference.Path
+      value: event:/SFX/StartCounterGreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 6281634726055261570, guid: caa27f5c19bbed540a8fd131f24a784d,
+        type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6281634726055261570, guid: caa27f5c19bbed540a8fd131f24a784d,
+        type: 3}
+      propertyPath: OverrideMinDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6281634726055261570, guid: caa27f5c19bbed540a8fd131f24a784d,
+        type: 3}
+      propertyPath: EventReference.Guid.Data1
+      value: 1594759096
+      objectReference: {fileID: 0}
+    - target: {fileID: 6281634726055261570, guid: caa27f5c19bbed540a8fd131f24a784d,
+        type: 3}
+      propertyPath: EventReference.Guid.Data2
+      value: 1337887517
+      objectReference: {fileID: 0}
+    - target: {fileID: 6281634726055261570, guid: caa27f5c19bbed540a8fd131f24a784d,
+        type: 3}
+      propertyPath: EventReference.Guid.Data3
+      value: 301071277
+      objectReference: {fileID: 0}
+    - target: {fileID: 6281634726055261570, guid: caa27f5c19bbed540a8fd131f24a784d,
+        type: 3}
+      propertyPath: EventReference.Guid.Data4
+      value: 258135603
+      objectReference: {fileID: 0}
+    - target: {fileID: 6881190318506214778, guid: caa27f5c19bbed540a8fd131f24a784d,
+        type: 3}
+      propertyPath: AllowFadeout
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6881190318506214778, guid: caa27f5c19bbed540a8fd131f24a784d,
+        type: 3}
+      propertyPath: EventReference.Path
+      value: event:/SFX/StartCounterRed
+      objectReference: {fileID: 0}
+    - target: {fileID: 6881190318506214778, guid: caa27f5c19bbed540a8fd131f24a784d,
+        type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6881190318506214778, guid: caa27f5c19bbed540a8fd131f24a784d,
+        type: 3}
+      propertyPath: OverrideMinDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6881190318506214778, guid: caa27f5c19bbed540a8fd131f24a784d,
+        type: 3}
+      propertyPath: EventReference.Guid.Data1
+      value: 949188296
+      objectReference: {fileID: 0}
+    - target: {fileID: 6881190318506214778, guid: caa27f5c19bbed540a8fd131f24a784d,
+        type: 3}
+      propertyPath: EventReference.Guid.Data2
+      value: 1326748154
+      objectReference: {fileID: 0}
+    - target: {fileID: 6881190318506214778, guid: caa27f5c19bbed540a8fd131f24a784d,
+        type: 3}
+      propertyPath: EventReference.Guid.Data3
+      value: 910277052
+      objectReference: {fileID: 0}
+    - target: {fileID: 6881190318506214778, guid: caa27f5c19bbed540a8fd131f24a784d,
+        type: 3}
+      propertyPath: EventReference.Guid.Data4
+      value: -779658000
+      objectReference: {fileID: 0}
     - target: {fileID: 8476059360676452704, guid: caa27f5c19bbed540a8fd131f24a784d,
         type: 3}
       propertyPath: m_RootOrder
@@ -3083,7 +3168,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Start
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9026833382336128766, guid: caa27f5c19bbed540a8fd131f24a784d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: caa27f5c19bbed540a8fd131f24a784d, type: 3}
 --- !u!4 &1689323229 stripped
 Transform:
@@ -3091,18 +3177,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1689323228}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1689323230 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9026833382336128766, guid: caa27f5c19bbed540a8fd131f24a784d,
-    type: 3}
-  m_PrefabInstance: {fileID: 1689323228}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a60287e1178d8954bae3dc84ee6a2836, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1746437863
 GameObject:
   m_ObjectHideFlags: 0
@@ -3581,7 +3655,7 @@ MonoBehaviour:
   nameSection: {fileID: 587296359}
   timeSection: {fileID: 587296358}
   countdownTime: 3
-  startObject: {fileID: 1689323230}
+  startObject: {fileID: 0}
 --- !u!114 &2044184104
 MonoBehaviour:
   m_ObjectHideFlags: 0
