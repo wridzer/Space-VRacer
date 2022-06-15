@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using FMOD.Studio;
+using FMODUnity;
+using System.Collections;
 using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
@@ -8,13 +10,17 @@ public class Checkpoint : MonoBehaviour
 
     public GameObject playerSpawn;
 
+    private EventInstance instance;
+
     private void Awake()
     {
+        instance = GetComponent<StudioEventEmitter>().EventInstance;
         gameManager.RegisterCheckpoint(this, checkpointNumber); // when trackbuilder implemented, this should change
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        gameManager.OnCheckpoint(this);
+        instance.start();
+        gameManager.OnCheckpoint(this, checkpointNumber);
     }
 }

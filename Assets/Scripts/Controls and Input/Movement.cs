@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class Movement : MonoBehaviour
@@ -10,12 +11,17 @@ public class Movement : MonoBehaviour
     [SerializeField] private LayerMask ZeroGLayer;
     [SerializeField] private LayerMask trackMask;
 
-    [SerializeField] private GameObject shipInstance, trackDetect, raycastOrigin;
+    [SerializeField] private GameObject shipInstance, trackDetectState, raycastOrigin, trackDetectAllign; 
+    [SerializeField] private pitchRollSliders chair;
+    [SerializeField] private Slider speedOMeter;
 
     [HideInInspector] public MovementSettingObject movementSettings;
     [HideInInspector] public Rigidbody rb;
     private StateMachine sm;
     private bool rollMode;
+
+    [HideInInspector] public AudioHandler audioH;
+
 
     // For getting track
     private GameObject lastTrack, currentTrack;
@@ -28,7 +34,8 @@ public class Movement : MonoBehaviour
 
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Confined;
+        audioH = GetComponent<AudioHandler>();
+        // Cursor.lockState = CursorLockMode.Confined;
         rollMode = false;
         rb = GetComponent<Rigidbody>();
         sm = new StateMachine();
@@ -72,6 +79,7 @@ public class Movement : MonoBehaviour
     private void FixedUpdate()
     {
         sm.Update();
+        speedOMeter.value = rb.velocity.magnitude * 0.01f;
     }
 
     public void Decouple() // from maglev
@@ -81,10 +89,24 @@ public class Movement : MonoBehaviour
 
     public void KeepAlligned() // on maglev
     {
-        // Rotation (thanks to Valentijn for this math <3)
-        Vector3 cross = Vector3.Cross(rb.transform.forward, maglevNormal);
-        Vector3 projectOnPlane = Vector3.Cross(maglevNormal, cross);
-        rb.rotation = Quaternion.Slerp(rb.rotation, Quaternion.LookRotation(projectOnPlane, maglevNormal), Time.fixedDeltaTime * movementSettings.maglevRotStrength);
+        RaycastHit hit;
+        Vector3 raycastOffset = (trackDetectAllign.transform.position - raycastOrigin.transform.position).normalized; // To raycast towards the trackdetector, to point forwards
+
+        if (Physics.Raycast(raycastOrigin.transform.position, raycastOffset, out hit, Mathf.Infinity, trackMask))
+        {
+            var AllignNormal = hit.normal;
+
+            // Rotation (thanks to Valentijn for this math <3)
+            Vector3 cross = Vector3.Cross(rb.transform.forward, AllignNormal);
+            Vector3 projectOnPlane = Vector3.Cross(AllignNormal, cross);
+            rb.rotation = Quaternion.Slerp(rb.rotation, Quaternion.LookRotation(projectOnPlane, AllignNormal), Time.fixedDeltaTime * movementSettings.maglevRotStrength);// Rotation (thanks to Valentijn for this math <3)
+        } else
+        {
+            Vector3 cross = Vector3.Cross(rb.transform.forward, maglevNormal);
+            Vector3 projectOnPlane = Vector3.Cross(maglevNormal, cross);
+            rb.rotation = Quaternion.Slerp(rb.rotation, Quaternion.LookRotation(projectOnPlane, maglevNormal), Time.fixedDeltaTime * movementSettings.maglevRotStrength);
+        }
+
 
         // Distance
         float distantForce = movementSettings.maglevDistance - distanceToTrack; // This makes the force greater when closer/futher from desired distance
@@ -101,7 +123,7 @@ public class Movement : MonoBehaviour
     public void Rotate()
     {
         // Pitch, Yaw and Roll
-        deltaRot += new Vector3(1, 0, 0) * movementSettings.pitchSpeed * InputHandler.pitchInput;
+        deltaRot += new Vector3(1, 0, 0) * movementSettings.pitchSpeed * -InputHandler.pitchInput;
         if (!rollMode) // If we do it like this than on controllers where you can do both we just ignore rollmode
         {
             deltaRot += new Vector3(0, 1, 0) * movementSettings.yawSpeed * InputHandler.yawInput;
@@ -109,6 +131,11 @@ public class Movement : MonoBehaviour
         } else
         {
             deltaRot += new Vector3(0, 0, -1) * movementSettings.rollSpeed * InputHandler.yawInput;
+        }
+
+        if (chair != null)
+        {
+            chair.localAngularVelocity = deltaRot;
         }
 
         Quaternion deltaRotation = Quaternion.Euler(deltaRot * Time.fixedDeltaTime);
@@ -123,8 +150,8 @@ public class Movement : MonoBehaviour
 
         float accelerationX = 0, accelerationY = 0, accelerationZ = 0;
 
-        accelerationX = movementSettings.thrusterAcceleration * -InputHandler.horThrusterInput;
-        accelerationY = movementSettings.thrusterAcceleration * -InputHandler.verThrusterInput;
+        accelerationX = movementSettings.horizontalThrusterAcceleration * -InputHandler.horThrusterInput;
+        accelerationY = movementSettings.verticalThrusterAcceleration * -InputHandler.verThrusterInput;
         accelerationZ = movementSettings.acceleration * -InputHandler.throttleInput;
 
         // velocity = (1/drag coefficient) * (e^-dragC/m*ΔT)*(dragC*velocity+mass*a)-(mass*a/dragC)
@@ -137,8 +164,34 @@ public class Movement : MonoBehaviour
 
         rb.velocity = transform.TransformDirection(new Vector3(velocityX, velocityY, velocityZ));
 
+        ThusterAudio();
+        if(accelerationZ > 0f && Vector3.Project(rb.velocity, transform.forward).z < 0f)
+        {
+            audioH.TriggerBrake();
+        }
+
         // Release and Rollmode
         rollMode = InputHandler.rollModeInput;
+    }
+
+    private void ThusterAudio()
+    {
+        if(InputHandler.horThrusterInput < 0)
+        {
+            audioH.TriggerThruster(THRUSTERS.LEFT);
+        }
+        if(InputHandler.horThrusterInput > 0)
+        {
+            audioH.TriggerThruster(THRUSTERS.RIGHT);
+        }
+        if(InputHandler.verThrusterInput < 0)
+        {
+            audioH.TriggerThruster(THRUSTERS.DOWN);
+        }
+        if(InputHandler.verThrusterInput > 0)
+        {
+            audioH.TriggerThruster(THRUSTERS.UP);
+        }
     }
 
     public void DetectState()
@@ -150,7 +203,7 @@ public class Movement : MonoBehaviour
 
         RaycastHit hit;
 
-        Vector3 raycastOffset = (trackDetect.transform.position - raycastOrigin.transform.position).normalized; // To raycast towards the trackdetector, to point forwards
+        Vector3 raycastOffset = (trackDetectState.transform.position - raycastOrigin.transform.position).normalized; // To raycast towards the trackdetector, to point forwards
 
         if (Physics.Raycast(raycastOrigin.transform.position, raycastOffset, out hit, Mathf.Infinity, trackMask))
         {
