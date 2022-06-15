@@ -504,7 +504,7 @@ MonoBehaviour:
   Path: Assets/Plugins/FMOD/StreamingAssets/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 637908366592125411
+  lastModified: 637908958647862707
   FileSizes: []
   Exists: 1
 --- !u!114 &-2965441316346011499
@@ -604,7 +604,7 @@ MonoBehaviour:
   Path: Assets/Plugins/FMOD/StreamingAssets/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637908366591525085
+  lastModified: 637908958647564894
   FileSizes: []
   Exists: 1
 --- !u!114 &-1555415059171573453
@@ -814,7 +814,7 @@ MonoBehaviour:
   - {fileID: -1779883366117825536}
   StringsBanks:
   - {fileID: 3024511602371798437}
-  cacheTime: 637908366592300555
+  cacheTime: 637908958647932556
   cacheVersion: 131591
 --- !u!114 &91950739684995597
 MonoBehaviour:
@@ -1072,7 +1072,7 @@ MonoBehaviour:
   Path: Assets/Plugins/FMOD/StreamingAssets/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637908366591570436
+  lastModified: 637908958647574876
   FileSizes:
   - Name: 
     Value: 1988
@@ -1227,7 +1227,7 @@ MonoBehaviour:
   Path: Assets/Plugins/FMOD/StreamingAssets/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 637908366592300555
+  lastModified: 637908958647932556
   FileSizes: []
   Exists: 1
 --- !u!114 &5876900859628598034
@@ -1354,6 +1354,6 @@ MonoBehaviour:
   Path: Assets/Plugins/FMOD/StreamingAssets/Desktop/SFX (No VR).bank
   Name: SFX (No VR)
   StudioPath: bank:/SFX (No VR)
-  lastModified: 637908366592186084
+  lastModified: 637908958647882304
   FileSizes: []
   Exists: 1
