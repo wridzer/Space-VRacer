@@ -144,11 +144,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1169573237
+      Data2: 1077006767
+      Data3: -799832425
+      Data4: -207228240
+    Path: event:/SFX/ThrusterBottomRight
   Event: 
   PlayEvent: 0
   StopEvent: 0
@@ -157,8 +157,8 @@ MonoBehaviour:
   Preload: 0
   Params: []
   OverrideAttenuation: 0
-  OverrideMinDistance: -1
-  OverrideMaxDistance: -1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &2675515937242441807
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,11 +206,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -222701130
+      Data2: 1151458591
+      Data3: 385053084
+      Data4: 1998025219
+    Path: event:/SFX/MaglevExit
   Event: 
   PlayEvent: 0
   StopEvent: 0
@@ -219,8 +219,8 @@ MonoBehaviour:
   Preload: 0
   Params: []
   OverrideAttenuation: 0
-  OverrideMinDistance: -1
-  OverrideMaxDistance: -1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &3526934551606798085
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,11 +268,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 1504835390
+      Data2: 1154060084
+      Data3: 1384826277
+      Data4: -1941240633
+    Path: event:/SFX/Brake
   Event: 
   PlayEvent: 0
   StopEvent: 0
@@ -281,8 +281,8 @@ MonoBehaviour:
   Preload: 0
   Params: []
   OverrideAttenuation: 0
-  OverrideMinDistance: -1
-  OverrideMaxDistance: -1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &4420708301409547327
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,7 +409,7 @@ Transform:
   m_GameObject: {fileID: 4420708301983366736}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4420708302198682434}
@@ -779,11 +779,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1805966017
+      Data2: 1205710756
+      Data3: -1758973055
+      Data4: 488028433
+    Path: event:/SFX/ThrusterTopRight
   Event: 
   PlayEvent: 0
   StopEvent: 0
@@ -792,8 +792,8 @@ MonoBehaviour:
   Preload: 0
   Params: []
   OverrideAttenuation: 0
-  OverrideMinDistance: -1
-  OverrideMaxDistance: -1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &5369567301603811466
 GameObject:
   m_ObjectHideFlags: 0
@@ -841,11 +841,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -561133895
+      Data2: 1284759666
+      Data3: 1207179904
+      Data4: -509262743
+    Path: event:/SFX/MainEngine
   Event: 
   PlayEvent: 0
   StopEvent: 0
@@ -854,8 +854,8 @@ MonoBehaviour:
   Preload: 0
   Params: []
   OverrideAttenuation: 0
-  OverrideMinDistance: -1
-  OverrideMaxDistance: -1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &5959893674017907525
 GameObject:
   m_ObjectHideFlags: 0
@@ -903,11 +903,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -2143548056
+      Data2: 1186116446
+      Data3: -1196356451
+      Data4: 1588968261
+    Path: event:/SFX/ThrusterTopLeft
   Event: 
   PlayEvent: 0
   StopEvent: 0
@@ -916,8 +916,8 @@ MonoBehaviour:
   Preload: 0
   Params: []
   OverrideAttenuation: 0
-  OverrideMinDistance: -1
-  OverrideMaxDistance: -1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &6323862745127058574
 GameObject:
   m_ObjectHideFlags: 0
@@ -1002,11 +1002,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -274781292
+      Data2: 1177573521
+      Data3: -1939830349
+      Data4: -1044682002
+    Path: event:/SFX/ThrusterBottomLeft
   Event: 
   PlayEvent: 0
   StopEvent: 0
@@ -1015,8 +1015,8 @@ MonoBehaviour:
   Preload: 0
   Params: []
   OverrideAttenuation: 0
-  OverrideMinDistance: -1
-  OverrideMaxDistance: -1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &6931080198566697094
 GameObject:
   m_ObjectHideFlags: 0
@@ -1064,11 +1064,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 875673799
+      Data2: 1103178256
+      Data3: -659182452
+      Data4: 1155244985
+    Path: event:/SFX/MaglevEnter
   Event: 
   PlayEvent: 0
   StopEvent: 0
@@ -1077,8 +1077,8 @@ MonoBehaviour:
   Preload: 0
   Params: []
   OverrideAttenuation: 0
-  OverrideMinDistance: -1
-  OverrideMaxDistance: -1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &7701609360639628454
 GameObject:
   m_ObjectHideFlags: 0
@@ -1224,11 +1224,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -985471645
+      Data2: 1276243763
+      Data3: -203233400
+      Data4: 1221301615
+    Path: event:/SFX/Collission
   Event: 
   PlayEvent: 0
   StopEvent: 0
@@ -1237,8 +1237,8 @@ MonoBehaviour:
   Preload: 0
   Params: []
   OverrideAttenuation: 0
-  OverrideMinDistance: -1
-  OverrideMaxDistance: -1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &1838892599512812965
 PrefabInstance:
   m_ObjectHideFlags: 0

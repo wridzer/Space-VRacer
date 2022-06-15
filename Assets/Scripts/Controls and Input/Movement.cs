@@ -18,7 +18,7 @@ public class Movement : MonoBehaviour
     private StateMachine sm;
     private bool rollMode;
 
-    private AudioHandler audioH;
+    [HideInInspector] public AudioHandler audioH;
 
 
     // For getting track
@@ -148,7 +148,7 @@ public class Movement : MonoBehaviour
         rb.velocity = transform.TransformDirection(new Vector3(velocityX, velocityY, velocityZ));
 
         ThusterAudio();
-        if(accelerationZ < 0f)
+        if(accelerationZ > 0f)
         {
             audioH.TriggerBrake();
         }

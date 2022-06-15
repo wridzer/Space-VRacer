@@ -12,6 +12,7 @@ public class AudioHandler : MonoBehaviour
     [SerializeField] private GameObject engine, brake, maglevEnter, maglevExit, collission;
     private StudioEventEmitter engineEmitter, brakeEmitter, maglevEnterEmitter, maglevExitEmitter, collissionEmitter;
     private Rigidbody rb;
+    [HideInInspector] public bool InMaglev;
 
     // Start is called before the first frame update
     void Awake()
@@ -38,14 +39,15 @@ public class AudioHandler : MonoBehaviour
 
     private void EngineSound()
     {
+
         float engineValue = (rb.velocity.sqrMagnitude * 0.05f) * InputHandler.throttleInput;
         engineEmitter.EventInstance.setParameterByName("Speed", engineValue);
-        engineEmitter.Play();
+        if (!engineEmitter.IsPlaying()) { engineEmitter.Play(); }
     }
 
     public void TriggerBrake()
     {
-        brakeEmitter.Play();
+        if (!brakeEmitter.IsPlaying()) { brakeEmitter.Play(); }
     }
     public void TriggerMaglevEnter()
     {
@@ -66,16 +68,16 @@ public class AudioHandler : MonoBehaviour
         switch (_thuster)
         {
             case THRUSTERS.LEFT:
-                thrusterLEmitter.Play();
+                if (!thrusterLEmitter.IsPlaying()) { thrusterLEmitter.Play(); }
                 break;
             case THRUSTERS.RIGHT:
-                thrusterREmitter.Play();
+                if (!thrusterREmitter.IsPlaying()) { thrusterREmitter.Play(); }
                 break;
             case THRUSTERS.UP:
-                thrusterUEmitter.Play();
+                if (!thrusterUEmitter.IsPlaying()) { thrusterUEmitter.Play(); }
                 break;
             case THRUSTERS.DOWN:
-                thrusterDEmitter.Play();
+                if (!thrusterDEmitter.IsPlaying()) { thrusterDEmitter.Play(); }
                 break;
         }
     }

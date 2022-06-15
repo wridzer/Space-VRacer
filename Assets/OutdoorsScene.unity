@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2158.6562, g: 2264.045, b: 3290.668, a: 1}
+  m_IndirectSpecularColor: {r: 2160.4443, g: 2264.0195, b: 3286.6797, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2116,6 +2116,76 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1261076270692291542, guid: f1cfd832b1252de4991edbc89c5cd6eb,
+        type: 3}
+      propertyPath: EventReference.Path
+      value: event:/SFX/ThrusterBottomLeft
+      objectReference: {fileID: 0}
+    - target: {fileID: 1261076270692291542, guid: f1cfd832b1252de4991edbc89c5cd6eb,
+        type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1261076270692291542, guid: f1cfd832b1252de4991edbc89c5cd6eb,
+        type: 3}
+      propertyPath: OverrideMinDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1261076270692291542, guid: f1cfd832b1252de4991edbc89c5cd6eb,
+        type: 3}
+      propertyPath: EventReference.Guid.Data1
+      value: -274781292
+      objectReference: {fileID: 0}
+    - target: {fileID: 1261076270692291542, guid: f1cfd832b1252de4991edbc89c5cd6eb,
+        type: 3}
+      propertyPath: EventReference.Guid.Data2
+      value: 1177573521
+      objectReference: {fileID: 0}
+    - target: {fileID: 1261076270692291542, guid: f1cfd832b1252de4991edbc89c5cd6eb,
+        type: 3}
+      propertyPath: EventReference.Guid.Data3
+      value: -1939830349
+      objectReference: {fileID: 0}
+    - target: {fileID: 1261076270692291542, guid: f1cfd832b1252de4991edbc89c5cd6eb,
+        type: 3}
+      propertyPath: EventReference.Guid.Data4
+      value: -1044682002
+      objectReference: {fileID: 0}
+    - target: {fileID: 4329417933016106791, guid: f1cfd832b1252de4991edbc89c5cd6eb,
+        type: 3}
+      propertyPath: EventReference.Path
+      value: event:/SFX/ThrusterTopLeft
+      objectReference: {fileID: 0}
+    - target: {fileID: 4329417933016106791, guid: f1cfd832b1252de4991edbc89c5cd6eb,
+        type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4329417933016106791, guid: f1cfd832b1252de4991edbc89c5cd6eb,
+        type: 3}
+      propertyPath: OverrideMinDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4329417933016106791, guid: f1cfd832b1252de4991edbc89c5cd6eb,
+        type: 3}
+      propertyPath: EventReference.Guid.Data1
+      value: -2143548056
+      objectReference: {fileID: 0}
+    - target: {fileID: 4329417933016106791, guid: f1cfd832b1252de4991edbc89c5cd6eb,
+        type: 3}
+      propertyPath: EventReference.Guid.Data2
+      value: 1186116446
+      objectReference: {fileID: 0}
+    - target: {fileID: 4329417933016106791, guid: f1cfd832b1252de4991edbc89c5cd6eb,
+        type: 3}
+      propertyPath: EventReference.Guid.Data3
+      value: -1196356451
+      objectReference: {fileID: 0}
+    - target: {fileID: 4329417933016106791, guid: f1cfd832b1252de4991edbc89c5cd6eb,
+        type: 3}
+      propertyPath: EventReference.Guid.Data4
+      value: 1588968261
+      objectReference: {fileID: 0}
     - target: {fileID: 4420708301983366736, guid: f1cfd832b1252de4991edbc89c5cd6eb,
         type: 3}
       propertyPath: m_Name
@@ -2125,6 +2195,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420708301983366740, guid: f1cfd832b1252de4991edbc89c5cd6eb,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420708301983366740, guid: f1cfd832b1252de4991edbc89c5cd6eb,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420708301983366740, guid: f1cfd832b1252de4991edbc89c5cd6eb,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4420708301983366740, guid: f1cfd832b1252de4991edbc89c5cd6eb,
         type: 3}
@@ -2175,6 +2260,111 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6015322089452464119, guid: f1cfd832b1252de4991edbc89c5cd6eb,
+        type: 3}
+      propertyPath: EventReference.Path
+      value: event:/SFX/ThrusterTopRight
+      objectReference: {fileID: 0}
+    - target: {fileID: 6015322089452464119, guid: f1cfd832b1252de4991edbc89c5cd6eb,
+        type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6015322089452464119, guid: f1cfd832b1252de4991edbc89c5cd6eb,
+        type: 3}
+      propertyPath: OverrideMinDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6015322089452464119, guid: f1cfd832b1252de4991edbc89c5cd6eb,
+        type: 3}
+      propertyPath: EventReference.Guid.Data1
+      value: -1805966017
+      objectReference: {fileID: 0}
+    - target: {fileID: 6015322089452464119, guid: f1cfd832b1252de4991edbc89c5cd6eb,
+        type: 3}
+      propertyPath: EventReference.Guid.Data2
+      value: 1205710756
+      objectReference: {fileID: 0}
+    - target: {fileID: 6015322089452464119, guid: f1cfd832b1252de4991edbc89c5cd6eb,
+        type: 3}
+      propertyPath: EventReference.Guid.Data3
+      value: -1758973055
+      objectReference: {fileID: 0}
+    - target: {fileID: 6015322089452464119, guid: f1cfd832b1252de4991edbc89c5cd6eb,
+        type: 3}
+      propertyPath: EventReference.Guid.Data4
+      value: 488028433
+      objectReference: {fileID: 0}
+    - target: {fileID: 6971443869274355230, guid: f1cfd832b1252de4991edbc89c5cd6eb,
+        type: 3}
+      propertyPath: EventReference.Path
+      value: event:/SFX/ThrusterBottomRight
+      objectReference: {fileID: 0}
+    - target: {fileID: 6971443869274355230, guid: f1cfd832b1252de4991edbc89c5cd6eb,
+        type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6971443869274355230, guid: f1cfd832b1252de4991edbc89c5cd6eb,
+        type: 3}
+      propertyPath: OverrideMinDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6971443869274355230, guid: f1cfd832b1252de4991edbc89c5cd6eb,
+        type: 3}
+      propertyPath: EventReference.Guid.Data1
+      value: -1169573237
+      objectReference: {fileID: 0}
+    - target: {fileID: 6971443869274355230, guid: f1cfd832b1252de4991edbc89c5cd6eb,
+        type: 3}
+      propertyPath: EventReference.Guid.Data2
+      value: 1077006767
+      objectReference: {fileID: 0}
+    - target: {fileID: 6971443869274355230, guid: f1cfd832b1252de4991edbc89c5cd6eb,
+        type: 3}
+      propertyPath: EventReference.Guid.Data3
+      value: -799832425
+      objectReference: {fileID: 0}
+    - target: {fileID: 6971443869274355230, guid: f1cfd832b1252de4991edbc89c5cd6eb,
+        type: 3}
+      propertyPath: EventReference.Guid.Data4
+      value: -207228240
+      objectReference: {fileID: 0}
+    - target: {fileID: 8923711001156712032, guid: f1cfd832b1252de4991edbc89c5cd6eb,
+        type: 3}
+      propertyPath: EventReference.Path
+      value: event:/SFX/Collission
+      objectReference: {fileID: 0}
+    - target: {fileID: 8923711001156712032, guid: f1cfd832b1252de4991edbc89c5cd6eb,
+        type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8923711001156712032, guid: f1cfd832b1252de4991edbc89c5cd6eb,
+        type: 3}
+      propertyPath: OverrideMinDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8923711001156712032, guid: f1cfd832b1252de4991edbc89c5cd6eb,
+        type: 3}
+      propertyPath: EventReference.Guid.Data1
+      value: -985471645
+      objectReference: {fileID: 0}
+    - target: {fileID: 8923711001156712032, guid: f1cfd832b1252de4991edbc89c5cd6eb,
+        type: 3}
+      propertyPath: EventReference.Guid.Data2
+      value: 1276243763
+      objectReference: {fileID: 0}
+    - target: {fileID: 8923711001156712032, guid: f1cfd832b1252de4991edbc89c5cd6eb,
+        type: 3}
+      propertyPath: EventReference.Guid.Data3
+      value: -203233400
+      objectReference: {fileID: 0}
+    - target: {fileID: 8923711001156712032, guid: f1cfd832b1252de4991edbc89c5cd6eb,
+        type: 3}
+      propertyPath: EventReference.Guid.Data4
+      value: 1221301615
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1cfd832b1252de4991edbc89c5cd6eb, type: 3}
