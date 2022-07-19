@@ -25,7 +25,7 @@ MonoBehaviour:
   frictionCoefY: 4
   frictionCoefZ: 0.6
   decoupleSpeed: 20
-  maglevRotStrength: 5
+  maglevRotStrength: 100
   maglevDisStrength: 8
   maglevDistance: 4
   maglevDistanceMultiplier: 1.2

@@ -467,6 +467,54 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 271865059}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &203418860
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 203418862}
+  - component: {fileID: 203418861}
+  m_Layer: 6
+  m_Name: tracky cracky hacky
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &203418861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203418860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5372cfd1266a5c445a905bc3603a6699, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tracky: {fileID: 5413795547384760841, guid: 2ab628ca9a3684a479ec35864e431c22, type: 3}
+  incline: 90
+  distance: 1
+  cubeAmount: 200
+--- !u!4 &203418862
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203418860}
+  m_LocalRotation: {x: 0.49999997, y: -0.50000006, z: 0.49999997, w: 0.5000001}
+  m_LocalPosition: {x: -603.4, y: 2205.4, z: -936.64}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 90}
 --- !u!1001 &204114298
 PrefabInstance:
   m_ObjectHideFlags: 0
