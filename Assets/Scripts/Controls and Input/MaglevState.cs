@@ -21,7 +21,7 @@ public class MaglevState : FlightState
     public override void OnUpdate()
     {
         Movement.Move();
-        Movement.KeepAlligned();
+        Movement.KeepAligned();
         Movement.localYRot = 0;
         Movement.deltaMagRot.y = 0;
         Movement.Rotate();

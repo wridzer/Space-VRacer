@@ -87,7 +87,7 @@ public class Movement : MonoBehaviour
         rb.AddForce(rb.transform.up * movementSettings.decoupleSpeed, ForceMode.Force);
     }
 
-    public void KeepAlligned() // on maglev
+    public void KeepAligned() // on maglev
     {
         RaycastHit hit;
         Vector3 raycastOffset = (trackDetectAllign.transform.position - raycastOrigin.transform.position).normalized; // To raycast towards the trackdetector, to point forwards
@@ -99,7 +99,9 @@ public class Movement : MonoBehaviour
             // Rotation (thanks to Valentijn for this math <3)
             Vector3 cross = Vector3.Cross(rb.transform.forward, AllignNormal);
             Vector3 projectOnPlane = Vector3.Cross(AllignNormal, cross);
-            rb.rotation = Quaternion.Slerp(rb.rotation, Quaternion.LookRotation(projectOnPlane, AllignNormal), Time.fixedDeltaTime * movementSettings.maglevRotStrength);// Rotation (thanks to Valentijn for this math <3)
+            Quaternion oldRot = rb.rotation;
+            rb.rotation = Quaternion.Slerp(rb.rotation, Quaternion.LookRotation(projectOnPlane, AllignNormal), Time.fixedDeltaTime * movementSettings.maglevRotStrength);
+            rb.velocity = (rb.rotation * Quaternion.Inverse(oldRot)) * rb.velocity;
         } else
         {
             Vector3 cross = Vector3.Cross(rb.transform.forward, maglevNormal);
