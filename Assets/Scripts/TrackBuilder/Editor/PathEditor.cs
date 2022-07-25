@@ -58,7 +58,17 @@ namespace TrackBuilder
         void Input()
         {
             Event guiEvent = Event.current;
-            Vector3 mousePos = HandleUtility.GUIPointToWorldRay(guiEvent.mousePosition).origin + (HandleUtility.GUIPointToWorldRay(guiEvent.mousePosition).direction * 5);
+            RaycastHit hit;
+            Vector3 mousePos = Vector3.zero;
+
+            if(Physics.Raycast(HandleUtility.GUIPointToWorldRay(guiEvent.mousePosition).origin, HandleUtility.GUIPointToWorldRay(guiEvent.mousePosition).direction, out hit, Mathf.Infinity))
+            {
+                mousePos = hit.point;
+            }
+            else
+            {
+                mousePos = HandleUtility.GUIPointToWorldRay(guiEvent.mousePosition).origin + (HandleUtility.GUIPointToWorldRay(guiEvent.mousePosition).direction * 5); //should be hit distance
+            }
 
             if (guiEvent.type == EventType.MouseDown && guiEvent.button == 0 && guiEvent.shift)
             {
@@ -119,6 +129,8 @@ namespace TrackBuilder
                     HandleUtility.Repaint();
                 }
             }
+
+            HandleUtility.AddDefaultControl(0);
         }
 
         void Draw()

@@ -2,13 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SplineGenerator : MonoBehaviour
-{
-    [Range(0.0f, 1.0f)]
-    public float t;
-
-    public GameObject objA, objB, objC, objD;
-
+public static class Bezier
+{ 
     public static Vector3 Lerp(Vector3 a, Vector3 b, float t)
     {
         return a + (b - a) * t;
@@ -26,11 +21,5 @@ public class SplineGenerator : MonoBehaviour
         Vector3 p0 = QuadraticCurve(a, b, c, t);
         Vector3 p1 = QuadraticCurve(b, c, d, t);
         return Lerp(p0, p1, t);
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawSphere(CubicCurve(objA.transform.position, objB.transform.position, objC.transform.position, objD.transform.position, t), 1f);
     }
 }
