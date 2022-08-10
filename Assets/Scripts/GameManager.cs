@@ -2,9 +2,16 @@ using System.Collections;
 using System.Diagnostics;
 using System.Collections.Generic;
 using UnityEngine;
+using FMOD.Studio;
+using FMODUnity;
+using TMPro;
+using System;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private int trackId, leaderboardSize = 4, secToLoadMenu = 5;
+    private GameObject leaderboard, nameSection, timeSection;
     [SerializeField] private float countdownTime = 3; // This is probaly just going to be 3 but didn't want to hardcode it
 
     private Stopwatch timer;
@@ -13,18 +20,14 @@ public class GameManager : MonoBehaviour
     private int currentCheckpoint = 0;
 
     private GameObject playerInstance;
-    public Start startObject;
+    public StartLine startObject;
+
+    private FMOD.Studio.EventInstance instance;
 
     private void SpawnTrack()
     {
         // This is for when trackbuilder gets implemented
     }
-
-    private void Awake()
-    {
-        timer = new Stopwatch();
-    }
-
     private void Respawn()
     {
         playerInstance.GetComponent<Rigidbody>().velocity = Vector3.zero;
@@ -46,15 +49,16 @@ public class GameManager : MonoBehaviour
 
     public void StartCountdown()
     {
-        playerInstance = startObject?.SpawnPlayer();
-
-        // show countdown
+        instance = GetComponent<StudioEventEmitter>().EventInstance;
+        timer = new Stopwatch();
+        playerInstance = startObject?.playerInstance;
 
         StartRace();
     }
 
     private void StartRace()
     {
+        playerInstance.GetComponent<Movement>().enabled = true;
         timer.Start();
     }
 
@@ -65,18 +69,18 @@ public class GameManager : MonoBehaviour
         // checkpoints.Add(_checkpoint); 
     }
 
-    //Created this because there is no trackbuilder yet and otherwise the get registered in the wrong order
+    //Created this because there is no trackbuilder yet and otherwise they get registered in the wrong order
     public void RegisterCheckpoint(Checkpoint _checkpoint, int _checkpointNumber)
     {
         checkpoints.Add(_checkpointNumber, _checkpoint);
     }
 
-    public void OnCheckpoint(Checkpoint _checkpoint)
+    public void OnCheckpoint(Checkpoint _checkpoint, int _checkpointIndex)
     {
         timer.Stop();
         System.TimeSpan currentTime = timer.Elapsed;
         timer.Start();
-        if(checkpoints[currentCheckpoint] == _checkpoint)
+        if(currentCheckpoint == _checkpointIndex)
         {
             currentCheckpoint++;
             times.Add(currentTime);
@@ -93,9 +97,44 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Finish(System.TimeSpan _endTime)
+    private async void Finish(System.TimeSpan _endTime)
     {
-        // Do finish stuff
+        await DatabaseManager.UploadScore(trackId, _endTime);
+        GetLeaderboard();
+        leaderboard.SetActive(true);
         UnityEngine.Debug.Log("Finished");
+        instance.start();
+    }
+
+    private async void GetLeaderboard()
+    {
+
+        leaderboard = playerInstance.GetComponent<leaderboardregelaardingesidkanymore>().leaderboard;
+        nameSection = playerInstance.GetComponent<leaderboardregelaardingesidkanymore>().nameField;
+        timeSection = playerInstance.GetComponent<leaderboardregelaardingesidkanymore>().timeField;
+
+        string nameString = "", timeString = "";
+        int timesToShow = leaderboardSize;
+
+        var leaderboardTimes = await DatabaseManager.GetGlobalLeaderboard(trackId);
+        if (leaderboardTimes.times.Length < leaderboardSize) 
+            timesToShow = leaderboardTimes.times.Length;
+
+        for (int i = 0; i < timesToShow; i++)
+        {
+            nameString += leaderboardTimes.times[i].name + System.Environment.NewLine;
+            timeString += TimeSpan.FromMilliseconds(leaderboardTimes.times[i].time).ToString(@"hh\:mm\:ss\.fff") + Environment.NewLine;
+        }
+
+        nameSection.GetComponent<TMP_Text>().text = nameString;
+        timeSection.GetComponent<TMP_Text>().text = timeString;
+
+        StartCoroutine(LoadMainMenu());
+    }
+
+    private IEnumerator LoadMainMenu()
+    {
+        yield return new WaitForSeconds(secToLoadMenu);
+        SceneManager.LoadScene(0);
     }
 }

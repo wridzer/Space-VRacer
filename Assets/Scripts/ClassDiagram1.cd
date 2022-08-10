@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="FlightState">
+    <Position X="19.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAQAAAEgIAAAAEAAAA=</HashCode>
+      <FileName>Assets\Scripts\Controls and Input\FlightState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InputHandler">
+    <Position X="30.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAEAAAAAABAAAOAAAAABhIBAwEACABAHQAAAAghAAAM=</HashCode>
+      <FileName>Assets\Scripts\Controls and Input\InputHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MaglevState">
+    <Position X="20.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAIAAAAEAAAA=</HashCode>
+      <FileName>Assets\Scripts\Controls and Input\MaglevState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Movement">
+    <Position X="28.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQgAEAMBuAEAAAEiAIAAAADsCCAAAANiGAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Controls and Input\Movement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovementSettingObject">
+    <Position X="26.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIIIIAAAAIAgAQwQAEAAAAAAAAASAAAAEEEcAAAA=</HashCode>
+      <FileName>Assets\Scripts\Controls and Input\MovementSettingObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StateMachine">
+    <Position X="24.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAIAAAAAAAAAAAAAAAIAAAAAAACCA=</HashCode>
+      <FileName>Assets\Scripts\Controls and Input\StateMachine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ZeroGState">
+    <Position X="18.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAIAAAAEAAAA=</HashCode>
+      <FileName>Assets\Scripts\Controls and Input\ZeroGState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Checkpoint">
+    <Position X="24" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAABAAAAAAAAABAAAEAQAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Checkpoint.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameManager">
+    <Position X="21.75" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CgQBAEAAQiAAgAAAAAEUAAQABgBABBAQAAAAAAggQQg=</HashCode>
+      <FileName>Assets\Scripts\GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StartLine">
+    <Position X="19.75" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEABAAAAACIAAAAAAAAAAAAAAAAAFCAAAAAAAAAAAwA=</HashCode>
+      <FileName>Assets\Scripts\StartLine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="FlightStates">
+    <Position X="22.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Assets\Scripts\Controls and Input\MovementSettingObject.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

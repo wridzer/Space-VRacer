@@ -14,12 +14,14 @@ public class MaglevState : FlightState
         Movement.Decouple();
         Movement.Move();
         Movement.Rotate();
+        Movement.audioH.TriggerMaglevExit();
+        Movement.audioH.InMaglev = false;
     }
 
     public override void OnUpdate()
     {
         Movement.Move();
-        Movement.KeepAlligned();
+        Movement.KeepAligned();
         Movement.localYRot = 0;
         Movement.deltaMagRot.y = 0;
         Movement.Rotate();
@@ -30,5 +32,7 @@ public class MaglevState : FlightState
     {
         base.OnEnter();
         Movement.localYRot = Movement.rb.transform.localEulerAngles.y;
+        Movement.audioH.TriggerMaglevEnter();
+        Movement.audioH.InMaglev = true;
     }
 }
