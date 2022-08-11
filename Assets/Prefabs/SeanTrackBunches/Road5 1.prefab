@@ -1021,7 +1021,6 @@ GameObject:
   - component: {fileID: 8183593168119331701}
   - component: {fileID: 8984690822681043104}
   - component: {fileID: 5465527516024556734}
-  - component: {fileID: 2954940309841127024}
   m_Layer: 6
   m_Name: Bace
   m_TagString: Untagged
@@ -1094,19 +1093,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2954940309841127024
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7943958669058521115}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 10, y: 0, z: 10}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7943958669518665519
 GameObject:
   m_ObjectHideFlags: 0
@@ -1118,7 +1104,6 @@ GameObject:
   - component: {fileID: 8183593167120348225}
   - component: {fileID: 8984690823543713684}
   - component: {fileID: 5465527515278803850}
-  - component: {fileID: 2954940310436014404}
   m_Layer: 6
   m_Name: Bace
   m_TagString: Untagged
@@ -1191,19 +1176,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2954940310436014404
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7943958669518665519}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 10, y: 0, z: 10}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7943958670051040424
 GameObject:
   m_ObjectHideFlags: 0
@@ -1215,7 +1187,6 @@ GameObject:
   - component: {fileID: 8183593168743702470}
   - component: {fileID: 8984690821962220563}
   - component: {fileID: 5465527514763667469}
-  - component: {fileID: 2954940308854981315}
   m_Layer: 6
   m_Name: Bace
   m_TagString: Untagged
@@ -1288,19 +1259,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2954940308854981315
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7943958670051040424}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 10, y: 0, z: 10}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7943958670207923646
 GameObject:
   m_ObjectHideFlags: 0
@@ -1312,7 +1270,6 @@ GameObject:
   - component: {fileID: 8183593169119508176}
   - component: {fileID: 8984690821716716805}
   - component: {fileID: 5465527515063435547}
-  - component: {fileID: 2954940308677110741}
   m_Layer: 6
   m_Name: Bace
   m_TagString: Untagged
@@ -1385,19 +1342,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2954940308677110741
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7943958670207923646}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 10, y: 0, z: 10}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7943958670794701552
 GameObject:
   m_ObjectHideFlags: 0
@@ -1409,7 +1353,6 @@ GameObject:
   - component: {fileID: 8183593168530635166}
   - component: {fileID: 8984690822269739595}
   - component: {fileID: 5465527514539511381}
-  - component: {fileID: 2954940309161911451}
   m_Layer: 6
   m_Name: Bace
   m_TagString: Untagged
@@ -1482,19 +1425,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2954940309161911451
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7943958670794701552}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 10, y: 0, z: 10}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8730270885620969504
 GameObject:
   m_ObjectHideFlags: 0
