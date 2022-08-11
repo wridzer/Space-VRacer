@@ -8,6 +8,7 @@ namespace TrackBuilder
     [RequireComponent(typeof(PathCreator))]
     [RequireComponent(typeof(MeshFilter))]
     [RequireComponent(typeof(MeshRenderer))]
+    [RequireComponent(typeof(MeshCollider))]
     public class RoadCreator : MonoBehaviour
     {
         [Range(.05f, 1.5f)]
@@ -20,10 +21,13 @@ namespace TrackBuilder
         {
             Path path = GetComponent<PathCreator>().path;
             Vector3[] points = path.CalculateEvenlySpacedPoints(spacing);
-            GetComponent<MeshFilter>().mesh = CreateRoadMesh(points, path.IsClosed);
+            Mesh updatedMesh = CreateRoadMesh(points, path.IsClosed);
+            GetComponent<MeshFilter>().mesh = updatedMesh;
 
             int textureRepeat = Mathf.RoundToInt(tiling * points.Length * spacing * .5f);
             GetComponent<MeshRenderer>().sharedMaterial.mainTextureScale = new Vector2(1, textureRepeat);
+
+            GetComponent<MeshCollider>().sharedMesh = updatedMesh;
         }
 
         Mesh CreateRoadMesh(Vector3[] points, bool isClosed)
