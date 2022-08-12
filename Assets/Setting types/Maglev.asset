@@ -26,11 +26,11 @@ MonoBehaviour:
   frictionCoefZ: 0.6
   decoupleSpeed: 20
   maglevRotStrengthSnap: 90
-  maglevRotStrengthRot: 10
+  maglevRotStrengthRot: 2.5
   maglevDisStrength: 8
   maglevDistance: 4.5
   maglevDistanceMultiplier: 1.2
-  maglevSnapAngle: 10
+  maglevSnapAngle: 30
   flightStates: 0
   layerMask:
     serializedVersion: 2

@@ -99,15 +99,19 @@ public class Movement : MonoBehaviour
             // Rotation (thanks to Valentijn for this math <3)
             Vector3 cross = Vector3.Cross(rb.transform.forward, AllignNormal);
             Vector3 projectOnPlane = Vector3.Cross(AllignNormal, cross);
-            Quaternion oldRot = rb.rotation;
-
-            //Naive implementation of snap smoothing. Might want to look into a quadratic lerp later.
+            Quaternion oldRot = rb.rotation;            
             float rotSpeed;
-            if(Quaternion.Angle(oldRot, Quaternion.LookRotation(projectOnPlane, AllignNormal)) < movementSettings.maglevSnapAngle)
+
+            //Naive implementation of snap smoothing. Might want to look into a (quadratic/exponential?) lerp later.
+            /* if(Quaternion.Angle(oldRot, Quaternion.LookRotation(projectOnPlane, AllignNormal)) < movementSettings.maglevSnapAngle)
             {
                 rotSpeed = movementSettings.maglevRotStrengthSnap;
             }
-            else { rotSpeed = movementSettings.maglevRotStrengthRot; }
+            else { rotSpeed = movementSettings.maglevRotStrengthRot; } */
+
+            //Implementation using linear Lerp. Doesn't feel great, better than the naive implementation. Uses snap angle for lerp.
+            float t = 1.0f - Mathf.Min((Quaternion.Angle(oldRot, Quaternion.LookRotation(projectOnPlane, AllignNormal)) / movementSettings.maglevSnapAngle), 1.0f);
+            rotSpeed = Mathf.Lerp(movementSettings.maglevRotStrengthRot, movementSettings.maglevRotStrengthSnap, t);
 
             rb.rotation = Quaternion.Slerp(rb.rotation, Quaternion.LookRotation(projectOnPlane, AllignNormal), Time.fixedDeltaTime * rotSpeed);
             rb.velocity = (rb.rotation * Quaternion.Inverse(oldRot)) * rb.velocity;
