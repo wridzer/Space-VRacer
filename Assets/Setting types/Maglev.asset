@@ -25,10 +25,45 @@ MonoBehaviour:
   frictionCoefY: 4
   frictionCoefZ: 0.6
   decoupleSpeed: 20
-  maglevRotStrength: 100
+  maglevRotStrengthMax: 90
+  maglevRotStrengthMin: 2.5
   maglevDisStrength: 8
-  maglevDistance: 4
+  maglevDistance: 4.5
   maglevDistanceMultiplier: 1.2
+  maglevSnapAngle: 90
+  maglevRotStrength:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.7121794
+      value: 0.45994344
+      inSlope: 1.8458586
+      outSlope: 1.8458586
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33048087
+    - serializedVersion: 3
+      time: 0.90405273
+      value: 0.9969177
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   flightStates: 0
   layerMask:
     serializedVersion: 2
