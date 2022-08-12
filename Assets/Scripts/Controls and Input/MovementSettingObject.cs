@@ -11,7 +11,7 @@ public class MovementSettingObject : ScriptableObject
 
     [Header("Maglev Settings")]
     public float decoupleSpeed;
-    public float maglevRotStrength, maglevDisStrength, maglevDistance, maglevDistanceMultiplier;
+    public float maglevRotStrengthSnap, maglevRotStrengthRot, maglevDisStrength, maglevDistance, maglevDistanceMultiplier, maglevSnapAngle;
 
     [Header("Layer and State")]
     public FlightStates flightStates;

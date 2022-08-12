@@ -100,13 +100,22 @@ public class Movement : MonoBehaviour
             Vector3 cross = Vector3.Cross(rb.transform.forward, AllignNormal);
             Vector3 projectOnPlane = Vector3.Cross(AllignNormal, cross);
             Quaternion oldRot = rb.rotation;
-            rb.rotation = Quaternion.Slerp(rb.rotation, Quaternion.LookRotation(projectOnPlane, AllignNormal), Time.fixedDeltaTime * movementSettings.maglevRotStrength);
+
+            //Naive implementation of snap smoothing. Might want to look into a quadratic lerp later.
+            float rotSpeed;
+            if(Quaternion.Angle(oldRot, Quaternion.LookRotation(projectOnPlane, AllignNormal)) < movementSettings.maglevSnapAngle)
+            {
+                rotSpeed = movementSettings.maglevRotStrengthSnap;
+            }
+            else { rotSpeed = movementSettings.maglevRotStrengthRot; }
+
+            rb.rotation = Quaternion.Slerp(rb.rotation, Quaternion.LookRotation(projectOnPlane, AllignNormal), Time.fixedDeltaTime * rotSpeed);
             rb.velocity = (rb.rotation * Quaternion.Inverse(oldRot)) * rb.velocity;
         } else
         {
             Vector3 cross = Vector3.Cross(rb.transform.forward, maglevNormal);
             Vector3 projectOnPlane = Vector3.Cross(maglevNormal, cross);
-            rb.rotation = Quaternion.Slerp(rb.rotation, Quaternion.LookRotation(projectOnPlane, maglevNormal), Time.fixedDeltaTime * movementSettings.maglevRotStrength);
+            rb.rotation = Quaternion.Slerp(rb.rotation, Quaternion.LookRotation(projectOnPlane, maglevNormal), Time.fixedDeltaTime * movementSettings.maglevRotStrengthSnap);
         }
 
 
