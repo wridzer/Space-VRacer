@@ -110,8 +110,11 @@ public class Movement : MonoBehaviour
             else { rotSpeed = movementSettings.maglevRotStrengthRot; } */
 
             //Implementation using linear Lerp. Doesn't feel great, better than the naive implementation. Uses snap angle for lerp.
+            //float t = 1.0f - Mathf.Min((Quaternion.Angle(oldRot, Quaternion.LookRotation(projectOnPlane, AllignNormal)) / movementSettings.maglevSnapAngle), 1.0f);
+            //rotSpeed = Mathf.Lerp(movementSettings.maglevRotStrengthRot, movementSettings.maglevRotStrengthSnap, t);
+
             float t = 1.0f - Mathf.Min((Quaternion.Angle(oldRot, Quaternion.LookRotation(projectOnPlane, AllignNormal)) / movementSettings.maglevSnapAngle), 1.0f);
-            rotSpeed = Mathf.Lerp(movementSettings.maglevRotStrengthRot, movementSettings.maglevRotStrengthSnap, t);
+            rotSpeed = Mathf.Max(movementSettings.maglevRotStrengthMin, movementSettings.maglevRotStrength.Evaluate(t) * movementSettings.maglevRotStrengthMax);
 
             rb.rotation = Quaternion.Slerp(rb.rotation, Quaternion.LookRotation(projectOnPlane, AllignNormal), Time.fixedDeltaTime * rotSpeed);
             rb.velocity = (rb.rotation * Quaternion.Inverse(oldRot)) * rb.velocity;
@@ -119,7 +122,8 @@ public class Movement : MonoBehaviour
         {
             Vector3 cross = Vector3.Cross(rb.transform.forward, maglevNormal);
             Vector3 projectOnPlane = Vector3.Cross(maglevNormal, cross);
-            rb.rotation = Quaternion.Slerp(rb.rotation, Quaternion.LookRotation(projectOnPlane, maglevNormal), Time.fixedDeltaTime * movementSettings.maglevRotStrengthSnap);
+            //rb.rotation = Quaternion.Slerp(rb.rotation, Quaternion.LookRotation(projectOnPlane, maglevNormal), Time.fixedDeltaTime * movementSettings.maglevRotStrengthSnap);
+            rb.rotation = Quaternion.Slerp(rb.rotation, Quaternion.LookRotation(projectOnPlane, maglevNormal), Time.fixedDeltaTime * movementSettings.maglevRotStrength.Evaluate(1.0f));
         }
 
 
