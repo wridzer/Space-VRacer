@@ -1474,6 +1474,12 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 2044184103}
+    - target: {fileID: 4652252303818930795, guid: 602f809aa6091ef47ac7831986f1365b,
+        type: 3}
+      propertyPath: playerPrefab
+      value: 
+      objectReference: {fileID: 4420708301983366736, guid: f1cfd832b1252de4991edbc89c5cd6eb,
+        type: 3}
     - target: {fileID: 4915070377509153722, guid: 602f809aa6091ef47ac7831986f1365b,
         type: 3}
       propertyPath: m_RootOrder
@@ -2492,6 +2498,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8592585325447653977, guid: ab2f4967f874aad48955bd897c0a2828,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8641625972213567502, guid: ab2f4967f874aad48955bd897c0a2828,
         type: 3}

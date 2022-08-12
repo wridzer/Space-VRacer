@@ -1469,10 +1469,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 388015998347278010, guid: d909a75098f48714cb9c8559ab51b126,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 572762139744885823, guid: d909a75098f48714cb9c8559ab51b126,
         type: 3}
       propertyPath: m_Name
       value: Level1 Track
+      objectReference: {fileID: 0}
+    - target: {fileID: 2149773480793373183, guid: d909a75098f48714cb9c8559ab51b126,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4974963033560425372, guid: d909a75098f48714cb9c8559ab51b126,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7398304912960007634, guid: d909a75098f48714cb9c8559ab51b126,
         type: 3}
@@ -1528,6 +1543,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7640919881770907319, guid: d909a75098f48714cb9c8559ab51b126,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8834408238454854298, guid: d909a75098f48714cb9c8559ab51b126,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d909a75098f48714cb9c8559ab51b126, type: 3}
@@ -1618,6 +1643,11 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 2044184103}
+    - target: {fileID: 6799037848193255048, guid: 44dbf478a1007e849b423ba1a8b51cc2,
+        type: 3}
+      propertyPath: checkpointNumber
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8277137992816228744, guid: 44dbf478a1007e849b423ba1a8b51cc2,
         type: 3}
       propertyPath: gameManager

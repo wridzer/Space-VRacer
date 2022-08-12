@@ -335,3 +335,4 @@ MonoBehaviour:
   SpawnPoint: {fileID: 992939521}
   redEmitter: {fileID: 6881190318506214778}
   greenEmitter: {fileID: 6281634726055261570}
+  playerInstance: {fileID: 0}

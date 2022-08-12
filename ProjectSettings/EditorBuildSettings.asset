@@ -5,24 +5,18 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/OutdoorsScene.unity
-    guid: 8124e5870f4fd4c779e7a5f994e84ad1
   - enabled: 1
     path: Assets/Scene/UI_Start.unity
     guid: f1236006b6cff814d8ddda2c10d8e1ce
   - enabled: 1
-    path: Assets/Scenes/Level 1 Ring.unity
-    guid: 82d0377b93ccef74db33e995438645f9
+    path: Assets/Scenes/Level 1 Remake.unity
+    guid: c66cb76781726b5488a86332f31867dd
   - enabled: 1
     path: Assets/Scenes/Level 2.unity
     guid: 924ebc55dbf9cc64ba75440aab9ff985
   - enabled: 1
-    path: Assets/Scenes/Level 3.unity
-    guid: 4a03a7927d61ab34692525c3cbdbc6a7
-  - enabled: 1
-    path: Assets/Scenes/Level 4.unity
-    guid: dde106aa1e0422f4f96f3ab732a7cfdf
+    path: Assets/Scenes/Level 5 Remake.unity
+    guid: 80e9f122a5d31fe46bef8d372d98f5bb
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: c8931acd17f732444b6b746ff24f9f09,
       type: 2}
