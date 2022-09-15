@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TrackBuilder;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 
 public class Movement : MonoBehaviour
 {
+    [SerializeField] private float colliderResolution = 0.05f;
+
     [SerializeField] private List<MovementSettingObject> states = new List<MovementSettingObject>();
 
     [SerializeField] private LayerMask ZeroGLayer;
@@ -95,6 +99,25 @@ public class Movement : MonoBehaviour
         if (Physics.Raycast(raycastOrigin.transform.position, raycastOffset, out hit, Mathf.Infinity, trackMask))
         {
             var AllignNormal = hit.normal;
+
+            //Maybe this will fix wonky ass controls
+            if(hit.transform.GetComponent<PathCreator>())
+            {
+                Vector3[] pointList = hit.transform.GetComponent<PathCreator>().path.CalculateEvenlySpacedPoints(colliderResolution);
+
+                Vector3 currentPoint = Vector3.positiveInfinity;
+                int pointIndex = -1;
+
+                for(int i = 0; i < pointList.Length; i++)
+                {
+                    if(Vector3.Distance(rb.position, pointList[i]) < Vector3.Distance(rb.position, currentPoint))
+                    {
+                        currentPoint = pointList[i];
+                        pointIndex = i;
+                    }
+                }
+                if (pointIndex != -1) { AllignNormal = pointList[(pointIndex + 1) % pointList.Length] - rb.position; }
+            }
 
             // Rotation (thanks to Valentijn for this math <3)
             Vector3 cross = Vector3.Cross(rb.transform.forward, AllignNormal);
